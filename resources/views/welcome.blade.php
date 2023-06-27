@@ -835,18 +835,18 @@
 </head>
 
 <body class="antialiased">
-    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-blue-500 selection:text-white ">
         <div class="container-fluid">
             <h1 style="font-size: 36px; text-align: center;">Cara Mudah Transaksi Di Rumah</h1>
             @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-center z-10">
                 @auth
-                <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-blue-500">Dashboard</a>
                 @else
-                <a href="{{ route('login') }}" class="btn btn-primary font-semibold text-white-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                <a href="{{ route('login') }}" class="btn btn-primary font-semibold text-white-600 hover:text-white-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-blue-500">Log in</a>
 
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="btn btn-primary ml-4 font-semibold text-white-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                <a href="{{ route('register') }}" class="btn btn-primary ml-4 font-semibold text-white-600 hover:text-white-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-blue-500">Register</a>
                 @endif
                 @endauth
             </div>
