@@ -11,5 +11,7 @@
 
     <!-- Menu Item or List Menu -->
     <x-menu-item />
-    
+
+    <x-footer />
+
 </x-app-layout>
