@@ -29,3 +29,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/list-bank', function () {
+    return view('components.list-bank');
+});
