@@ -21,6 +21,18 @@ class ListBank extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.list-bank');
+        $data = [
+            [
+                'id' => '1',
+                'url' => '',
+                'img' => 'asset("assets/image/bank-bri.svg")',
+            ],
+            [
+                'id' => '2',
+                'url' => '',
+                'img' => 'asset("assets/image/bank-bca.svg")',
+            ],
+        ];
+        return view('components.list-bank', compact('data'));
     }
 }
