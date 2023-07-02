@@ -19,7 +19,7 @@
     <div>
         <ul class="list-group p-4">
             <li class="p-1 rounded">
-                <a href="#" class="list-group-item">
+                <a href="http://127.0.0.1:8000/input-bank" class="list-group-item">
                     <img src="{{ asset('assets/image/bank-bri.svg') }}" class="center-image">
                 </a>
             </li>
