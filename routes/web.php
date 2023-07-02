@@ -31,5 +31,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/list-bank', function () {
-    return view('components.list-bank');
+    return view('components.bank.list-bank');
+});
+
+Route::get('/input-bank', function () {
+    return view('components.bank.input-bank');
 });
