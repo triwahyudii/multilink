@@ -18,19 +18,19 @@
     </div>
 </nav> -->
 
-<nav class="navbar mt-5">
+<nav class="navbar mt-5 pb-0">
     <div class="container-fluid">
         <div>
-            <span class="h5">Tagihan</span>
+            <span class="h5 text-white">Tagihan</span>
         </div>
         <div>
-            <span class="h5">Saldo</span>
+            <span class="h5 text-white">Saldo</span>
         </div>
         <div class="ml-4">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-shopping-cart text-white"></i>
         </div>
         <div>
-            <i class="fas fa-bell"></i>
+            <i class="fas fa-bell text-white"></i>
         </div>
     </div>
 </nav>

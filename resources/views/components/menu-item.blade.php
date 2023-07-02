@@ -1,4 +1,4 @@
-<div class="row bg-white border-4 p-3">
+<div class="row bg-white border-4 p-3 m-0 rounded-4">
 
     <!-- @foreach($menu as $item)
     <div class="col-4 col-sm-6 col-md-4 col-lg-3 p-2">

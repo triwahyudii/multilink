@@ -27,7 +27,7 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-        <header class="bg-white shadow">
+        <header class=" rounded-4 shadow border-4" style="background-color: #0079FF; border-color: #00C4FF;">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $header }}
             </div>
