@@ -45,3 +45,7 @@ Route::get('/transfer-bca', function () {
 Route::get('/transfer-bni', function () {
     return view('components.bank.transfer-bni');
 });
+
+Route::get('/transfer-mandiri', function () {
+    return view('components.bank.transfer-mandiri');
+});

@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="p-1 rounded">
-                <a href="#" class="list-group-item">
+                <a href="http://127.0.0.1:8000/transfer-mandiri" class="list-group-item">
                     <img src="{{ asset('assets/image/bank-mandiri.svg') }}" class="center-image">
                 </a>
             </li>
