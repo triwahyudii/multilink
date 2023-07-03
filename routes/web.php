@@ -34,6 +34,14 @@ Route::get('/list-bank', function () {
     return view('components.bank.list-bank');
 });
 
-Route::get('/input-bank', function () {
-    return view('components.bank.input-bank');
+Route::get('/transfer-bri', function () {
+    return view('components.bank.transfer-bri');
+});
+
+Route::get('/transfer-bca', function () {
+    return view('components.bank.transfer-bca');
+});
+
+Route::get('/transfer-bni', function () {
+    return view('components.bank.transfer-bni');
 });
