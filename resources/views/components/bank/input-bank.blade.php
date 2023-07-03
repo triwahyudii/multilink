@@ -19,6 +19,7 @@
     <div class="d-flex justify-content-center">
         <div class="input-form container pt-2 m-3">
             <h1 class="text-center p-2">Bank BRI</h1>
+            <h5 class=" badge text-bg-warning text-black">PENGIRIM</h5>
             <div class="input-group">
                 <input type="text" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
             </div>
@@ -27,6 +28,18 @@
             </div>
             <div class="input-group">
                 <input type="number" class="form-control input m-2 rounded-3" placeholder="Nominal">
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="input-form container pt-2 m-3">
+            <h5 class=" badge text-bg-warning text-black">PENERIMA</h5>
+            <div class="input-group">
+                <input type="text" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
+            </div>
+            <div class="input-group">
+                <input type="number" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
             </div>
             <div class="d-flex justify-content-center pt-3">
                 <button class="btn btn-primary bg-primary" type="submit">Selesai</button>
