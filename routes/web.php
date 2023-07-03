@@ -34,6 +34,7 @@ Route::get('/list-bank', function () {
     return view('components.bank.list-bank');
 });
 
+// Transfer
 Route::get('/transfer-bri', function () {
     return view('components.bank.transfer-bri');
 });
@@ -48,4 +49,9 @@ Route::get('/transfer-bni', function () {
 
 Route::get('/transfer-mandiri', function () {
     return view('components.bank.transfer-mandiri');
+});
+
+// Tarik Tunai
+Route::get('/tarik-tunai', function () {
+    return view('components.bank.tarik-tunai-bank');
 });
