@@ -31,27 +31,27 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/list-bank', function () {
-    return view('components.bank.list-bank');
+    return view('components.transfer.list-bank');
 });
 
 // Transfer
 Route::get('/transfer-bri', function () {
-    return view('components.bank.transfer-bri');
+    return view('components.transfer.transfer-bri');
 });
 
 Route::get('/transfer-bca', function () {
-    return view('components.bank.transfer-bca');
+    return view('components.transfer.transfer-bca');
 });
 
 Route::get('/transfer-bni', function () {
-    return view('components.bank.transfer-bni');
+    return view('components.transfer.transfer-bni');
 });
 
 Route::get('/transfer-mandiri', function () {
-    return view('components.bank.transfer-mandiri');
+    return view('components.transfer.transfer-mandiri');
 });
 
 // Tarik Tunai
 Route::get('/tarik-tunai', function () {
-    return view('components.bank.tarik-tunai-bank');
+    return view('components.transfer.tarik-tunai-bank');
 });

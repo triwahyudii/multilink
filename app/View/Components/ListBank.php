@@ -31,6 +31,6 @@ class ListBank extends Component
                 'img' => 'asset("assets/image/bank-bca.svg")',
             ],
         ];
-        return view('components.bank.list-bank', compact('list'));
+        return view('components.transfer.list-bank', compact('list'));
     }
 }
