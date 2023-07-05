@@ -71,3 +71,16 @@ Route::get('/tarik-tunai-bni', function () {
 Route::get('/tarik-tunai-mandiri', function () {
     return view('components.tarik-tunai.mandiri');
 });
+
+// Setor Tunai
+Route::get('/daftar-bank', function () {
+    return view('components.setor-tunai.daftar-bank');
+});
+
+Route::get('/setor-tunai-bri', function () {
+    return view('components.setor-tunai.bri');
+});
+
+Route::get('/setor-tunai-bca', function () {
+    return view('components.setor-tunai.bca');
+});

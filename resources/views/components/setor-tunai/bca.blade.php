@@ -19,7 +19,7 @@
     <div class="d-flex justify-content-center">
         <div class="input-form container pt-2 m-3">
             <h1 class="text-center p-2">Bank BCA</h1>
-            <h5 class=" badge text-bg-warning text-black">TARIK TUNAI</h5>
+            <h5 class=" badge text-bg-warning text-black">SETOR TUNAI</h5>
             <div class="input-group">
                 <input type="text" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
             </div>
