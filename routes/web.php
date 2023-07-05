@@ -84,3 +84,11 @@ Route::get('/setor-tunai-bri', function () {
 Route::get('/setor-tunai-bca', function () {
     return view('components.setor-tunai.bca');
 });
+
+Route::get('/setor-tunai-bni', function () {
+    return view('components.setor-tunai.bni');
+});
+
+Route::get('/setor-tunai-mandiri', function () {
+    return view('components.setor-tunai.mandiri');
+});
