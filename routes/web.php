@@ -63,3 +63,11 @@ Route::get('/tarik-tunai-bri', function () {
 Route::get('/tarik-tunai-bca', function () {
     return view('components.tarik-tunai.bca');
 });
+
+Route::get('/tarik-tunai-bni', function () {
+    return view('components.tarik-tunai.bni');
+});
+
+Route::get('/tarik-tunai-mandiri', function () {
+    return view('components.tarik-tunai.mandiri');
+});
