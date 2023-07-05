@@ -30,11 +30,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/list-bank', function () {
+// Transfer
+Route::get('/daftar-bank', function () {
     return view('components.transfer.list-bank');
 });
 
-// Transfer
 Route::get('/transfer-bri', function () {
     return view('components.transfer.transfer-bri');
 });
@@ -52,6 +52,14 @@ Route::get('/transfer-mandiri', function () {
 });
 
 // Tarik Tunai
-Route::get('/tarik-tunai', function () {
-    return view('components.transfer.tarik-tunai-bank');
+Route::get('/daftar-bank', function () {
+    return view('components.tarik-tunai.daftar-bank');
+});
+
+Route::get('/tarik-tunai-bri', function () {
+    return view('components.tarik-tunai.bri');
+});
+
+Route::get('/tarik-tunai-bca', function () {
+    return view('components.tarik-tunai.bca');
 });

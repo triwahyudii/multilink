@@ -11,7 +11,7 @@
     </div>
     @endforeach -->
     <div class="col-4 col-sm-6 col-md-4 col-lg-3 p-2">
-        <a href="http://127.0.0.1:8000/list-bank">
+        <a href="http://127.0.0.1:8000/daftar-bank">
         <div class="card h-100 border-0">
             <div class="card-body text-center">
                 <i class="fa-solid fa-money-bill-transfer" style="color: #1f66e0; display:flex; justify-content:center; align-items:center; font-size:40px;"></i>
@@ -22,12 +22,14 @@
     </div>
 
     <div class="col-4 col-sm-6 col-md-4 col-lg-3 p-2">
+        <a href="http://127.0.0.1:8000/daftar-bank">
         <div class="card h-100 border-0">
             <div class="card-body text-center">
                 <i class="fa-solid fa-money-bill-wave" style="color: #1f66e0; display:flex; justify-content:center; align-items:center; font-size:40px;"></i>
                 <h5 class="card-title pt-2 mb-0">Tarik Tunai</h5>
             </div>
         </div>
+        </a>
     </div>
 
     <div class="col-4 col-sm-6 col-md-4 col-lg-3 p-2">
