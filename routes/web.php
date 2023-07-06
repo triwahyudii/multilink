@@ -92,3 +92,16 @@ Route::get('/setor-tunai-bni', function () {
 Route::get('/setor-tunai-mandiri', function () {
     return view('components.setor-tunai.mandiri');
 });
+
+//Bayar Ciciclan
+Route::get('/bayar-cicilan', function () {
+    return view('components.bayar-cicilan.bayar');
+});
+
+Route::get('/bayar-cicilan-bank', function () {
+    return view('components.bayar-cicilan.daftar-bank');
+});
+
+Route::get('/bayar-cicilan-leasing', function () {
+    return view('components.bayar-cicilan.daftar-leasing');
+});
