@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('transfer', [TransferController::class, 'index']);
 Route::get('transfer/{id}', [TransferController::class, 'show']);
+Route::post('transfer', [TransferController::class, 'store']);
