@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('nomor_rekening');
-            $table->integer('jumlah');
+            $table->string('nama', 200);
+            $table->bigInteger('nomor_rekening')->length(17);
+            $table->bigInteger('jumlah')->length(10);
             $table->timestamps();
         });
     }
