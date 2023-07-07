@@ -27,7 +27,7 @@
                 <input type="number" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
             </div>
             <div class="input-group">
-                <input type="number" class="form-control input m-2 rounded-3" placeholder="Nominal">
+                <input type="number" class="form-control input m-2 rounded-3" placeholder="Jumlah">
             </div>
         </div>
     </div>

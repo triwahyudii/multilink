@@ -27,7 +27,7 @@
                 <input type="number" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
             </div>
             <div class="input-group">
-                <input type="number" class="form-control input m-2 rounded-3" placeholder="Nominal">
+                <input type="number" class="form-control input m-2 rounded-3" placeholder="Jumlah">
             </div>
             <div class="d-flex justify-content-center pt-3">
                 <button class="btn btn-primary bg-primary" type="submit">Selesai</button>
