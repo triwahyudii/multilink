@@ -9,7 +9,7 @@ class Transfer extends Model
 {
     use HasFactory;
 
-    protected $table = "transfer";
+    protected $table = "transfers";
     protected $fillable = [
         'nama',
         'nomor_rekening',

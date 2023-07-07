@@ -18,7 +18,7 @@ class TransferController extends Controller
             'status' => true,
             'message' => 'Data berhasil diambil',
             'data' => $data
-        ], 200); //response 200
+        ], 200); //response 200 0r 404
     }
 
     /**
@@ -34,7 +34,19 @@ class TransferController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Transfer::find($id);
+        if ($data) {
+            return response()->json([
+                'status' => true,
+                'message' => 'Data berhasil ditemukan',
+                'data' => $data
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ditemukan'
+            ]);
+        }
     }
 
     /**
