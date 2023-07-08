@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TransferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::delete('transfer/{id}', [TransferController::class, 'destroy']);
 
 Route::apiResource('transfer', TransferController::class);
+
+Route::get('tarik-tunai', [TarikTunaiController::class, 'index']);
+Route::get('tarik-tunai/{id}', [TarikTunaiController::class, 'show']);
+Route::post('tarik-tunai', [TarikTunaiController::class, 'store']);
