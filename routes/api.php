@@ -28,6 +28,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('transfer', TransferController::class);
 
-Route::get('tarik-tunai', [TarikTunaiController::class, 'index']);
-Route::get('tarik-tunai/{id}', [TarikTunaiController::class, 'show']);
-Route::post('tarik-tunai', [TarikTunaiController::class, 'store']);
+// Route::get('tarik-tunai', [TarikTunaiController::class, 'index']);
+// Route::get('tarik-tunai/{id}', [TarikTunaiController::class, 'show']);
+// Route::post('tarik-tunai', [TarikTunaiController::class, 'store']);
+// Route::put('tarik-tunai/{id}', [TarikTunaiController::class, 'update']);
+// Route::delete('tarik-tunai/{id}', [TarikTunaiController::class, 'destroy']);
+
+Route::apiResource('tarik-tunai', TarikTunaiController::class);

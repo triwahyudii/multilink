@@ -80,7 +80,38 @@ class TarikTunaiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = TarikTunai::find($id);
+        if (empty($data)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ditemukan'
+            ], 404);
+        }
+
+        $validation = [
+            'nama' => 'required',
+            'nomor_rekening' => 'required',
+            'jumlah' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Update data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $data->nama = $request->nama;
+        $data->nomor_rekening = $request->nomor_rekening;
+        $data->jumlah = $request->jumlah;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'massage' => 'Data berhasil di Update'
+        ]);
     }
 
     /**
@@ -88,6 +119,19 @@ class TarikTunaiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = TarikTunai::find($id);
+        if (empty($data)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ditemukan'
+            ], 404);
+        }
+
+        $post = $data->delete();
+
+        return response()->json([
+            'status' => true,
+            'massage' => 'Data berhasil di Dihapus'
+        ]);
     }
 }
