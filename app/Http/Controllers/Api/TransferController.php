@@ -14,7 +14,7 @@ class TransferController extends Controller
      */
     public function index() //FUNGSI UNTUK MENAMPILKAN SEMUA DATA
     {
-        $data = Transfer::orderBy('nama')->get();
+        $data = Transfer::orderBy('id')->get();
         return response()->json([
             'status' => true,
             'message' => 'Data berhasil diambil',
@@ -32,7 +32,9 @@ class TransferController extends Controller
         $validation = [
             'nama' => 'required',
             'nomor_rekening' => 'required',
-            'jumlah' => 'required'
+            'jumlah' => 'required',
+            'nama_penerima' => 'required',
+            'nomor_rekening_penerima' => 'required'
         ];
         $validator = Validator::make($request->all(), $validation);
         if ($validator->fails()) {
@@ -46,6 +48,8 @@ class TransferController extends Controller
         $data->nama = $request->nama;
         $data->nomor_rekening = $request->nomor_rekening;
         $data->jumlah = $request->jumlah;
+        $data->nama_penerima = $request->nama_penerima;
+        $data->nomor_rekening_penerima = $request->nomor_rekening_penerima;
 
         $post = $data->save();
 
@@ -91,7 +95,9 @@ class TransferController extends Controller
         $validation = [
             'nama' => 'required',
             'nomor_rekening' => 'required',
-            'jumlah' => 'required'
+            'jumlah' => 'required',
+            'nama_penerima' => 'required',
+            'nomor_rekening_penerima' => 'required'
         ];
         $validator = Validator::make($request->all(), $validation);
         if ($validator->fails()) {
@@ -105,6 +111,9 @@ class TransferController extends Controller
         $data->nama = $request->nama;
         $data->nomor_rekening = $request->nomor_rekening;
         $data->jumlah = $request->jumlah;
+        $data->nama_penerima = $request->nama_penerima;
+        $data->nomor_rekening_penerima = $request->nomor_rekening_penerima;
+
 
         $post = $data->save();
 

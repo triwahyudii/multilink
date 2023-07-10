@@ -13,6 +13,8 @@ class Transfer extends Model
     protected $fillable = [
         'nama',
         'nomor_rekening',
-        'jumlah'
+        'jumlah',
+        'nama_penerima',
+        'nomor_rekening_penerima'
     ];
 }
