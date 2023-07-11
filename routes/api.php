@@ -40,3 +40,5 @@ Route::apiResource('tarik-tunai', TarikTunaiController::class);
 Route::get('setor-tunai', [SetorTunaiController::class, 'index']);
 Route::get('setor-tunai/{id}', [SetorTunaiController::class, 'show']);
 Route::post('setor-tunai', [SetorTunaiController::class, 'store']);
+Route::put('setor-tunai/{id}', [SetorTunaiController::class, 'update']);
+Route::delete('setor-tunai/{id}', [SetorTunaiController::class, 'destroy']);
