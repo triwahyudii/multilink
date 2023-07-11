@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('setor_tunais', function (Blueprint $table) {
             $table->id();
+            $table->string('nama', 200);
+            $table->bigInteger('nomor_rekening')->length(17);
+            $table->bigInteger('jumlah')->length(10);
             $table->timestamps();
         });
     }
