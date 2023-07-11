@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TransferController;
 use Illuminate\Http\Request;
@@ -35,3 +36,7 @@ Route::apiResource('transfer', TransferController::class);
 // Route::delete('tarik-tunai/{id}', [TarikTunaiController::class, 'destroy']);
 
 Route::apiResource('tarik-tunai', TarikTunaiController::class);
+
+Route::get('setor-tunai', [SetorTunaiController::class, 'index']);
+Route::get('setor-tunai/{id}', [SetorTunaiController::class, 'show']);
+Route::post('setor-tunai', [SetorTunaiController::class, 'store']);

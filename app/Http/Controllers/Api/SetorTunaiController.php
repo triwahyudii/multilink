@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\SetorTunai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SetorTunaiController extends Controller
 {
@@ -26,7 +27,32 @@ class SetorTunaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new SetorTunai;
+
+        $validation = [
+            'nama' => 'required',
+            'nomor_rekening' => 'required',
+            'jumlah' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal input data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $data->nama = $request->nama;
+        $data->nomor_rekening = $request->nomor_rekening;
+        $data->jumlah = $request->jumlah;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data telah dimasukan'
+        ]);
     }
 
     /**
@@ -34,7 +60,19 @@ class SetorTunaiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = SetorTunai::find($id);
+        if ($data) {
+            return response()->json([
+                'status' => true,
+                'message'=> 'Data ditemukan',
+                'data' => $data
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ada ya'
+            ], 404);
+        }
     }
 
     /**
