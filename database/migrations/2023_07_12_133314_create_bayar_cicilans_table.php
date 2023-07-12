@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('bayar_cicilans', function (Blueprint $table) {
             $table->id();
+            $table->string('bank', 50);
+            $table->string('leasing', 50);
+            $table->bigInteger('nomor_tagihan')->length(20);
+            $table->string('nama', 200);
+            $table->bigInteger('jumlah')->length(10);
             $table->timestamps();
         });
     }

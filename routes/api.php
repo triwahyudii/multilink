@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BayarCicilanController;
 use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TransferController;
@@ -45,3 +46,6 @@ Route::apiResource('tarik-tunai', TarikTunaiController::class);
 
 Route::apiResource('setor-tunai', SetorTunaiController::class);
 
+Route::get('bayar-cicilan', [BayarCicilanController::class, 'index']);
+Route::get('bayar-cicilan/{id}', [BayarCicilanController::class, 'show']);
+Route::post('bayar-cicilan', [BayarCicilanController::class, 'store']);
