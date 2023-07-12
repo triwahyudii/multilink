@@ -49,3 +49,5 @@ Route::apiResource('setor-tunai', SetorTunaiController::class);
 Route::get('bayar-cicilan', [BayarCicilanController::class, 'index']);
 Route::get('bayar-cicilan/{id}', [BayarCicilanController::class, 'show']);
 Route::post('bayar-cicilan', [BayarCicilanController::class, 'store']);
+Route::put('bayar-cicilan/{id}', [BayarCicilanController::class, 'update']);
+Route::delete('bayar-cicilan/{id}', [BayarCicilanController::class, 'destroy']);

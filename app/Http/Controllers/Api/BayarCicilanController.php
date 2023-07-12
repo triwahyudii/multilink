@@ -43,14 +43,14 @@ class BayarCicilanController extends Controller
                 'data' => $validator->errors()
             ]);
         }
-        
+
 
         $data->bank = $request->bank;
         $data->leasing = $request->leasing;
         $data->nomor_tagihan = $request->nomor_tagihan;
         $data->nama = $request->nama;
         $data->jumlah = $request->jumlah;
-        
+
         $post = $data->save();
 
         return response()->json([
@@ -84,7 +84,42 @@ class BayarCicilanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = BayarCicilan::find($id);
+        if (empty($data)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal di Update'
+            ], 404);
+        }
+
+        $validation = [
+            'nomor_tagihan' => 'required',
+            'nama' => 'required',
+            'jumlah' => 'required'
+
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal input data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+
+        $data->bank = $request->bank;
+        $data->leasing = $request->leasing;
+        $data->nomor_tagihan = $request->nomor_tagihan;
+        $data->nama = $request->nama;
+        $data->jumlah = $request->jumlah;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil UPdate data'
+        ]);
     }
 
     /**
@@ -92,6 +127,19 @@ class BayarCicilanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = BayarCicilan::find($id);
+        if (empty($data)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal di Hapus'
+            ], 404);
+        }
+
+        $post = $data->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data di Hapus'
+        ]);
     }
 }
