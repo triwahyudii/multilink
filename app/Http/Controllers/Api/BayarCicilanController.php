@@ -30,6 +30,7 @@ class BayarCicilanController extends Controller
         $data = new BayarCicilan;
 
         $validation = [
+            'bank' => 'required',
             'nomor_tagihan' => 'required',
             'nama' => 'required',
             'jumlah' => 'required'
@@ -46,7 +47,6 @@ class BayarCicilanController extends Controller
 
 
         $data->bank = $request->bank;
-        $data->leasing = $request->leasing;
         $data->nomor_tagihan = $request->nomor_tagihan;
         $data->nama = $request->nama;
         $data->jumlah = $request->jumlah;
@@ -93,6 +93,7 @@ class BayarCicilanController extends Controller
         }
 
         $validation = [
+            'bank' => 'required',
             'nomor_tagihan' => 'required',
             'nama' => 'required',
             'jumlah' => 'required'
@@ -109,7 +110,6 @@ class BayarCicilanController extends Controller
 
 
         $data->bank = $request->bank;
-        $data->leasing = $request->leasing;
         $data->nomor_tagihan = $request->nomor_tagihan;
         $data->nama = $request->nama;
         $data->jumlah = $request->jumlah;

@@ -12,7 +12,6 @@ class BayarCicilan extends Model
     protected $table = 'bayar_cicilans';
     protected $fillable = [
         'bank',
-        'leasing',
         'nomor_tagihan',
         'nama',
         'jumlah',

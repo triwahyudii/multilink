@@ -46,8 +46,10 @@ Route::apiResource('tarik-tunai', TarikTunaiController::class);
 
 Route::apiResource('setor-tunai', SetorTunaiController::class);
 
-Route::get('bayar-cicilan', [BayarCicilanController::class, 'index']);
-Route::get('bayar-cicilan/{id}', [BayarCicilanController::class, 'show']);
-Route::post('bayar-cicilan', [BayarCicilanController::class, 'store']);
-Route::put('bayar-cicilan/{id}', [BayarCicilanController::class, 'update']);
-Route::delete('bayar-cicilan/{id}', [BayarCicilanController::class, 'destroy']);
+// Route::get('bayar-cicilan-bank', [BayarCicilanController::class, 'index']);
+// Route::get('bayar-cicilan-bank/{id}', [BayarCicilanController::class, 'show']);
+// Route::post('bayar-cicilan-bank', [BayarCicilanController::class, 'store']);
+// Route::put('bayar-cicilan-bank/{id}', [BayarCicilanController::class, 'update']);
+// Route::delete('bayar-cicilan-bank/{id}', [BayarCicilanController::class, 'destroy']);
+
+Route::apiResource('bayar-ciciclan-bank', BayarCicilanController::class);
