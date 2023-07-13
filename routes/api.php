@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BayarCicilanController;
+use App\Http\Controllers\Api\BayarCicilanLeasingController;
 use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TransferController;
@@ -53,3 +54,6 @@ Route::apiResource('setor-tunai', SetorTunaiController::class);
 // Route::delete('bayar-cicilan-bank/{id}', [BayarCicilanController::class, 'destroy']);
 
 Route::apiResource('bayar-ciciclan-bank', BayarCicilanController::class);
+
+Route::get('bayar-cicilan-leasing', [BayarCicilanLeasingController::class, 'index']);
+Route::get('bayar-cicilan-leasing/{id}', [BayarCicilanLeasingController::class, 'show']);
