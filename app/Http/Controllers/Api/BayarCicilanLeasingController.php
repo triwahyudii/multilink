@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\BayarCicilanLeasing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BayarCicilanLeasingController extends Controller
 {
@@ -26,7 +27,34 @@ class BayarCicilanLeasingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new BayarCicilanLeasing;
+
+        $validation = [
+            'leasing' => 'required',
+            'nomor_tagihan' => 'required',
+            'nama' => 'required',
+            'jumlah' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal input data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $data->leasing = $request->leasing;
+        $data->nomor_tagihan = $request->nomor_tagihan;
+        $data->nama = $request->nama;
+        $data->jumlah = $request->jumlah;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data telah di Input'
+        ]);
     }
 
     /**
@@ -54,7 +82,34 @@ class BayarCicilanLeasingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = BayarCicilanLeasing::find($id);
+
+        $validation = [
+            'leasing' => 'required',
+            'nomor_tagihan' => 'required',
+            'nama' => 'required',
+            'jumlah' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Update data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $data->leasing = $request->leasing;
+        $data->nomor_tagihan = $request->nomor_tagihan;
+        $data->nama = $request->nama;
+        $data->jumlah = $request->jumlah;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data telah di Update'
+        ]);
     }
 
     /**
@@ -62,6 +117,19 @@ class BayarCicilanLeasingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = BayarCicilanLeasing::find($id);
+        if (empty($data)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal hapus data'
+            ], 404);
+        }
+
+        $post = $data->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data terhapus'
+        ]);
     }
 }
