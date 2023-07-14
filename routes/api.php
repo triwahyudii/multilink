@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BayarCicilanController;
 use App\Http\Controllers\Api\BayarCicilanLeasingController;
+use App\Http\Controllers\Api\PulsaController;
 use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TransferController;
@@ -62,3 +63,7 @@ Route::apiResource('bayar-ciciclan-bank', BayarCicilanController::class);
 // Route::delete('bayar-cicilan-leasing/{id}', [BayarCicilanLeasingController::class, 'destroy']);
 
 Route::apiResource('bayar-cicilan-leasing', BayarCicilanLeasingController::class);
+
+Route::get('pulsa', [PulsaController::class, 'index']);
+Route::get('pulsa/{id}', [PulsaController::class, 'show']);
+Route::post('pulsa', [PulsaController::class, 'store']);
