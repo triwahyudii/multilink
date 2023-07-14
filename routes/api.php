@@ -67,3 +67,5 @@ Route::apiResource('bayar-cicilan-leasing', BayarCicilanLeasingController::class
 Route::get('pulsa', [PulsaController::class, 'index']);
 Route::get('pulsa/{id}', [PulsaController::class, 'show']);
 Route::post('pulsa', [PulsaController::class, 'store']);
+Route::put('pulsa/{id}', [PulsaController::class, 'update']);
+Route::delete('pulsa/{id}', [PulsaController::class, 'destroy']);

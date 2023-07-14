@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Pulsa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PulsaController extends Controller
 {
@@ -27,6 +28,20 @@ class PulsaController extends Controller
     public function store(Request $request)
     {
         $data = new Pulsa;
+
+        $validation = [
+            'provider' => 'required',
+            'nomor_handphone' => 'required',
+            'pulsa' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal input data',
+                'data' => $validator->errors()
+            ]);
+        }
 
         $data->provider = $request->provider;
         $data->nomor_handphone = $request->nomor_handphone;
@@ -65,7 +80,32 @@ class PulsaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Pulsa::find($id);
+
+        $validation = [
+            'provider' => 'required',
+            'nomor_handphone' => 'required',
+            'pulsa' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal Update data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $data->provider = $request->provider;
+        $data->nomor_handphone = $request->nomor_handphone;
+        $data->pulsa = $request->pulsa;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil Update data'
+        ]);
     }
 
     /**
@@ -73,6 +113,19 @@ class PulsaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Pulsa::find($id);
+        if (empty($data)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ditemukan'
+            ], 404);
+        }
+
+        $post = $data->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data telah di Hapus'
+        ]);
     }
 }
