@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\BayarCicilanController;
 use App\Http\Controllers\Api\BayarCicilanLeasingController;
 use App\Http\Controllers\Api\PulsaController;
 use App\Http\Controllers\Api\SetorTunaiController;
+use App\Http\Controllers\Api\TagihanListrikController;
 use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TokenListrikController;
 use App\Http\Controllers\Api\TransferController;
@@ -80,3 +81,11 @@ Route::apiResource('pulsa', PulsaController::class);
 // Route::delete('token-listrik/{id}', [TokenListrikController::class, 'destroy']);
 
 Route::apiResource('token-listrik', TokenListrikController::class);
+
+// Route::get('tagihan-listrik', [TagihanListrikController::class, 'index']);
+// Route::get('tagihan-listrik/{id}', [TagihanListrikController::class, 'show']);
+// Route::post('tagihan-listrik', [TagihanListrikController::class, 'store']);
+// Route::put('tagihan-listrik/{id}', [TagihanListrikController::class, 'update']);
+// Route::delete('tagihan-listrik/{id}', [TagihanListrikController::class, 'destroy']);
+
+Route::apiResource('tagihan-listrik', TagihanListrikController::class);
