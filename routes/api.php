@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\BayarCicilanLeasingController;
 use App\Http\Controllers\Api\PulsaController;
 use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TarikTunaiController;
+use App\Http\Controllers\Api\TokenListrikController;
 use App\Http\Controllers\Api\TransferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -64,8 +65,18 @@ Route::apiResource('bayar-ciciclan-bank', BayarCicilanController::class);
 
 Route::apiResource('bayar-cicilan-leasing', BayarCicilanLeasingController::class);
 
-Route::get('pulsa', [PulsaController::class, 'index']);
-Route::get('pulsa/{id}', [PulsaController::class, 'show']);
-Route::post('pulsa', [PulsaController::class, 'store']);
-Route::put('pulsa/{id}', [PulsaController::class, 'update']);
-Route::delete('pulsa/{id}', [PulsaController::class, 'destroy']);
+// Route::get('pulsa', [PulsaController::class, 'index']);
+// Route::get('pulsa/{id}', [PulsaController::class, 'show']);
+// Route::post('pulsa', [PulsaController::class, 'store']);
+// Route::put('pulsa/{id}', [PulsaController::class, 'update']);
+// Route::delete('pulsa/{id}', [PulsaController::class, 'destroy']);
+
+Route::apiResource('pulsa', PulsaController::class);
+
+// Route::get('token-listrik', [TokenListrikController::class, 'index']);
+// Route::get('token-listrik/{id}', [TokenListrikController::class, 'show']);
+// Route::post('token-listrik', [TokenListrikController::class, 'store']);
+// Route::put('token-listrik/{id}', [TokenListrikController::class, 'update']);
+// Route::delete('token-listrik/{id}', [TokenListrikController::class, 'destroy']);
+
+Route::apiResource('token-listrik', TokenListrikController::class);
