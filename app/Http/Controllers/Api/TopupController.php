@@ -80,7 +80,31 @@ class TopupController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Topup::find($id);
+        $validation = [
+            'nama' => 'required',
+            'nomor_id' => 'required',
+            'jumlah' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal update data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $data->nama = $request->nama;
+        $data->nomor_id = $request->nomor_id;
+        $data->jumlah = $request->jumlah;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'berhasil update data'
+        ]);
     }
 
     /**
@@ -88,6 +112,19 @@ class TopupController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Topup::find($id);
+        if (empty($data)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'data tidak ada',
+            ], 404);
+        }
+
+        $post = $data->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'data telah di hapus'
+        ]);
     }
 }

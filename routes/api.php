@@ -91,6 +91,10 @@ Route::apiResource('token-listrik', TokenListrikController::class);
 
 Route::apiResource('tagihan-listrik', TagihanListrikController::class);
 
-Route::get('topup', [TopupController::class, 'index']);
-Route::get('topup/{id}', [TopupController::class, 'show']);
-Route::post('topup', [TopupController::class, 'store']);
+// Route::get('topup', [TopupController::class, 'index']);
+// Route::get('topup/{id}', [TopupController::class, 'show']);
+// Route::post('topup', [TopupController::class, 'store']);
+// Route::put('topup/{id}', [TopupController::class, 'update']);
+// Route::delete('topup/{id}', [TopupController::class, 'destroy']);
+
+Route::apiResource('topup', TopupController::class);
