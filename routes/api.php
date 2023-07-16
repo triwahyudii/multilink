@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AsuransiController;
 use App\Http\Controllers\Api\BayarCicilanController;
 use App\Http\Controllers\Api\BayarCicilanLeasingController;
 use App\Http\Controllers\Api\PulsaController;
@@ -98,3 +99,7 @@ Route::apiResource('tagihan-listrik', TagihanListrikController::class);
 // Route::delete('topup/{id}', [TopupController::class, 'destroy']);
 
 Route::apiResource('topup', TopupController::class);
+
+Route::get('asuransi', [AsuransiController::class, 'index']);
+Route::get('asuransi/{id}', [AsuransiController::class, 'show']);
+Route::post('asuransi', [AsuransiController::class, 'store']);

@@ -29,4 +29,5 @@ class Asuransi extends Model
         'nomor_rekening',
         'pemilik_rekening'
     ];
+
 }
