@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Topup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TopupController extends Controller
 {
@@ -12,7 +14,12 @@ class TopupController extends Controller
      */
     public function index()
     {
-        //
+        $data = Topup::orderBy('id')->get();
+        return response()->json([
+            'status' => true,
+            'message' => 'Data ada',
+            'data' => $data
+        ], 200);
     }
 
     /**
@@ -20,7 +27,32 @@ class TopupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Topup;
+
+        $validation = [
+            'nama' => 'required',
+            'nomor_id' => 'required',
+            'jumlah' => 'required'
+        ];
+        $validator = Validator::make($request->all(), $validation);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Gagal input data',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $data->nama = $request->nama;
+        $data->nomor_id = $request->nomor_id;
+        $data->jumlah = $request->jumlah;
+
+        $post = $data->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'berhasil input data'
+        ]);
     }
 
     /**
@@ -28,7 +60,19 @@ class TopupController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Topup::find($id);
+        if ($data) {
+            return response()->json([
+                'status' =>true,
+                'message' => 'data di temukan',
+                'data' => $data
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => false,
+                'mesaage' => 'data tidak ditemukan'
+            ], 400);
+        }
     }
 
     /**

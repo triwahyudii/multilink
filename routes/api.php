@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TagihanListrikController;
 use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TokenListrikController;
+use App\Http\Controllers\Api\TopupController;
 use App\Http\Controllers\Api\TransferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -89,3 +90,7 @@ Route::apiResource('token-listrik', TokenListrikController::class);
 // Route::delete('tagihan-listrik/{id}', [TagihanListrikController::class, 'destroy']);
 
 Route::apiResource('tagihan-listrik', TagihanListrikController::class);
+
+Route::get('topup', [TopupController::class, 'index']);
+Route::get('topup/{id}', [TopupController::class, 'show']);
+Route::post('topup', [TopupController::class, 'store']);
