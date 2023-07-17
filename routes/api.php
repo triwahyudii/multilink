@@ -100,6 +100,10 @@ Route::apiResource('tagihan-listrik', TagihanListrikController::class);
 
 Route::apiResource('topup', TopupController::class);
 
-Route::get('asuransi', [AsuransiController::class, 'index']);
-Route::get('asuransi/{id}', [AsuransiController::class, 'show']);
-Route::post('asuransi', [AsuransiController::class, 'store']);
+// Route::get('asuransi', [AsuransiController::class, 'index']);
+// Route::get('asuransi/{id}', [AsuransiController::class, 'show']);
+// Route::post('asuransi', [AsuransiController::class, 'store']);
+// Route::put('asuransi/{id}', [AsuransiController::class, 'update']);
+// Route::delete('asuransi/{id}', [AsuransiController::class, 'destroy']);
+
+Route::apiResource('asuransi', AsuransiController::class);
