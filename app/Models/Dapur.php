@@ -14,6 +14,6 @@ class Dapur extends Model
         'nama',
         'harga',
         'deskripsi',
-        'image_path'
+        'image'
     ];
 }

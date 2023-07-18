@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AsuransiController;
 use App\Http\Controllers\Api\BayarCicilanController;
 use App\Http\Controllers\Api\BayarCicilanLeasingController;
+use App\Http\Controllers\Api\DapurController;
 use App\Http\Controllers\Api\PulsaController;
 use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TagihanListrikController;
@@ -107,3 +108,11 @@ Route::apiResource('topup', TopupController::class);
 // Route::delete('asuransi/{id}', [AsuransiController::class, 'destroy']);
 
 Route::apiResource('asuransi', AsuransiController::class);
+
+// Route::get('dapur', [DapurController::class, 'index']);
+// Route::get('dapur/{id}', [DapurController::class, 'show']);
+// Route::post('dapur', [DapurController::class, 'store']);
+// Route::put('dapur/{id}', [DapurController::class, 'update']);
+// Route::delete('dapur/{id}', [DapurController::class, 'destroy']);
+
+Route::apiResource('dapur', DapurController::class);
