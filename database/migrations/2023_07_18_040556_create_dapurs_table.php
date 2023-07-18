@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('dapurs', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->bigInteger('harga')->length(20);
+            $table->string('deskripsi');
+            $table->string('image_path');
             $table->timestamps();
         });
     }
