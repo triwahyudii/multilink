@@ -5,12 +5,14 @@ use App\Http\Controllers\Api\BayarCicilanController;
 use App\Http\Controllers\Api\BayarCicilanLeasingController;
 use App\Http\Controllers\Api\DapurController;
 use App\Http\Controllers\Api\PulsaController;
+use App\Http\Controllers\Api\SayurController;
 use App\Http\Controllers\Api\SetorTunaiController;
 use App\Http\Controllers\Api\TagihanListrikController;
 use App\Http\Controllers\Api\TarikTunaiController;
 use App\Http\Controllers\Api\TokenListrikController;
 use App\Http\Controllers\Api\TopupController;
 use App\Http\Controllers\Api\TransferController;
+use App\Models\Sayur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -116,3 +118,11 @@ Route::apiResource('asuransi', AsuransiController::class);
 // Route::delete('dapur/{id}', [DapurController::class, 'destroy']);
 
 Route::apiResource('dapur', DapurController::class);
+
+// Route::get('sayur', [SayurController::class, 'index']);
+// Route::get('sayur/{id}', [SayurController::class, 'show']);
+// Route::post('sayur', [SayurController::class, 'store']);
+// Route::put('sayur/{id}', [SayurController::class, 'update']);
+// Route::delete('sayur/{id}', [SayurController::class, 'destroy']);
+
+Route::apiResource('sayur', SayurController::class);
