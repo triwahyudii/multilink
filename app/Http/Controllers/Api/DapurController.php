@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Dapur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class DapurController extends Controller
@@ -32,7 +33,7 @@ class DapurController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:4048'
+            'image' => 'required|file|image|mimes:png,jpg,jpeg,svg|max:4048'
         ];
 
         $validator = Validator::make($request->all(), $validate);
@@ -45,17 +46,16 @@ class DapurController extends Controller
         }
 
         $file = $request->file('image');
-        $fileName = uniqid(). '.' . $file->getClientOriginalExtension();
-        $file->storeAs('public/images/dapur/', $fileName);
+        $file->storeAs('public/images/dapur/', $file->hashName());
 
         $data = new Dapur;
 
         $data->nama = $request->nama;
         $data->harga = $request->harga;
         $data->deskripsi = $request->deskripsi;
-        $data->image = $fileName;
+        $data->image = $file->hashName();
 
-        $post = $data->save();
+        $data->save();
         
         return response()->json([
             'status' => true,
@@ -94,7 +94,7 @@ class DapurController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required'
+            'image' => 'file|image|mimes:png,jpg,jpeg,svg|max:4048'
         ];
         $validator = Validator::make($request->all(), $validate);
         if ($validator-> fails()) {
@@ -105,12 +105,27 @@ class DapurController extends Controller
             ]);
         }
 
-        $data->nama = $request->nama;
-        $data->harga = $request->harga;
-        $data->deskripsi = $request->deskripsi;
-        $data->image = $request->image;
-
-        $post = $data->save();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            //upload data with image
+            $file->storeAs('public/images/dapur/', $file->hashName());
+            //delete old image
+            Storage::delete('public/images/dapur/'.$data->image);
+            //update data with image
+            $data->update([
+                'nama' => $request->nama,
+                'harga' => $request->harga,
+                'deskripsi' => $request->deskripsi,
+                'image' => $file->hashName()
+            ]);
+        } else {
+            //update data without image
+            $data->update([
+                'nama' => $request->nama,
+                'harga' => $request->harga,
+                'deskripsi' => $request->deskripsi,
+            ]);
+        }
         
         return response()->json([
             'status' => true,

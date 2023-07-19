@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Sayur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class SayurController extends Controller
@@ -32,7 +33,7 @@ class SayurController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:4048'
+            'image' => 'required|file|image|mimes:png,jpg,jpeg,svg|max:4048'
         ];
         $validator = Validator::make($request->all(), $validate);
         if ($validator->fails()) {
@@ -43,17 +44,16 @@ class SayurController extends Controller
             ]);
         }
         $file = $request->file('image');
-        $fileName = uniqid(). '.' .$file->getClientOriginalExtension();
-        $file->storeAs('public/images/sayur/', $fileName);
+        $file->storeAs('public/images/sayur/', $file->hashName());
 
         $data = new Sayur;
 
         $data->nama = $request->nama;
         $data->harga = $request->harga;
         $data->deskripsi = $request->deskripsi;
-        $data->image = $fileName;
+        $data->image = $file->hashName();
 
-        $post = $data->save();
+        $data->save();
 
         return response()->json([
             'status' => true,
@@ -86,13 +86,11 @@ class SayurController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = Sayur::find($id);
-
         $validate = [
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:4048'
+            'image' => 'file|image|mimes:png,jpg,jpeg,svg|max:4048'
         ];
         $validator = Validator::make($request->all(), $validate);
         if ($validator->fails()) {
@@ -102,17 +100,31 @@ class SayurController extends Controller
                 'data' => $validator->errors()
             ]);
         }
-        $file = $request->file('image');
-        $fileName = uniqid(). '.' .$file->getClientOriginalExtension();
-        $file->storeAs('public/images/sayur/', $fileName);
+    
+        $data = Sayur::find($id);
 
-        $data->nama = $request->nama;
-        $data->harga = $request->harga;
-        $data->deskripsi = $request->deskripsi;
-        $data->image = $fileName;
-
-        $post = $data->save();
-
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            //upload new image
+            $file->storeAs('public/images/sayur/', $file->hashName());
+            //delete old image
+            Storage::delete('public/images/sayur/'.$data->image);
+            //update data with new image
+            $data->update([
+                'nama' => $request->nama,
+                'harga' => $request->harga,
+                'deskripsi' => $request->deskripsi,
+                'image' => $file->hashName()
+            ]);
+        } else {
+            //update data without image
+            $data->update([
+                'nama' => $request->nama,
+                'harga' => $request->harga,
+                'deskripsi' => $request->deskripsi
+            ]);
+        }
+    
         return response()->json([
             'status' => true,
             'message' => 'berhasil update data'
