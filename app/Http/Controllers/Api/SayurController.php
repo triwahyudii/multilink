@@ -27,13 +27,12 @@ class SayurController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Sayur;
 
         $validate = [
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required'
+            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:4048'
         ];
         $validator = Validator::make($request->all(), $validate);
         if ($validator->fails()) {
@@ -43,11 +42,16 @@ class SayurController extends Controller
                 'data' => $validator->errors()
             ]);
         }
+        $file = $request->file('image');
+        $fileName = uniqid(). '.' .$file->getClientOriginalExtension();
+        $file->storeAs('public/images/sayur/', $fileName);
+
+        $data = new Sayur;
 
         $data->nama = $request->nama;
         $data->harga = $request->harga;
         $data->deskripsi = $request->deskripsi;
-        $data->image = $request->image;
+        $data->image = $fileName;
 
         $post = $data->save();
 
@@ -88,7 +92,7 @@ class SayurController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'image' => 'required'
+            'image' => 'required|file|image|mimes:png,jpg,jpeg|max:4048'
         ];
         $validator = Validator::make($request->all(), $validate);
         if ($validator->fails()) {
@@ -98,11 +102,14 @@ class SayurController extends Controller
                 'data' => $validator->errors()
             ]);
         }
+        $file = $request->file('image');
+        $fileName = uniqid(). '.' .$file->getClientOriginalExtension();
+        $file->storeAs('public/images/sayur/', $fileName);
 
         $data->nama = $request->nama;
         $data->harga = $request->harga;
         $data->deskripsi = $request->deskripsi;
-        $data->image = $request->image;
+        $data->image = $fileName;
 
         $post = $data->save();
 

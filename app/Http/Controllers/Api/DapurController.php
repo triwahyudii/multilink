@@ -46,7 +46,7 @@ class DapurController extends Controller
 
         $file = $request->file('image');
         $fileName = uniqid(). '.' . $file->getClientOriginalExtension();
-        $file->storeAs('public/image/', $fileName);
+        $file->storeAs('public/images/dapur/', $fileName);
 
         $data = new Dapur;
 
