@@ -25,15 +25,21 @@
                         <th>Penerima</th>
                         <th>Jumlah</th>
                         <th>Tanggal</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($data as $item)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$data['nama']}}</td>
+                        <td>{{$data['nama_penerima']}}</td>
+                        <td>{{$data['jumlah']}}</td>
+                        <td>{{$data['date']}}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm bg-warning">Detail</button>
+                        </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

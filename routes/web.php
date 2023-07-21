@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // Transfer
-Route::get('/daftar-bank', function () {
+Route::get('/daftar-transfer', function () {
     return view('components.transfer.list-bank');
 });
 
@@ -53,7 +53,7 @@ Route::get('/transfer-mandiri', function () {
 });
 
 // Tarik Tunai
-Route::get('/daftar-bank', function () {
+Route::get('/daftar-tarik-tunai', function () {
     return view('components.tarik-tunai.daftar-bank');
 });
 
@@ -74,7 +74,7 @@ Route::get('/tarik-tunai-mandiri', function () {
 });
 
 // Setor Tunai
-Route::get('/daftar-bank', function () {
+Route::get('/daftar-setor-tunai', function () {
     return view('components.setor-tunai.daftar-bank');
 });
 
@@ -95,7 +95,7 @@ Route::get('/setor-tunai-mandiri', function () {
 });
 
 //Bayar Ciciclan
-Route::get('/bayar-cicilan', function () {
+Route::get('/daftar-bayar-cicilan', function () {
     return view('components.bayar-cicilan.bayar');
 });
 
