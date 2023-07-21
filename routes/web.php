@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,3 +106,10 @@ Route::get('/bayar-cicilan-bank', function () {
 Route::get('/bayar-cicilan-leasing', function () {
     return view('components.bayar-cicilan.daftar-leasing');
 });
+
+Route::get('/riwayat', function() {
+    return view('riwayat.daftar-riwayat');
+});
+
+//INPUTAN
+Route::get('transfer/index', [TransferController::class, 'index']);

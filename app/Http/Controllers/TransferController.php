@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class TransferController extends Controller
@@ -11,7 +12,14 @@ class TransferController extends Controller
      */
     public function index()
     {
-        //
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+        
+        return view('riwayat.transfer.index', ['data' => $data]);
     }
 
     /**

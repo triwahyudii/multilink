@@ -16,10 +16,15 @@
 
 <body>
 
+    <div class="text-center fw-bold pt-3 bg-primary text-white">
+        <h3>Riwayat Pesanan</h3>
+        <hr class="mt-3"/>
+    </div>
+
     <div>
-        <ul class="list-group p-4">
+        <ul class="list-group p-4 text-center bold fw-bolder">
             <li class="p-1 rounded">
-                <a href="http://127.0.0.1:8000/transfer-bri" class="list-group-item">
+                <a href="http://127.0.0.1:8000/transfer/index" class="list-group-item">
                     <h4>Transfer</h4>
                 </a>
             </li>
@@ -36,6 +41,41 @@
             <li class="p-1 rounded">
                 <a href="http://127.0.0.1:8000/transfer-mandiri" class="list-group-item">
                     <h4>Bayar Cicilan</h4>
+                </a>
+            </li>
+            <li class="p-1 rounded">
+                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                    <h4>Pulsa</h4>
+                </a>
+            </li>
+            <li class="p-1 rounded">
+                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                    <h4>PLN</h4>
+                </a>
+            </li>
+            <li class="p-1 rounded">
+                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                    <h4>Top Up</h4>
+                </a>
+            </li>
+            <li class="p-1 rounded">
+                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                    <h4>Asuransi</h4>
+                </a>
+            </li>
+            <li class="p-1 rounded">
+                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                    <h4>Pengajuan Pinjaman</h4>
+                </a>
+            </li>
+            <li class="p-1 rounded">
+                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                    <h4>Bahan Dapur</h4>
+                </a>
+            </li>
+            <li class="p-1 rounded">
+                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                    <h4>Sayur Saji</h4>
                 </a>
             </li>
         </ul>
