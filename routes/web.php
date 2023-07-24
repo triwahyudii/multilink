@@ -113,3 +113,4 @@ Route::get('/riwayat', function() {
 
 //INPUTAN
 Route::get('transfer/index', [TransferController::class, 'index']);
+Route::post('transfer/store', [TransferController::class, 'store']);
