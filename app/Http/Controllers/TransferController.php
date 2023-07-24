@@ -35,7 +35,35 @@ class TransferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nama = $request->nama;
+        $nomor_rekening = $request->nomor_rekening;
+        $jumlah = $request->jumlah;
+        $nama_penerima = $request->nama_penerima;
+        $nomor_rekening_penerima = $request->nomor_rekening_penerima;
+
+        $parameter = [
+            'nama' => $nama,
+            'nomor_rekening' => $nomor_rekening,
+            'jumlah' => $jumlah,
+            'nama_penerima' => $nama_penerima,
+            'nomor_rekening_penerima' => $nomor_rekening_penerima
+        ];
+
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer";
+        $response = $data->request('POST', $url, [
+            'headers' => ['Content-type' => 'application/json'],
+            'body' => json_encode($parameter)
+        ]);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->to('transfer')->withErrors($error)->withInput();
+        } else {
+            return redirect()->to('transfer')->with('success', 'Data di proses !');
+        }
+        
     }
 
     /**

@@ -107,10 +107,14 @@ Route::get('/bayar-cicilan-leasing', function () {
     return view('components.bayar-cicilan.daftar-leasing');
 });
 
-Route::get('/riwayat', function() {
-    return view('riwayat.daftar-riwayat');
-});
+
 
 //INPUTAN
-Route::get('transfer/index', [TransferController::class, 'index']);
-Route::post('transfer/store', [TransferController::class, 'store']);
+Route::get('riwayat', function() {
+    return view('riwayat.daftar-riwayat');
+});
+Route::get('transfer', function() {
+    return view('transfer.add');
+});
+Route::get('riwayat/transfer', [TransferController::class, 'index']);
+Route::post('transfer', [TransferController::class, 'store']);

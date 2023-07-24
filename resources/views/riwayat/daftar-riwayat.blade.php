@@ -24,7 +24,7 @@
     <div>
         <ul class="list-group p-4 text-center bold fw-bolder">
             <li class="p-1 rounded">
-                <a href="http://127.0.0.1:8000/transfer/index" class="list-group-item">
+                <a href="http://127.0.0.1:8000/riwayat/transfer" class="list-group-item">
                     <h4>Transfer</h4>
                 </a>
             </li>

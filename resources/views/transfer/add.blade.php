@@ -16,36 +16,53 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-center">
-        <div class="input-form container pt-2 m-3">
-            <h1 class="text-center p-2">Bank BCA</h1>
-            <h5 class=" badge text-bg-warning text-black">PENGIRIM</h5>
-            <div class="input-group">
-                <input type="text" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
-            </div>
-            <div class="input-group">
-                <input type="number" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
-            </div>
-            <div class="input-group">
-                <input type="number" class="form-control input m-2 rounded-3" placeholder="Jumlah">
-            </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $item)
+                <li>{{ $item }}</li>
+                @endforeach
+            </ul>
         </div>
-    </div>
+    @endif
 
-    <div class="d-flex justify-content-center">
-        <div class="input-form container pt-2 m-3">
-            <h5 class=" badge text-bg-warning text-black">PENERIMA</h5>
-            <div class="input-group">
-                <input type="text" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
-            </div>
-            <div class="input-group">
-                <input type="number" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
-            </div>
-            <div class="d-flex justify-content-center pt-3">
-                <button class="btn btn-primary bg-primary" type="submit">Selesai</button>
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    <form action="" method="post">
+        @csrf 
+        <div class="d-flex justify-content-center">
+            <div class="input-form container pt-2 m-3">
+                <h5 class=" badge text-bg-warning text-black">PENGIRIM</h5>
+                <div class="input-group">
+                    <input type="text" name="nama" id="nama" value="{{ old('nama') }}" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
+                </div>
+                <div class="input-group">
+                    <input type="number" name="nomor_rekening" id="nomor_rekening" value="{{ old('nomor_rekening') }}" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
+                </div>
+                <div class="input-group">
+                    <input type="number" name="jumlah" id="jumlah" value="{{ old('jumlah') }}" class="form-control input m-2 rounded-3" placeholder="Jumlah">
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="d-flex justify-content-center">
+            <div class="input-form container pt-2 m-3">
+                <h5 class=" badge text-bg-warning text-black">PENERIMA</h5>
+                <div class="input-group">
+                    <input type="text" name="nama_penerima" id="nama_penerima" value="{{ old('nama_penerima') }}" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
+                </div>
+                <div class="input-group">
+                    <input type="number" name="nomor_rekening_penerima" id="nomor_rekening_penerima" value="{{ old('nomor_rekening_penerima') }}" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
+                </div>
+                <div class="d-flex justify-content-center pt-3">
+                    <button class="btn btn-primary bg-primary" type="submit">Selesai</button>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
