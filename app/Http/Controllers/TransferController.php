@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transfer;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
 class TransferController extends Controller
 {

@@ -16,12 +16,12 @@
 
 <body>
 
-    <div class="text-center fw-bold pt-3 bg-primary text-white">
+    <div class="text-center fw-bold pt-3 bg-primary text-white col-md-6 offset-md-3">
         <h3>Riwayat Pesanan</h3>
         <hr class="mt-3"/>
     </div>
 
-    <div>
+    <div class="col-md-6 offset-md-3">
         <ul class="list-group p-4 text-center bold fw-bolder">
             <li class="p-1 rounded">
                 <a href="http://127.0.0.1:8000/riwayat/transfer" class="list-group-item">
@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li class="p-1 rounded">
-                <a href="http://127.0.0.1:8000/transfer-bca" class="list-group-item">
+                <a href="http://127.0.0.1:8000/riwayat/tarik-tunai" class="list-group-item">
                     <h4>Tarik Tunai</h4>
                 </a>
             </li>

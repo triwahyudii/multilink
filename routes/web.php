@@ -119,3 +119,8 @@ Route::get('transfer', function() {
 Route::get('riwayat/transfer', [TransferController::class, 'index']);
 Route::post('transfer', [TransferController::class, 'store']);
 Route::get('riwayat/transfer/{id}', [TransferController::class, 'show']);
+
+//INPUTAN SETOR TUNAI
+Route::get('tarik-tunai', function() {
+    return view('tarik-tunai.add');
+});

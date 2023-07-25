@@ -11,6 +11,7 @@ class TarikTunai extends Model
 
     protected $table = "tarik_tunais";
     protected $fillable = [
+        'bank',
         'nama',
         'nomor_rekening',
         'jumlah'

@@ -30,6 +30,7 @@ class TransferController extends Controller
         $data = new Transfer;
 
         $validation = [
+            'bank' => 'required',
             'nama' => 'required',
             'nomor_rekening' => 'required',
             'jumlah' => 'required',
@@ -45,6 +46,7 @@ class TransferController extends Controller
             ]);
         }
 
+        $data->bank = $request->bank;
         $data->nama = $request->nama;
         $data->nomor_rekening = $request->nomor_rekening;
         $data->jumlah = $request->jumlah;
@@ -93,6 +95,7 @@ class TransferController extends Controller
         }
 
         $validation = [
+            'bank' => 'required',
             'nama' => 'required',
             'nomor_rekening' => 'required',
             'jumlah' => 'required',
@@ -108,6 +111,7 @@ class TransferController extends Controller
             ]);
         }
 
+        $data->bank = $request->bank;
         $data->nama = $request->nama;
         $data->nomor_rekening = $request->nomor_rekening;
         $data->jumlah = $request->jumlah;
