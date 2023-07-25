@@ -17,14 +17,13 @@
 <body>
 
     <div class="container pt-2">
-        <div>
+        <div class="col-md-6 offset-md-3">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Pengirim</th>
                         <th>Penerima</th>
                         <th>Jumlah</th>
-                        <th>Tanggal</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -34,7 +33,6 @@
                         <td>{{$item['nama']}}</td>
                         <td>{{$item['nama_penerima']}}</td>
                         <td>{{$item['jumlah']}}</td>
-                        <td>{{\Carbon\Carbon::parse($item['created_at'])->format('d-m-Y')}}</td>
                         <td>
                             <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/transfer/'.$item['id']) }}">Detail</a></button>
                         </td>

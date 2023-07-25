@@ -109,7 +109,7 @@ Route::get('/bayar-cicilan-leasing', function () {
 
 
 
-//INPUTAN
+//INPUTAN TRANSFER
 Route::get('riwayat', function() {
     return view('riwayat.daftar-riwayat');
 });

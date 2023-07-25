@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
+            $table->string('bank', 100);
             $table->string('nama', 200);
             $table->bigInteger('nomor_rekening')->length(17);
             $table->bigInteger('jumlah')->length(10);

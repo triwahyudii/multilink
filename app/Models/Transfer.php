@@ -11,6 +11,7 @@ class Transfer extends Model
 
     protected $table = "transfers";
     protected $fillable = [
+        'bank',
         'nama',
         'nomor_rekening',
         'jumlah',
