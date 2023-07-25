@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class TransferController extends Controller
 {
@@ -71,7 +72,17 @@ class TransferController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $url = "http://127.0.0.1:8008/api/transfer/$id";
+        $response = Http::get($url);
+        if ($response->successful()) {
+            $data = $response->json();
+            //jika data ditemukan, tampilkan detailnya
+            return view('riwayat.transfer.show', ['data' => $data]);
+        } else {
+            //jika data tidak ditemukan, redirect ke halaman sebelumnya dengan pesan error
+            return redirect()->back()->withErrors('data tidak ada yesss');
+        }
+
     }
 
     /**

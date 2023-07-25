@@ -31,12 +31,12 @@
                 <tbody>
                     @foreach($data as $item)
                     <tr>
-                        <td>{{$data['nama']}}</td>
-                        <td>{{$data['nama_penerima']}}</td>
-                        <td>{{$data['jumlah']}}</td>
-                        <td>{{$data['date']}}</td>
+                        <td>{{$item['nama']}}</td>
+                        <td>{{$item['nama_penerima']}}</td>
+                        <td>{{$item['jumlah']}}</td>
+                        <td>{{\Carbon\Carbon::parse($item['created_at'])->format('d-m-Y')}}</td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm bg-warning">Detail</button>
+                            <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/transfer/'.$item['id']) }}">Detail</a></button>
                         </td>
                     </tr>
                     @endforeach
