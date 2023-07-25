@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TarikTunaiController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
@@ -124,3 +125,4 @@ Route::get('riwayat/transfer/{id}', [TransferController::class, 'show']);
 Route::get('tarik-tunai', function() {
     return view('tarik-tunai.add');
 });
+Route::get('riwayat/tarik-tunai', [TarikTunaiController::class, 'index']);
