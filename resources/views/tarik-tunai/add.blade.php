@@ -38,11 +38,11 @@
                 <h5 class=" badge text-bg-warning text-black">TARIK TUNAI</h5>
                 <div class="input-group">
                     <select name="bank" class="ml-3 mt-2 border-primary rounded-3">
-                        <option selected>Nama Bank</option>
-                        <option value="BRI">BRI</option>
-                        <option value="BCA">BCA</option>
-                        <option value="BNI">BNI</option>
-                        <option value="MANDIRI">MANDIRI</option>
+                        <option selected disabled>Nama Bank</option>
+                        <option value="BRI" @if (old('bank') == 'BRI') selected @endif>BRI</option>
+                        <option value="BCA" @if (old('bank') == 'BCA') selected @endif>BCA</option>
+                        <option value="BNI" @if (old('bank') == 'BNI') selected @endif>BNI</option>
+                        <option value="MANDIRI" @if (old('bank') == 'MANDIRI') selected @endif>MANDIRI</option>
                     </select>
                 </div>
                 <div class="input-group">
