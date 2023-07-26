@@ -121,10 +121,15 @@ Route::get('riwayat/transfer', [TransferController::class, 'index']);
 Route::post('transfer', [TransferController::class, 'store']);
 Route::get('riwayat/transfer/{id}', [TransferController::class, 'show']);
 
-//INPUTAN SETOR TUNAI
+//INPUTAN TARIK TUNAI
 Route::get('tarik-tunai', function() {
     return view('tarik-tunai.add');
 });
 Route::get('riwayat/tarik-tunai', [TarikTunaiController::class, 'index']);
 Route::post('tarik-tunai', [TarikTunaiController::class, 'store']);
 Route::get('riwayat/tarik-tunai/{id}', [TarikTunaiController::class, 'show']);
+
+//INPUTAN SETOR TUNAI
+Route::get('setor-tunai', function() {
+    return view('setor-tunai.add');
+});

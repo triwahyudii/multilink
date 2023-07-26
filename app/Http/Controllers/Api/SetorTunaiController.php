@@ -30,6 +30,7 @@ class SetorTunaiController extends Controller
         $data = new SetorTunai;
 
         $validation = [
+            'bank' => 'required',
             'nama' => 'required',
             'nomor_rekening' => 'required',
             'jumlah' => 'required'
@@ -43,6 +44,7 @@ class SetorTunaiController extends Controller
             ]);
         }
 
+        $data->bank = $request->bank;
         $data->nama = $request->nama;
         $data->nomor_rekening = $request->nomor_rekening;
         $data->jumlah = $request->jumlah;
@@ -89,6 +91,7 @@ class SetorTunaiController extends Controller
         }
 
         $validation = [
+            'bank' => 'required',
             'nama' => 'required',
             'nomor_rekening' => 'required',
             'jumlah' => 'required'
@@ -102,6 +105,7 @@ class SetorTunaiController extends Controller
             ]);
         }
 
+        $data->bank = $request->bank;
         $data->nama = $request->nama;
         $data->nomor_rekening = $request->nomor_rekening;
         $data->jumlah = $request->jumlah;

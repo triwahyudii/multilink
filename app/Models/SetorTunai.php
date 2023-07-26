@@ -11,6 +11,7 @@ class SetorTunai extends Model
 
     protected $table = 'setor_tunais';
     protected $fillable = [
+        'bank',
         'nama',
         'nomor_rekening',
         'jumlah'
