@@ -35,6 +35,7 @@ class TransferController extends Controller
      */
     public function store(Request $request)
     {
+        $bank = $request->bank;
         $nama = $request->nama;
         $nomor_rekening = $request->nomor_rekening;
         $jumlah = $request->jumlah;
@@ -42,6 +43,7 @@ class TransferController extends Controller
         $nomor_rekening_penerima = $request->nomor_rekening_penerima;
 
         $parameter = [
+            'bank' => $bank,
             'nama' => $nama,
             'nomor_rekening' => $nomor_rekening,
             'jumlah' => $jumlah,
@@ -61,7 +63,7 @@ class TransferController extends Controller
             $error = $array['data'];
             return redirect()->to('transfer')->withErrors($error)->withInput();
         } else {
-            return redirect()->to('transfer')->with('success', 'Data di proses !');
+            return redirect()->to('transfer')->with('success', 'Transfer di proses !');
         }
         
     }

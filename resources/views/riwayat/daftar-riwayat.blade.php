@@ -18,7 +18,7 @@
 
     <div class="text-center fw-bold pt-3 bg-primary text-white col-md-6 offset-md-3">
         <h3>Riwayat Pesanan</h3>
-        <hr class="mt-3"/>
+        <hr class="mt-3" />
     </div>
 
     <div class="col-md-6 offset-md-3">
@@ -79,6 +79,9 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary btn-sm bg-primary"><a href="{{ url('dashboard') }}">Kembali</a></button>
     </div>
 
 

@@ -39,10 +39,10 @@
                 <div class="input-group">
                     <select name="bank" class="ml-3 mt-2 border-primary rounded-3">
                         <option selected>Nama Bank</option>
-                        <option value="bri">BRI</option>
-                        <option value="bca">BCA</option>
-                        <option value="bni">BNI</option>
-                        <option value="mandiri">MANDIRI</option>
+                        <option value="BRI">BRI</option>
+                        <option value="BCA">BCA</option>
+                        <option value="BNI">BNI</option>
+                        <option value="MANDIRI">MANDIRI</option>
                     </select>
                 </div>
                 <div class="input-group">

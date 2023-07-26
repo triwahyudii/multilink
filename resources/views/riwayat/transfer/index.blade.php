@@ -40,6 +40,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-sm bg-primary"><a href="{{ url('riwayat') }}">Kembali</a></button>
+            </div>
         </div>
     </div>
 

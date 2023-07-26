@@ -126,3 +126,5 @@ Route::get('tarik-tunai', function() {
     return view('tarik-tunai.add');
 });
 Route::get('riwayat/tarik-tunai', [TarikTunaiController::class, 'index']);
+Route::post('tarik-tunai', [TarikTunaiController::class, 'store']);
+Route::get('riwayat/tarik-tunai/{id}', [TarikTunaiController::class, 'show']);
