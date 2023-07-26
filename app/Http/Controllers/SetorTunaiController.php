@@ -14,6 +14,12 @@ class SetorTunaiController extends Controller
     {
         $data = new Client();
         $url = "http://localhost:8008/api/setor-tunai";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+
+        return view('riwayat.setor-tunai.index', ['data' => $data]);
     }
 
     /**
@@ -29,7 +35,32 @@ class SetorTunaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bank = $request->bank;
+        $nama = $request->nama;
+        $nomor_rekening = $request->nomor_rekening;
+        $jumlah = $request->jumlah;
+
+        $parameter = [
+            'bank' => $bank,
+            'nama' => $nama,
+            'nomor_rekening' => $nomor_rekening,
+            'jumlah' => $jumlah
+        ];
+
+        $data = new Client();
+        $url = "http://localhost:8008/api/setor-tunai";
+        $response = $data->request('POST', $url, [
+            'headers' => ['Content-type' => 'application/json'],
+            'body' => json_encode($parameter)
+        ]);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->to('setor-tunai')->withErrors($error)->withInput();
+        } else {
+            return redirect()->to('setor-tunai')->with('success', 'Setor Tunai di proses !');
+        }
     }
 
     /**
@@ -37,7 +68,14 @@ class SetorTunaiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = new Client();
+        $url = "http://localhost:8008/api/setor-tunai/$id";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+
+        return view('riwayat.setor-tunai.show', ['data' => $data]);
     }
 
     /**

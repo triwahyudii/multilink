@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="p-1 rounded">
-                <a href="http://127.0.0.1:8000/transfer-bni" class="list-group-item">
+                <a href="http://127.0.0.1:8000/riwayat/setor-tunai" class="list-group-item">
                     <h4>Setor Tunai</h4>
                 </a>
             </li>

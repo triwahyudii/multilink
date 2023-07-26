@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SetorTunaiController;
 use App\Http\Controllers\TarikTunaiController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
@@ -133,3 +134,6 @@ Route::get('riwayat/tarik-tunai/{id}', [TarikTunaiController::class, 'show']);
 Route::get('setor-tunai', function() {
     return view('setor-tunai.add');
 });
+Route::get('riwayat/setor-tunai', [SetorTunaiController::class, 'index']);
+Route::post('setor-tunai', [SetorTunaiController::class, 'store']);
+Route::get('riwayat/setor-tunai/{id}', [SetorTunaiController::class, 'show']);
