@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\SetorTunaiController;
 use App\Http\Controllers\TarikTunaiController;
 use App\Http\Controllers\TransferController;
@@ -142,3 +143,6 @@ Route::get('riwayat/setor-tunai/{id}', [SetorTunaiController::class, 'show']);
 Route::get('pulsa', function() {
     return view('pulsa.add');
 });
+Route::get('riwayat/pulsa', [PulsaController::class, 'index']);
+Route::post('pulsa', [PulsaController::class, 'store']);
+Route::get('riwayat/pulsa/{id}', [PulsaController::class, 'show']);
