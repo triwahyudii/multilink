@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="p-1 rounded">
-                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                <a href="http://127.0.0.1:8000/riwayat/pulsa" class="list-group-item">
                     <h4>Pulsa</h4>
                 </a>
             </li>

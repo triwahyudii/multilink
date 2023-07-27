@@ -137,3 +137,8 @@ Route::get('setor-tunai', function() {
 Route::get('riwayat/setor-tunai', [SetorTunaiController::class, 'index']);
 Route::post('setor-tunai', [SetorTunaiController::class, 'store']);
 Route::get('riwayat/setor-tunai/{id}', [SetorTunaiController::class, 'show']);
+
+//INPUTAN PULSA
+Route::get('pulsa', function() {
+    return view('pulsa.add');
+});
