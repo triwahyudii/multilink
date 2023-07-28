@@ -146,3 +146,8 @@ Route::get('pulsa', function() {
 Route::get('riwayat/pulsa', [PulsaController::class, 'index']);
 Route::post('pulsa', [PulsaController::class, 'store']);
 Route::get('riwayat/pulsa/{id}', [PulsaController::class, 'show']);
+
+//INPUTAN PLN TOKENLISTRIK
+Route::get('pln', function() {
+    return view('pln.add');
+});
