@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\SetorTunaiController;
 use App\Http\Controllers\TarikTunaiController;
+use App\Http\Controllers\TokenListrikController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
@@ -149,5 +150,10 @@ Route::get('riwayat/pulsa/{id}', [PulsaController::class, 'show']);
 
 //INPUTAN PLN TOKENLISTRIK
 Route::get('pln', function() {
-    return view('pln.add');
+    return view('pln.daftar-listrik');
 });
+Route::get('token-listrik', function() {
+    return view('pln.token-add');
+});
+Route::get('riwayat/token-listrik', [TokenListrikController::class, 'index']);
+Route::post('token-listrik', [TokenListrikController::class, 'store']);

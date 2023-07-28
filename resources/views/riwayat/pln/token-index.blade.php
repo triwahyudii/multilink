@@ -29,10 +29,10 @@
                 <tbody>
                     @foreach($data as $item)
                     <tr>
-                        <td>{{$item['provider']}}</td>
-                        <td>{{$item['nomor_handphone']}}</td>
+                        <td>{{$item['nomor_id']}}</td>
+                        <td>{{$item['nominal']}}</td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/pulsa/'.$item['id']) }}">Detail</a></button>
+                            <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/pln/'.$item['id']) }}">Detail</a></button>
                         </td>
                     </tr>
                     @endforeach
