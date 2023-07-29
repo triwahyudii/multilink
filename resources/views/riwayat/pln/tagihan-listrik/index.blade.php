@@ -22,7 +22,6 @@
                 <thead>
                     <tr>
                         <th>ID Pelanggan</th>
-                        <th>Nominal</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -30,9 +29,8 @@
                     @foreach($data as $item)
                     <tr>
                         <td>{{$item['nomor_id']}}</td>
-                        <td>{{$item['nominal']}}</td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/pln/'.$item['id']) }}">Detail</a></button>
+                            <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/tagihan-listrik/'.$item['id']) }}">Detail</a></button>
                         </td>
                     </tr>
                     @endforeach

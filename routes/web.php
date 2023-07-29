@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\SetorTunaiController;
+use App\Http\Controllers\TagihanListrikController;
 use App\Http\Controllers\TarikTunaiController;
 use App\Http\Controllers\TokenListrikController;
 use App\Http\Controllers\TransferController;
@@ -148,12 +149,24 @@ Route::get('riwayat/pulsa', [PulsaController::class, 'index']);
 Route::post('pulsa', [PulsaController::class, 'store']);
 Route::get('riwayat/pulsa/{id}', [PulsaController::class, 'show']);
 
-//INPUTAN PLN TOKENLISTRIK
+//INPUTAN PLN TOKEN LISTRIK
 Route::get('pln', function() {
     return view('pln.daftar-listrik');
 });
 Route::get('token-listrik', function() {
-    return view('pln.token-add');
+    return view('pln.token-listrik.add');
+});
+Route::get('riwayat/pln', function() {
+    return view('riwayat.pln.pln-listrik');
 });
 Route::get('riwayat/token-listrik', [TokenListrikController::class, 'index']);
 Route::post('token-listrik', [TokenListrikController::class, 'store']);
+Route::get('riwayat/token-listrik/{id}', [TokenListrikController::class, 'show']);
+
+//INPUTAN PLN TAGIHAN LISTRIK
+Route::get('tagihan-listrik', function() {
+    return view('pln.tagihan-listrik.add');
+});
+Route::get('riwayat/tagihan-listrik', [TagihanListrikController::class, 'index']);
+Route::post('tagihan-listrik', [TagihanListrikController::class, 'store']);
+Route::get('riwayat/tagihan-listrik/{id}', [TagihanListrikController::class, 'show']);

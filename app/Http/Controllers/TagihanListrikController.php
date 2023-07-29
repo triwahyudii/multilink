@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
-class TokenListrikController extends Controller
+class TagihanListrikController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,13 @@ class TokenListrikController extends Controller
     public function index()
     {
         $data = new Client();
-        $url = "http://localhost:8008/api/token-listrik";
+        $url = "http://localhost:8008/api/tagihan-listrik";
         $response = $data->request('GET', $url);
         $content = $response->getBody()->getContents();
         $array = json_decode($content, true);
         $data = $array['data'];
         
-        return view('riwayat.pln.token-listrik.index', ['data' => $data]);
+        return view('riwayat.pln.tagihan-listrik.index', ['data' => $data]);
     }
 
     /**
@@ -36,15 +36,13 @@ class TokenListrikController extends Controller
     public function store(Request $request)
     {
         $nomor_id = $request->nomor_id;
-        $nominal = $request->nominal;
 
         $parameter = [
             'nomor_id' => $nomor_id,
-            'nominal' => $nominal
         ];
 
         $data = new Client();
-        $url = "http://localhost:8008/api/token-listrik";
+        $url = "http://localhost:8008/api/tagihan-listrik";
         $response = $data->request('POST', $url, [
             'headers' => ['Content-type' => 'application/json'],
             'body' => json_encode($parameter)
@@ -53,9 +51,9 @@ class TokenListrikController extends Controller
         $array = json_decode($content, true);
         if ($array['status'] != true) {
             $error = $array['data'];
-            return redirect()->to('token-listrik')->withErrors($error)->withInput();
+            return redirect()->to('tagihan-listrik')->withErrors($error)->withInput();
         } else {
-            return redirect()->to('token-listrik')->with('success', 'Token listrik sedang di proses !');
+            return redirect()->to('tagihan-listrik')->with('success', 'Tagihan listrik sedang di proses !');
         }
     }
 
@@ -65,13 +63,13 @@ class TokenListrikController extends Controller
     public function show(string $id)
     {
         $data = new Client();
-        $url = "http://localhost:8008/api/token-listrik/$id";
+        $url = "http://localhost:8008/api/tagihan-listrik/$id";
         $response = $data->request('GET', $url);
         $content = $response->getBody()->getContents();
         $array = json_decode($content, true);
         $data = $array['data'];
 
-        return view('riwayat.pln.token-listrik.show', ['data' => $data]);
+        return view('riwayat.pln.tagihan-listrik.show', ['data' => $data]);
     }
 
     /**
