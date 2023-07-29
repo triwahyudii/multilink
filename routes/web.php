@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DapurController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PulsaController;
 use App\Http\Controllers\SetorTunaiController;
@@ -179,3 +180,11 @@ Route::get('topup', function() {
 Route::get('riwayat/topup', [TopupController::class, 'index']);
 Route::post('topup', [TopupController::class, 'store']);
 Route::get('riwayat/topup/{id}', [TopupController::class, 'show']);
+
+//INPUTAN DAPUR
+Route::get('dapur', function() {
+    return view('dapur.add');
+});
+Route::get('riwayat/dapur', [DapurController::class, 'index']);
+
+//KURANG INPUTAN BAYAR CICILAN, ASURANSI, SAYUR
