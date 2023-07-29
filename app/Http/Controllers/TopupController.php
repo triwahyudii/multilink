@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class TopupController extends Controller
@@ -11,7 +12,14 @@ class TopupController extends Controller
      */
     public function index()
     {
-        //
+        $data = new Client();
+        $url = "http://localhost:8008/api/topup";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+
+        return view('riwayat.topup.index', ['data' => $data]);
     }
 
     /**
@@ -27,7 +35,30 @@ class TopupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nama = $request->nama;
+        $nomor_id = $request->nomor_id;
+        $jumlah = $request->jumlah;
+
+        $parameter = [
+            'nama' => $nama,
+            'nomor_id' => $nomor_id,
+            'jumlah' => $jumlah
+        ];
+
+        $data = new Client();
+        $url = "http://localhost:8008/api/topup";
+        $response = $data->request('POST', $url, [
+            'headers' => ['Content-type' => 'application/json'],
+            'body' => json_encode($parameter)
+        ]);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->to('topup')->withErrors($error)->withInput();
+        } else {
+            return redirect()->to('topup')->with('success', 'Top up sedang di proses !');
+        }
     }
 
     /**
@@ -35,7 +66,14 @@ class TopupController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = new Client();
+        $url = "http://localhost:8008/api/topup/$id";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+
+        return view('riwayat.topup.show', ['data' => $data]);
     }
 
     /**

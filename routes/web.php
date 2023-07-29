@@ -6,6 +6,7 @@ use App\Http\Controllers\SetorTunaiController;
 use App\Http\Controllers\TagihanListrikController;
 use App\Http\Controllers\TarikTunaiController;
 use App\Http\Controllers\TokenListrikController;
+use App\Http\Controllers\TopupController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
@@ -175,3 +176,6 @@ Route::get('riwayat/tagihan-listrik/{id}', [TagihanListrikController::class, 'sh
 Route::get('topup', function() {
     return view('topup.add');
 });
+Route::get('riwayat/topup', [TopupController::class, 'index']);
+Route::post('topup', [TopupController::class, 'store']);
+Route::get('riwayat/topup/{id}', [TopupController::class, 'show']);
