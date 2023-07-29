@@ -170,3 +170,8 @@ Route::get('tagihan-listrik', function() {
 Route::get('riwayat/tagihan-listrik', [TagihanListrikController::class, 'index']);
 Route::post('tagihan-listrik', [TagihanListrikController::class, 'store']);
 Route::get('riwayat/tagihan-listrik/{id}', [TagihanListrikController::class, 'show']);
+
+//INPUTAN TOP UP 
+Route::get('topup', function() {
+    return view('topup.add');
+});
