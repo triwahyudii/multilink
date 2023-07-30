@@ -39,10 +39,9 @@
                 <div class="input-group">
                     <select name="provider" class="ml-3 mt-2 border-primary rounded-3">
                         <option selected disabled>Provider</option>
-                        <option value="BRI" @if (old('bank') == 'BRI') selected @endif>BRI</option>
-                        <option value="BCA" @if (old('bank') == 'BCA') selected @endif>BCA</option>
-                        <option value="BNI" @if (old('bank') == 'BNI') selected @endif>BNI</option>
-                        <option value="MANDIRI" @if (old('bank') == 'MANDIRI') selected @endif>MANDIRI</option>
+                        <option value="INDOSAT" @if (old('provider') == 'INDOSAT') selected @endif>INDOSAT</option>
+                        <option value="TELKOMSEL" @if (old('provider') == 'TELKOMSEL') selected @endif>TELKOMSEL</option>
+                        <option value="XL" @if (old('provider') == 'XL') selected @endif>XL</option>
                     </select>
                 </div>
                 <div class="input-group">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsuransiController;
 use App\Http\Controllers\DapurController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PulsaController;
@@ -187,4 +188,13 @@ Route::get('dapur', function() {
 });
 Route::get('riwayat/dapur', [DapurController::class, 'index']);
 
-//KURANG INPUTAN BAYAR CICILAN, ASURANSI, SAYUR
+
+//INPUTAN ASURANSI
+Route::get('asuransi', function() {
+    return view('asuransi.add');
+});
+Route::get('riwayat/asuransi', [AsuransiController::class, 'index']);
+Route::post('asuransi', [AsuransiController::class, 'store']);
+Route::get('riwayat/asuransi/{id}', [AsuransiController::class, 'show']);
+
+//KURANG INPUTAN BAYAR CICILAN, SAYUR

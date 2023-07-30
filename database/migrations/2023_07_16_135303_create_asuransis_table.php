@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('negara');
             $table->integer('kelas');
-            $table->string('alamat');
+            $table->text('alamat');
             $table->integer('kode_pos');
             $table->bigInteger('kk')->length(50);
             $table->string('status_keluarga', 50);
