@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AsuransiController;
+use App\Http\Controllers\BayarCicilanController;
 use App\Http\Controllers\DapurController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PulsaController;
@@ -174,6 +175,18 @@ Route::get('riwayat/tagihan-listrik', [TagihanListrikController::class, 'index']
 Route::post('tagihan-listrik', [TagihanListrikController::class, 'store']);
 Route::get('riwayat/tagihan-listrik/{id}', [TagihanListrikController::class, 'show']);
 
+//INPUTAN BAYAR CICILAN BANK
+Route::get('bayar-cicilan', function() {
+    return view('cicilan.daftar-cicilan');
+});
+Route::get('bayar-cicilan-bank', function() {
+    return view('cicilan.bank.add');
+});
+Route::get('riwayat/bayar-cicilan', function() {
+    return view('riwayat.cicilan.daftar-cicilan');
+});
+Route::get('riwayat/bayar-cicilan-bank', [BayarCicilanController::class, 'index']);
+
 //INPUTAN TOP UP 
 Route::get('topup', function() {
     return view('topup.add');
@@ -197,4 +210,6 @@ Route::get('riwayat/asuransi', [AsuransiController::class, 'index']);
 Route::post('asuransi', [AsuransiController::class, 'store']);
 Route::get('riwayat/asuransi/{id}', [AsuransiController::class, 'show']);
 
-//KURANG INPUTAN BAYAR CICILAN, SAYUR
+
+
+//KURANG INPUTAN, SAYUR

@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <th>Tempat Tanggal Lahir</th>
-                            <td>: {{ $data['tempat_lahir'] }}, {{ $data['tanggal_lahir'] }}</td>
+                            <td>: {{ $data['tempat_lahir'] }}, {{ \Carbon\Carbon::parse($data['tanggal_lahir'])->format('d-m-Y') }}</td>
                         </tr>
                         <tr>
                             <th>Status Pernikahan</th>
@@ -87,7 +87,7 @@
                             <td>: {{ $data['kelas'] }}</td>
                         </tr>
                         <tr>
-                            <th>Tanggal</th>
+                            <th>Tanggal Input</th>
                             <td>: {{ \Carbon\Carbon::parse($data['created_at'])->format('d-m-Y') }}</td>
                         </tr>
                     </tbody>
