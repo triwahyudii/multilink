@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="p-1 rounded">
-                <a href="http://127.0.0.1:8000/cicilan-leasing" class="list-group-item">
+                <a href="http://127.0.0.1:8000/bayar-cicilan-leasing" class="list-group-item">
                     <h4>Kendaraan</h4>
                 </a>
             </li>

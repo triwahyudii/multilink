@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AsuransiController;
 use App\Http\Controllers\BayarCicilanController;
+use App\Http\Controllers\BayarCicilanLeasingController;
 use App\Http\Controllers\DapurController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PulsaController;
@@ -188,6 +189,14 @@ Route::get('riwayat/bayar-cicilan', function() {
 Route::get('riwayat/bayar-cicilan-bank', [BayarCicilanController::class, 'index']);
 Route::post('bayar-cicilan-bank', [BayarCicilanController::class, 'store']);
 Route::get('riwayat/bayar-cicilan-bank/{id}', [BayarCicilanController::class, 'show']);
+
+//INPUTAN BAYAR CICILAN LEASING
+Route::get('bayar-cicilan-leasing', function() {
+    return view('cicilan.leasing.add');
+});
+Route::get('riwayat/bayar-cicilan-leasing', [BayarCicilanLeasingController::class, 'index']);
+Route::post('bayar-cicilan-leasing', [BayarCicilanLeasingController::class, 'store']);
+Route::get('riwayat/bayar-cicilan-leasing/{id}', [BayarCicilanLeasingController::class, 'show']);
 
 //INPUTAN TOP UP 
 Route::get('topup', function() {
