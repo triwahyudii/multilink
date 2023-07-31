@@ -186,6 +186,8 @@ Route::get('riwayat/bayar-cicilan', function() {
     return view('riwayat.cicilan.daftar-cicilan');
 });
 Route::get('riwayat/bayar-cicilan-bank', [BayarCicilanController::class, 'index']);
+Route::post('bayar-cicilan-bank', [BayarCicilanController::class, 'store']);
+Route::get('riwayat/bayar-cicilan-bank/{id}', [BayarCicilanController::class, 'show']);
 
 //INPUTAN TOP UP 
 Route::get('topup', function() {

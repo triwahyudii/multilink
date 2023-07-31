@@ -32,7 +32,7 @@
                         <td>{{$item['bank']}}</td>
                         <td>{{$item['nomor_tagihan']}}</td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/bayar-cicilan/'.$item['id']) }}">Detail</a></button>
+                            <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/bayar-cicilan-bank/'.$item['id']) }}">Detail</a></button>
                         </td>
                     </tr>
                     @endforeach

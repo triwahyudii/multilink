@@ -35,7 +35,32 @@ class BayarCicilanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bank = $request->bank;
+        $nomor_tagihan = $request->nomor_tagihan;
+        $nama = $request->nama;
+        $jumlah = $request->jumlah;
+
+        $parameter = [
+            'bank' => $bank,
+            'nomor_tagihan' => $nomor_tagihan,
+            'nama' => $nama,
+            'jumlah' => $jumlah,
+        ];
+
+        $data = new Client();
+        $url = "http://localhost:8008/api/bayar-cicilan-bank";
+        $response = $data->request('POST', $url, [
+            'headers' => ['Content-type' => 'application/json'],
+            'body' => json_encode($parameter)
+        ]);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->to('bayar-cicilan-bank')->withErrors($error)->withInput();
+        } else {
+            return redirect()->to('bayar-cicilan-bank')->with('success', 'Data sedang di proses !');
+        }
     }
 
     /**
@@ -43,7 +68,14 @@ class BayarCicilanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = new Client();
+        $url = "http://localhost:8008/api/bayar-cicilan-bank/$id";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+
+        return view('riwayat.cicilan.bank.show', ['data' => $data]);
     }
 
     /**
