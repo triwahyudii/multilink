@@ -43,7 +43,14 @@ class DapurController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = new Client();
+        $url = "http://localhost:8008/api/dapur/$id";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+
+        return view('riwayat.dapur.show', ['data' => $data]);
     }
 
     /**

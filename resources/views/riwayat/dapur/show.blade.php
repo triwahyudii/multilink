@@ -32,13 +32,14 @@
                         </tr>
                         <tr>
                             <th>Gambar</th>
-                            <td>: {{ $data['image'] }}</td>
+                            <td>: <img src="{{ asset('images/dapur/' . $data['image']) }}" alt="images"></td>
                         </tr>
+
                         <tr>
                             <th>Tanggal</th>
                             <td>: {{ \Carbon\Carbon::parse($data['created_at'])->format('d-m-Y') }}</td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center">
