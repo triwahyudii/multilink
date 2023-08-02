@@ -23,7 +23,6 @@
                     <tr>
                         <th>Nama Barang</th>
                         <th>Harga</th>
-                        <th>Tanggal</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -32,9 +31,7 @@
                     <tr>
                         <td>{{$item['nama']}}</td>
                         <td>{{$item['harga']}}</td>
-                        <tr>
-                            <td>: {{ \Carbon\Carbon::parse($data['created_at'])->format('d-m-Y') }}</td>
-                        </tr>
+                       
                         <td>
                             <button type="button" class="btn btn-warning btn-sm bg-warning"><a href="{{ url('riwayat/dapur/'.$item['id']) }}">Detail</a></button>
                         </td>

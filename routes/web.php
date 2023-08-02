@@ -211,6 +211,7 @@ Route::get('dapur', function() {
     return view('dapur.add');
 });
 Route::get('riwayat/dapur', [DapurController::class, 'index']);
+Route::get('riwayat/dapur/{id}', [DapurController::class, 'show']);
 
 
 //INPUTAN ASURANSI
