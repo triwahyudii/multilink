@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="p-1 rounded">
-                <a href="http://127.0.0.1:8000/riwayat/index" class="list-group-item">
+                <a href="http://127.0.0.1:8000/riwayat/sayur" class="list-group-item">
                     <h4>Sayur Saji</h4>
                 </a>
             </li>

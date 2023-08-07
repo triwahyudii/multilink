@@ -6,6 +6,7 @@ use App\Http\Controllers\BayarCicilanLeasingController;
 use App\Http\Controllers\DapurController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PulsaController;
+use App\Http\Controllers\SayurController;
 use App\Http\Controllers\SetorTunaiController;
 use App\Http\Controllers\TagihanListrikController;
 use App\Http\Controllers\TarikTunaiController;
@@ -213,6 +214,12 @@ Route::get('dapur', function() {
 Route::get('riwayat/dapur', [DapurController::class, 'index']);
 Route::get('riwayat/dapur/{id}', [DapurController::class, 'show']);
 
+//INPUTAN SAYUR
+Route::get('sayur', function() {
+    return view('sayur.add');
+});
+Route::get('riwayat/sayur', [SayurController::class, 'index']);
+Route::get('riwayat/sayur/{id}', [SayurController::class, 'show']);
 
 //INPUTAN ASURANSI
 Route::get('asuransi', function() {
@@ -221,7 +228,3 @@ Route::get('asuransi', function() {
 Route::get('riwayat/asuransi', [AsuransiController::class, 'index']);
 Route::post('asuransi', [AsuransiController::class, 'store']);
 Route::get('riwayat/asuransi/{id}', [AsuransiController::class, 'show']);
-
-
-
-//KURANG INPUTAN, SAYUR

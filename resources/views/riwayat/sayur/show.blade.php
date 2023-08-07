@@ -19,7 +19,7 @@
     <div class="container pt-2">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h3 class="mt-2 mb-2 fw-bold badge text-bg-warning">Detail Bahan Dapur</h3>
+                <h3 class="mt-2 mb-2 fw-bold badge text-bg-warning">Detail Sayur Saji</h3>
                 <table class="table table-striped border-2">
                     <tbody>
                         <tr>
@@ -32,7 +32,7 @@
                         </tr>
                         <tr>
                             <th>Gambar</th>
-                            <td> <img src="{{ asset('storage/images/dapur/' . $data['image']) }}" alt="images" style="width: 100px; height:100px; object-fit:cover;"></td>
+                            <td> <img src="{{ asset('storage/images/sayur/' . $data['image']) }}" alt="images" style="width: 100px; height:100px; object-fit:cover;"></td>
                         </tr>
 
                         <tr>
@@ -43,7 +43,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary btn-sm bg-primary"><a href="{{ url('riwayat/dapur') }}">Kembali</a></button>
+                    <button type="button" class="btn btn-primary btn-sm bg-primary"><a href="{{ url('riwayat/sayur') }}">Kembali</a></button>
                 </div>
             </div>
         </div>
