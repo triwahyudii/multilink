@@ -42,81 +42,81 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// Transfer
-Route::get('/daftar-transfer', function () {
-    return view('components.transfer.list-bank');
-});
+// // Transfer
+// Route::get('/daftar-transfer', function () {
+//     return view('components.transfer.list-bank');
+// });
 
-Route::get('/transfer-bri', function () {
-    return view('components.transfer.transfer-bri');
-});
+// Route::get('/transfer-bri', function () {
+//     return view('components.transfer.transfer-bri');
+// });
 
-Route::get('/transfer-bca', function () {
-    return view('components.transfer.transfer-bca');
-});
+// Route::get('/transfer-bca', function () {
+//     return view('components.transfer.transfer-bca');
+// });
 
-Route::get('/transfer-bni', function () {
-    return view('components.transfer.transfer-bni');
-});
+// Route::get('/transfer-bni', function () {
+//     return view('components.transfer.transfer-bni');
+// });
 
-Route::get('/transfer-mandiri', function () {
-    return view('components.transfer.transfer-mandiri');
-});
+// Route::get('/transfer-mandiri', function () {
+//     return view('components.transfer.transfer-mandiri');
+// });
 
-// Tarik Tunai
-Route::get('/daftar-tarik-tunai', function () {
-    return view('components.tarik-tunai.daftar-bank');
-});
+// // Tarik Tunai
+// Route::get('/daftar-tarik-tunai', function () {
+//     return view('components.tarik-tunai.daftar-bank');
+// });
 
-Route::get('/tarik-tunai-bri', function () {
-    return view('components.tarik-tunai.bri');
-});
+// Route::get('/tarik-tunai-bri', function () {
+//     return view('components.tarik-tunai.bri');
+// });
 
-Route::get('/tarik-tunai-bca', function () {
-    return view('components.tarik-tunai.bca');
-});
+// Route::get('/tarik-tunai-bca', function () {
+//     return view('components.tarik-tunai.bca');
+// });
 
-Route::get('/tarik-tunai-bni', function () {
-    return view('components.tarik-tunai.bni');
-});
+// Route::get('/tarik-tunai-bni', function () {
+//     return view('components.tarik-tunai.bni');
+// });
 
-Route::get('/tarik-tunai-mandiri', function () {
-    return view('components.tarik-tunai.mandiri');
-});
+// Route::get('/tarik-tunai-mandiri', function () {
+//     return view('components.tarik-tunai.mandiri');
+// });
 
-// Setor Tunai
-Route::get('/daftar-setor-tunai', function () {
-    return view('components.setor-tunai.daftar-bank');
-});
+// // Setor Tunai
+// Route::get('/daftar-setor-tunai', function () {
+//     return view('components.setor-tunai.daftar-bank');
+// });
 
-Route::get('/setor-tunai-bri', function () {
-    return view('components.setor-tunai.bri');
-});
+// Route::get('/setor-tunai-bri', function () {
+//     return view('components.setor-tunai.bri');
+// });
 
-Route::get('/setor-tunai-bca', function () {
-    return view('components.setor-tunai.bca');
-});
+// Route::get('/setor-tunai-bca', function () {
+//     return view('components.setor-tunai.bca');
+// });
 
-Route::get('/setor-tunai-bni', function () {
-    return view('components.setor-tunai.bni');
-});
+// Route::get('/setor-tunai-bni', function () {
+//     return view('components.setor-tunai.bni');
+// });
 
-Route::get('/setor-tunai-mandiri', function () {
-    return view('components.setor-tunai.mandiri');
-});
+// Route::get('/setor-tunai-mandiri', function () {
+//     return view('components.setor-tunai.mandiri');
+// });
 
-//Bayar Ciciclan
-Route::get('/daftar-bayar-cicilan', function () {
-    return view('components.bayar-cicilan.bayar');
-});
+// //Bayar Ciciclan
+// Route::get('/daftar-bayar-cicilan', function () {
+//     return view('components.bayar-cicilan.bayar');
+// });
 
-Route::get('/bayar-cicilan-bank', function () {
-    return view('components.bayar-cicilan.daftar-bank');
-});
+// Route::get('/bayar-cicilan-bank', function () {
+//     return view('components.bayar-cicilan.daftar-bank');
+// });
 
-Route::get('/bayar-cicilan-leasing', function () {
-    return view('components.bayar-cicilan.daftar-leasing');
-});
+// Route::get('/bayar-cicilan-leasing', function () {
+//     return view('components.bayar-cicilan.daftar-leasing');
+// });
 
 
 
@@ -228,3 +228,4 @@ Route::get('asuransi', function() {
 Route::get('riwayat/asuransi', [AsuransiController::class, 'index']);
 Route::post('asuransi', [AsuransiController::class, 'store']);
 Route::get('riwayat/asuransi/{id}', [AsuransiController::class, 'show']);
+

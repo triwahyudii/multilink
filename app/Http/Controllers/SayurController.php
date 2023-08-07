@@ -35,7 +35,32 @@ class SayurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nama = $request->nama;
+        $harga = $request->harga;
+        $deskripsi = $request->deskripsi;
+        $image = $request->image;
+
+        $parameter = [
+            'nama' => $nama,
+            'harga' => $harga,
+            'deskripsi' => $deskripsi,
+            'image' => $image,
+        ];
+
+        $data = new Client();
+        $url = "http://localhost:8008/api/sayur";
+        $response = $data->request('POST', $url, [
+            'headers' => ['Content-type' => 'application/json'],
+            'body' => json_encode($parameter)
+        ]);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->to('sayur')->withErrors($error)->withInput();
+        } else {
+            return redirect()->to('sayur')->with('success', 'Data berhasil di Upload !');
+        }
     }
 
     /**

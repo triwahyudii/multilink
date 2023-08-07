@@ -14,6 +14,7 @@ class Sayur extends Model
         'nama',
         'harga',
         'deskripsi',
-        'image'
+        'image',
+        'status'
     ];
 }

@@ -1,0 +1,101 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use App\Filament\Resources\SayurResource\Pages;
+use App\Filament\Resources\SayurResource\RelationManagers;
+use App\Models\Sayur;
+use Filament\Forms;
+use Filament\Forms\Components\Card;
+use Filament\Resources\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Table;
+use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+
+class SayurResource extends Resource
+{
+    protected static ?string $model = Sayur::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Card::make()->schema([
+                    Forms\Components\Select::make('status')
+                        ->options([
+                            'Process' => 'Process',
+                            'Cancel' => 'Cancel',
+                            'Done' => 'Done',
+                        ])-> required(),
+                    Forms\Components\TextInput::make('nama')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('harga')
+                        ->required(),
+                    Forms\Components\FileUpload::make('image')
+                        ->required()->image()->disk('public'),
+                    Forms\Components\RichEditor::make('deskripsi')
+                        ->required()
+                        ->maxLength(65535),
+                ]),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\BadgeColumn::make('status')
+                ->color(static function ($state): string {
+                    if ($state === 'Process') {
+                        return 'success';
+                    }
+                    if ($state === 'Cancel') {
+                        return 'danger';
+                    }
+                    if ($state === 'Done') {
+                        return 'success';
+                    }
+                    
+                    return 'secondary';
+                })->sortable(),
+                Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime(),
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListSayurs::route('/'),
+            'create' => Pages\CreateSayur::route('/create'),
+            'edit' => Pages\EditSayur::route('/{record}/edit'),
+        ];
+    }
+}
