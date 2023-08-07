@@ -12,8 +12,9 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Illuminate\Support\Facades\Storage;
 
 class SayurResource extends Resource
 {
@@ -79,7 +80,15 @@ class SayurResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()->after(
+                    function (Collection $record) {
+                        foreach ($record as $key => $value) {
+                            if ($value->image) {
+                                Storage::disk('public')->delete($value->image);
+                            }
+                        }
+                    }
+                ),
             ]);
     }
 
