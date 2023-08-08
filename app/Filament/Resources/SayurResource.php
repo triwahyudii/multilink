@@ -69,7 +69,7 @@ class SayurResource extends Resource
                 Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->date(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
             ])

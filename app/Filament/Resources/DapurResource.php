@@ -32,7 +32,7 @@ class DapurResource extends Resource
                             'Process' => 'Process',
                             'Cancel' => 'Cancel',
                             'Done' => 'Done',
-                        ])-> required(),
+                        ])->required(),
                     Forms\Components\TextInput::make('nama')
                         ->required()
                         ->maxLength(255),
@@ -52,24 +52,24 @@ class DapurResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\BadgeColumn::make('status')
-                ->color(static function ($state): string {
-                    if ($state === 'Process') {
-                        return 'success';
-                    }
-                    if ($state === 'Cancel') {
-                        return 'danger';
-                    }
-                    if ($state === 'Done') {
-                        return 'success';
-                    }
-                    
-                    return 'secondary';
-                })->sortable(),
+                    ->color(static function ($state): string {
+                        if ($state === 'Process') {
+                            return 'success';
+                        }
+                        if ($state === 'Cancel') {
+                            return 'danger';
+                        }
+                        if ($state === 'Done') {
+                            return 'success';
+                        }
+
+                        return 'secondary';
+                    })->sortable(),
                 Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->date(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
             ])
@@ -77,6 +77,7 @@ class DapurResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()->after(
                     function (Dapur $record) {
@@ -98,20 +99,21 @@ class DapurResource extends Resource
                 ),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListDapurs::route('/'),
             'create' => Pages\CreateDapur::route('/create'),
             'edit' => Pages\EditDapur::route('/{record}/edit'),
+            'view' => Pages\ViewDapur::route('/{record}'),
         ];
-    }    
+    }
 }
