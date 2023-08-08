@@ -18,7 +18,7 @@ class TarikTunaiResource extends Resource
 {
     protected static ?string $model = TarikTunai::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-logout';
 
     public static function form(Form $form): Form
     {
