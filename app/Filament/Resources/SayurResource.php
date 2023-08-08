@@ -33,7 +33,7 @@ class SayurResource extends Resource
                             'Cancel' => 'Cancel',
                             'Done' => 'Done',
                         ])-> required(),
-                    Forms\Components\TextInput::make('nama')
+                    Forms\Components\TextInput::make('nama')->label('Nama barang')
                         ->required()
                         ->maxLength(255),
                     Forms\Components\TextInput::make('harga')
@@ -65,12 +65,12 @@ class SayurResource extends Resource
                     
                     return 'secondary';
                 })->sortable(),
-                Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('nama')->sortable()->searchable()->label('Nama Barang'),
                 Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('created_at')->label('Entered')
                     ->date(),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('updated_at')->label('Updated')
                     ->dateTime(),
             ])
             ->filters([
