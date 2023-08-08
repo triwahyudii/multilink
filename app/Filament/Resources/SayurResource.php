@@ -20,7 +20,7 @@ class SayurResource extends Resource
 {
     protected static ?string $model = Sayur::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
     public static function form(Form $form): Form
     {
@@ -77,7 +77,15 @@ class SayurResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()->after(
+                    function (Sayur $record) {
+                        if ($record->image) {
+                            Storage::disk('public')->delete($record->image);
+                        }
+                    }
+                ),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make()->after(
@@ -105,6 +113,7 @@ class SayurResource extends Resource
             'index' => Pages\ListSayurs::route('/'),
             'create' => Pages\CreateSayur::route('/create'),
             'edit' => Pages\EditSayur::route('/{record}/edit'),
+            'view' => Pages\ViewSayur::route('/{record}'),
         ];
     }
 }

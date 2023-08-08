@@ -6,34 +6,44 @@ use App\Filament\Resources\DapurResource\Pages;
 use App\Filament\Resources\DapurResource\RelationManagers;
 use App\Models\Dapur;
 use Filament\Forms;
+use Filament\Forms\Components\Card;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 
 class DapurResource extends Resource
 {
     protected static ?string $model = Dapur::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-fire';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nama')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('harga')
-                    ->required(),
-                Forms\Components\Textarea::make('deskripsi')
-                    ->required()
-                    ->maxLength(65535),
-                Forms\Components\TextInput::make('image')
-                    ->required()
-                    ->maxLength(255),
+                Card::make()->schema([
+                    Forms\Components\Select::make('status')
+                        ->options([
+                            'Process' => 'Process',
+                            'Cancel' => 'Cancel',
+                            'Done' => 'Done',
+                        ])-> required(),
+                    Forms\Components\TextInput::make('nama')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('harga')
+                        ->required(),
+                    Forms\Components\FileUpload::make('image')
+                        ->required()->image()->disk('public'),
+                    Forms\Components\RichEditor::make('deskripsi')
+                        ->required()
+                        ->maxLength(65535),
+                ]),
             ]);
     }
 
@@ -41,10 +51,23 @@ class DapurResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\TextColumn::make('harga'),
-                Tables\Columns\TextColumn::make('deskripsi'),
-                Tables\Columns\TextColumn::make('image'),
+                Tables\Columns\BadgeColumn::make('status')
+                ->color(static function ($state): string {
+                    if ($state === 'Process') {
+                        return 'success';
+                    }
+                    if ($state === 'Cancel') {
+                        return 'danger';
+                    }
+                    if ($state === 'Done') {
+                        return 'success';
+                    }
+                    
+                    return 'secondary';
+                })->sortable(),
+                Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
@@ -55,9 +78,24 @@ class DapurResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()->after(
+                    function (Dapur $record) {
+                        if ($record->image) {
+                            Storage::disk('public')->delete($record->image);
+                        }
+                    }
+                ),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()->after(
+                    function (Collection $record) {
+                        foreach ($record as $key => $value) {
+                            if ($value->image) {
+                                Storage::disk('public')->delete($value->image);
+                            }
+                        }
+                    }
+                ),
             ]);
     }
     
