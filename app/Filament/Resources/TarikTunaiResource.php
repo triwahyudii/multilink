@@ -35,9 +35,11 @@ class TarikTunaiResource extends Resource
                     Forms\Components\TextInput::make('nama')
                         ->required()
                         ->maxLength(200),
-                    Forms\Components\TextInput::make('nomor_rekening')->integer(20)
+                    Forms\Components\TextInput::make('nomor_rekening')
+                        ->integer(20)
                         ->required(),
-                    Forms\Components\TextInput::make('jumlah')->integer(15)
+                    Forms\Components\TextInput::make('jumlah')
+                        ->integer(15)
                         ->required(),
                 ])
             ]);

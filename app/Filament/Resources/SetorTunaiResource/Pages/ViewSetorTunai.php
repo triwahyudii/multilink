@@ -9,4 +9,11 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewSetorTunai extends ViewRecord
 {
     protected static string $resource = SetorTunaiResource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            //
+        ];
+    }
 }
