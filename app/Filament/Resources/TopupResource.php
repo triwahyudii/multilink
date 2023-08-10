@@ -18,7 +18,7 @@ class TopupResource extends Resource
 {
     protected static ?string $model = Topup::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-puzzle';
 
     public static function form(Form $form): Form
     {
@@ -36,10 +36,10 @@ class TopupResource extends Resource
                             'PUBG' => 'PUBG',
                         ])->required(),
                     Forms\Components\TextInput::make('nomor_id')
+                        ->label('Nomor ID')
                         ->integer(30)
                         ->required(),
                     Forms\Components\Select::make('jumlah')
-                        ->integer(20)
                         ->options([
                             '10' => '10 Item',
                             '50' => '50 Item',
@@ -58,8 +58,8 @@ class TopupResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nama')->sortable()->searchable()->label('Game'),
-                Tables\Columns\TextColumn::make('nomor_id')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('jumlah')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('nomor_id')->sortable()->searchable()->label('Nomor ID'),
+                Tables\Columns\TextColumn::make('jumlah')->sortable()->searchable()->label('Item'),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
                     ->dateTime(),
             ])

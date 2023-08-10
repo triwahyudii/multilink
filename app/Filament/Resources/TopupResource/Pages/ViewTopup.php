@@ -9,4 +9,11 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewTopup extends ViewRecord
 {
     protected static string $resource = TopupResource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            //
+        ];
+    }
 }
