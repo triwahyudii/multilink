@@ -9,4 +9,11 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewPulsa extends ViewRecord
 {
     protected static string $resource = PulsaResource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            //
+        ];
+    }
 }

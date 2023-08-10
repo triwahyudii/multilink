@@ -6,6 +6,7 @@ use App\Filament\Resources\PulsaResource\Pages;
 use App\Filament\Resources\PulsaResource\RelationManagers;
 use App\Models\Pulsa;
 use Filament\Forms;
+use Filament\Forms\Components\Card;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -17,20 +18,26 @@ class PulsaResource extends Resource
 {
     protected static ?string $model = Pulsa::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-device-mobile';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('provider')
-                    ->required()
-                    ->maxLength(30),
-                Forms\Components\TextInput::make('nomor_handphone')
-                    ->tel()
-                    ->required(),
-                Forms\Components\TextInput::make('pulsa')
-                    ->required(),
+                Card::make([
+                    Forms\Components\Select::make('provider')
+                        ->options([
+                            'INDOSAT' => 'INDOSAT',
+                            'TELKOMSEL' => 'TELKOMSEL',
+                            'XL' => 'XL',
+                        ])->required(),
+                    Forms\Components\TextInput::make('nomor_handphone')
+                        ->integer(20)
+                        ->required(),
+                    Forms\Components\TextInput::make('pulsa')
+                        ->integer(20)
+                        ->required(),
+                ])
             ]);
     }
 
@@ -38,38 +45,39 @@ class PulsaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('provider'),
-                Tables\Columns\TextColumn::make('nomor_handphone'),
-                Tables\Columns\TextColumn::make('pulsa'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('provider')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('nomor_handphone')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('pulsa')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('created_at')->label('Entered')
                     ->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListPulsas::route('/'),
             'create' => Pages\CreatePulsa::route('/create'),
             'edit' => Pages\EditPulsa::route('/{record}/edit'),
+            'view' => Pages\ViewPulsa::route('/{record}'),
         ];
-    }    
+    }
 }
