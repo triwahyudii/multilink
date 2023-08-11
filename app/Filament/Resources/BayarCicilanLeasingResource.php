@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BayarCicilanResource\Pages;
-use App\Filament\Resources\BayarCicilanResource\RelationManagers;
-use App\Models\BayarCicilan;
+use App\Filament\Resources\BayarCicilanLeasingResource\Pages;
+use App\Filament\Resources\BayarCicilanLeasingResource\RelationManagers;
+use App\Models\BayarCicilanLeasing;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Resources\Form;
@@ -14,9 +14,9 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BayarCicilanResource extends Resource
+class BayarCicilanLeasingResource extends Resource
 {
-    protected static ?string $model = BayarCicilan::class;
+    protected static ?string $model = BayarCicilanLeasing::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-cash';
 
@@ -25,12 +25,12 @@ class BayarCicilanResource extends Resource
         return $form
             ->schema([
                 Card::make()->schema([
-                    Forms\Components\Select::make('bank')
+                    Forms\Components\Select::make('leasing')
                         ->options([
-                            'BRI' => 'BRI',
-                            'BCA' => 'BCA',
-                            'BNI' => 'BNI',
-                            'MANDIRI' => 'MANDIRI',
+                            'FIF' => 'FIF',
+                            'WOM' => 'WOM',
+                            'BAF' => 'BAF',
+                            'ADIRA' => 'ADIRA',
                         ])->required(),
                     Forms\Components\TextInput::make('nomor_tagihan')
                         ->integer(50)
@@ -49,7 +49,7 @@ class BayarCicilanResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('bank')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('leasing')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('nomor_tagihan')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
@@ -78,10 +78,10 @@ class BayarCicilanResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBayarCicilans::route('/'),
-            'create' => Pages\CreateBayarCicilan::route('/create'),
-            'edit' => Pages\EditBayarCicilan::route('/{record}/edit'),
-            'view' => Pages\ViewBayarCicilan::route('/{record}'),
+            'index' => Pages\ListBayarCicilanLeasings::route('/'),
+            'create' => Pages\CreateBayarCicilanLeasing::route('/create'),
+            'edit' => Pages\EditBayarCicilanLeasing::route('/{record}/edit'),
+            'view' => Pages\ViewBayarCicilanLeasing::route('/{record}'),
         ];
     }
 }
