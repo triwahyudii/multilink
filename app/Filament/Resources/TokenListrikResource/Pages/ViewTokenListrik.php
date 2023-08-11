@@ -9,4 +9,11 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewTokenListrik extends ViewRecord
 {
     protected static string $resource = TokenListrikResource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            //
+        ];
+    }
 }

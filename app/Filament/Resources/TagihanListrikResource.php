@@ -6,6 +6,7 @@ use App\Filament\Resources\TagihanListrikResource\Pages;
 use App\Filament\Resources\TagihanListrikResource\RelationManagers;
 use App\Models\TagihanListrik;
 use Filament\Forms;
+use Filament\Forms\Components\Card;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -23,9 +24,11 @@ class TagihanListrikResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nomor_id')->label('ID pelanggan')
+                Card::make()->schema([
+                    Forms\Components\TextInput::make('nomor_id')->label('ID pelanggan')
                     ->integer(30)
                     ->required(),
+                ])
             ]);
     }
 
