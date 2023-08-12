@@ -60,9 +60,9 @@ class TransferResource extends Resource
                 Tables\Columns\TextColumn::make('jumlah')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('nama_penerima')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
-                    ->date(),
+                    ->date('d/m/Y'),
                 Tables\Columns\TextColumn::make('updated_at')->label('Updated')
-                    ->dateTime(),
+                    ->dateTime('d/m/Y'),
             ])
             ->filters([
                 //

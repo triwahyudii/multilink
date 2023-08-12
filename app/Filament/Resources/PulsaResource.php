@@ -49,7 +49,7 @@ class PulsaResource extends Resource
                 Tables\Columns\TextColumn::make('nomor_handphone')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('pulsa')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
-                    ->dateTime(),
+                    ->dateTime('d/m/Y'),
             ])
             ->filters([
                 //

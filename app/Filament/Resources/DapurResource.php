@@ -69,9 +69,9 @@ class DapurResource extends Resource
                 Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
-                    ->date(),
+                    ->date('d/m/Y'),
                 Tables\Columns\TextColumn::make('updated_at')->label('Updated')
-                    ->dateTime(),
+                    ->dateTime('d/m/Y'),
             ])
             ->filters([
                 //

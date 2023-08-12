@@ -54,7 +54,7 @@ class SetorTunaiResource extends Resource
                 Tables\Columns\TextColumn::make('nomor_rekening')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('jumlah')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
-                    ->dateTime(),
+                    ->dateTime('d/m/Y'),
             ])
             ->filters([
                 //

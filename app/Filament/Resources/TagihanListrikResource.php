@@ -38,7 +38,7 @@ class TagihanListrikResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nomor_id')->sortable()->searchable()->label('ID pelanggan'),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
-                    ->dateTime(),
+                    ->dateTime('d/m/Y'),
             ])
             ->filters([
                 //

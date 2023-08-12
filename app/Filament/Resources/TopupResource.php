@@ -61,7 +61,7 @@ class TopupResource extends Resource
                 Tables\Columns\TextColumn::make('nomor_id')->sortable()->searchable()->label('Nomor ID'),
                 Tables\Columns\TextColumn::make('jumlah')->sortable()->searchable()->label('Item'),
                 Tables\Columns\TextColumn::make('created_at')->label('Entered')
-                    ->dateTime(),
+                    ->dateTime('d/m/Y'),
             ])
             ->filters([
                 //
