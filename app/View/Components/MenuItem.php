@@ -21,7 +21,7 @@ class MenuItem extends Component
      */
     public function render(): View|Closure|string
     {
-        $menu = [
+        $menu = [ 
             [
                 'title' => 'Transfer',
                 'icon' => 'fa-solid fa-money-bill-transfer',

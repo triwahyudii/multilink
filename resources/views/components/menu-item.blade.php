@@ -14,7 +14,7 @@
         <a href="http://127.0.0.1:8000/transfer">
             <div class="card h-100 border-0">
                 <div class="card-body text-center">
-                    <i class="fa-solid fa-money-bill-transfer" style="color: #1f66e0; display:flex; justify-content:center; align-items:center; font-size:40px;"></i>
+                    <img src="{{ asset('assets/images/Transfer.png') }}" alt="Transfer" style=" display:flex; justify-content:center; align-items:center; font-size:40px;">
                     <h5 class="card-title pt-2 mb-0">Transfer</h5>
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <a href="http://127.0.0.1:8000/tarik-tunai">
             <div class="card h-100 border-0">
                 <div class="card-body text-center">
-                    <i class="fa-solid fa-money-bill-wave" style="color: #1f66e0; display:flex; justify-content:center; align-items:center; font-size:40px;"></i>
+                    <img src="{{ asset('assets/images/Tarik-tunai.png') }}" alt="Tarik-tunai" style=" display:flex; justify-content:center; align-items:center; font-size:40px;">
                     <h5 class="card-title pt-2 mb-0">Tarik Tunai</h5>
                 </div>
             </div>
