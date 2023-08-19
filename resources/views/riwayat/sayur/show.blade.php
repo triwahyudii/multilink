@@ -32,7 +32,7 @@
                         </tr>
                         <tr>
                             <th>Gambar</th>
-                            <td> <img src="{{ asset('storage/images/sayur/' . $data['image']) }}" alt="images" style="width: 100px; height:100px; object-fit:cover;"></td>
+                            <td> <img src="{{ asset('storage/' . $data['image']) }}" alt="images" style="width: 100px; height:100px; object-fit:cover;"></td>
                         </tr>
 
                         <tr>

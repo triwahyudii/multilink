@@ -16,36 +16,29 @@
 </head>
 
 <body>
-    <!-- @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $item)
-            <li>{{ $item }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
 
-    @if (session()->has('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif -->
     <!-- <form action="" method="post">
         @csrf -->
-        <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <p>Harga</p>
+    <div class="container pt-4">
+        <div class="row ">
+            @foreach($data as $item)
+            <div class="col-6 col-md-3 mb-2">
+                <div class="card h-100">
+                    <div class="ratio ratio-1x1">
+                        <img src="{{ asset('storage/' . $item['image']) }}" class="card-img-top" alt="">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ $item['nama'] }}</h5>
+                        <p>Rp {{ number_format($item['harga'], 0, ',', '.') }}</p>
+                        <div class="d-grid gap-2 pt-2">
+                            <a href="{{ url('dapur/show') }}" class="btn btn-primary btn-sm bg-primary">Lihat</a>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
+    </div>
     <!-- </form> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
