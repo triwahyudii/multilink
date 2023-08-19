@@ -35,7 +35,30 @@ class DapurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $provider = $request->provider;
+        // $nomor_handphone = $request->nomor_handphone;
+        // $pulsa = $request->pulsa;
+
+        // $parameter = [
+        //     'provider' => $provider,
+        //     'nomor_handphone' => $nomor_handphone,
+        //     'pulsa' => $pulsa
+        // ];
+
+        // $data = new Client();
+        // $url = "http://localhost:8008/api/dapur";
+        // $response = $data->request('POST', $url, [
+        //     'headers' => ['Content-type' => 'application/json'],
+        //     'body' => json_encode($parameter)
+        // ]);
+        // $content = $response->getBody()->getContents();
+        // $array = json_decode($content, true);
+        // if ($array['status'] != true) {
+        //     $error = $array['data'];
+        //     return redirect()->to('pulsa')->withErrors($error)->withInput();
+        // } else {
+        //     return redirect()->to('pulsa')->with('success', 'Pulsa sedang di proses !');
+        // }
     }
 
     /**
