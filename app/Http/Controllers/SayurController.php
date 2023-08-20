@@ -19,7 +19,7 @@ class SayurController extends Controller
         $array = json_decode($content, true);
         $data = $array['data'];
 
-        return view('riwayat.sayur.index', ['data' => $data]);
+        // return view('riwayat.sayur.index', ['data' => $data]);
     }
 
     /**

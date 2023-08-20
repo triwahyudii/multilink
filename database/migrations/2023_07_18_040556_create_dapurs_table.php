@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger('harga')->length(20);
             $table->text('deskripsi');
             $table->string('image');
-            $table->string('status');
+            $table->string('status')->default('PROSES');
             $table->timestamps();
         });
     }

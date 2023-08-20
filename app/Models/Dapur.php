@@ -28,4 +28,5 @@ class Dapur extends Model
             }
         });
     }
+
 }

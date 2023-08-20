@@ -60,7 +60,7 @@ class SayurResource extends Resource
                         return 'danger';
                     }
                     if ($state === 'Done') {
-                        return 'success';
+                        return 'primary';
                     }
                     
                     return 'secondary';

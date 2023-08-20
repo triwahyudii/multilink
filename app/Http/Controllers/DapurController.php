@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dapur;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -18,8 +19,8 @@ class DapurController extends Controller
         $content = $response->getBody()->getContents();
         $array = json_decode($content, true);
         $data = $array['data'];
-
-        return view('riwayat.dapur.index', ['data' => $data]);
+        
+        // return view('riwayat.dapur.index', ['data' => $data]);
     }
 
     /**
