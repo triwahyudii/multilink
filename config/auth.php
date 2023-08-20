@@ -2,17 +2,7 @@
 
 return [
 
-    'roles' => [
-        'user' => [
-            'name' => 'User',
-            'description' => 'A regular user',
-        ],
-        'admin' => [
-            'name' => 'Administrator',
-            'description' => 'A user with administrative privileges',
-        ],
-    ],
-
+   
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

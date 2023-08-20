@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PulsaController extends Controller
 {
@@ -12,14 +13,11 @@ class PulsaController extends Controller
      */
     public function index()
     {
-        $data = new Client();
-        $url = "http://localhost:8008/api/pulsa";
-        $response = $data->request('GET', $url);
-        $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        $data = $array['data'];
+        // Ambil daftar produk yang telah dibeli oleh pengguna saat ini
+        $user = Auth::user();
+        $purchasedProducts = $user->purchases()->with('product')->get();
 
-        return view('riwayat.pulsa.index', ['data' => $data]);
+        return view('riwayat.pulsa.index', ['purchasedProducts' => $purchasedProducts]);
     }
 
     /**

@@ -16,7 +16,7 @@ class Dapur extends Model
         'harga',
         'deskripsi',
         'image',
-        'status'
+        'status',
     ];
 
     protected static function boot()
