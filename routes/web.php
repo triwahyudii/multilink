@@ -34,6 +34,11 @@ Route::get('/', function () {
 // Route::get('/admin', function () {
 //     return redirect('/admin/login');
 // })->middleware(['auth', 'verified'])->name('admin');
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', function () {
+        return view('admin');
+    })->middleware(['auth', 'verified'])->name('admin');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
