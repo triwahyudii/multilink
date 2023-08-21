@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multilink</title>
 
-    <link rel="stylesheet" href="{{ asset('/css/main/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/main/app-dark.css') }}">
-    <link rel="shortcut icon" href="{{ asset('/images/logo/favicon.svg') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('/images/logo/favicon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('/assets/css/main/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/main/app-dark.css') }}">
+    <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.png') }}" type="image/png">
 
-    <link rel="stylesheet" href="{{ asset('/css/shared/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/shared/iconly.css') }}">
 
 </head>
 
@@ -22,7 +22,8 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('/images/logo/logo.svg') }}" alt="Logo" srcset=""></a>
+                            <!-- <a href="#"><img src="{{ asset('/assets/images/logo/logo.svg') }}" alt="Logo" srcset=""></a> -->
+                            <h3>Multilink</h3>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
@@ -54,7 +55,7 @@
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item active ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="#" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -75,23 +76,39 @@
                             </ul>
                         </li>
                     </ul>
-
                 </div>
-                <footer>
-                    <div class="footer clearfix mb-0 text-muted">
-                        <div class="float-start">
-                            <p>2023 &copy; Multilink</p>
-                        </div>
-                    </div>
-                </footer>
+
             </div>
         </div>
-        <script src="{{ asset('/js/bootstrap.js') }}"></script>
-        <script src="{{ asset('/js/app.js') }}"></script>
+
+        <!-- CONTENT -->
+        <div id="main">
+            <section class="section">
+                <div class="container">
+                    <div class="col-12 col-md-6">
+
+                        @yield('content')
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER  -->
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="d-flex justify-content-center">
+                        <p>2023 &copy; Multilink</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="{{ asset('/assets/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('/assets/js/app.js') }}"></script>
 
         <!-- Need: Apexcharts -->
-        <script src="{{ asset('/extensions/apexcharts/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('/js/pages/dashboard.js') }}"></script>
+        <script src="{{ asset('/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
+        <script src="{{ asset('/assets/js/pages/dashboard.js') }}"></script>
 
 </body>
 
