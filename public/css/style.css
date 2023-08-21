@@ -35,3 +35,11 @@
     outline-color: blue;
     place-content: "Enter your message!";
 }
+
+.sidebar-item a.sidebar-link:hover {
+    color: #068FFF;
+}
+
+.sidebar-item .submenu li:hover {
+    background-color: #e8e8e8;
+}

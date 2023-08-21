@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.png') }}" type="image/png">
 
     <link rel="stylesheet" href="{{ asset('/assets/css/shared/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
 </head>
 
@@ -49,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- START SIDEBAR MENU  -->
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
@@ -61,9 +62,17 @@
                             </a>
                         </li>
 
+                        <!-- TRANSFER -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/transfer/') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-money-bill-transfer"></i>
+                                <span>Transfer</span>
+                            </a>
+                        </li>
+
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-stack"></i>
+                                <i class="fa-solid fa-bolt-lightning"></i>
                                 <span>PLN</span>
                             </a>
                             <ul class="submenu ">
@@ -77,6 +86,7 @@
                         </li>
                     </ul>
                 </div>
+                <!-- END SIDEBAR MENU  -->
 
             </div>
         </div>
@@ -85,7 +95,7 @@
         <div id="main">
             <section class="section">
                 <div class="container">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12">
 
                         @yield('content')
 
@@ -103,6 +113,7 @@
             </footer>
         </div>
 
+        <script src="https://kit.fontawesome.com/39d2ff4747.js" crossorigin="anonymous"></script>
         <script src="{{ asset('/assets/js/bootstrap.js') }}"></script>
         <script src="{{ asset('/assets/js/app.js') }}"></script>
 

@@ -22,7 +22,7 @@
                 <h3 class="mt-2 mb-2 fw-bold badge text-bg-warning">Detail Transfer</h3>
                 <table class="table table-striped border-2">
                     <tbody>
-                    <tr>
+                        <tr>
                             <th>Bank</th>
                             <td>: {{ $data['bank'] }}</td>
                         </tr>
@@ -57,7 +57,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary btn-sm bg-primary"><a href="{{ url('riwayat/transfer') }}">Kembali</a></button>
+                    <button type="button" class="btn btn-primary btn-sm bg-primary"><a href="{{ url('riwayat/transfer') }}">Kembali</a></button>
                 </div>
             </div>
         </div>

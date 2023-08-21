@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminTransferController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AsuransiController;
 use App\Http\Controllers\BayarCicilanController;
@@ -31,14 +32,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/admin', function () {
-//     return redirect('/admin/login');
-// })->middleware(['auth', 'verified'])->name('admin');
 Route::middleware('auth')->group(function () {
     Route::get('/admin', function () {
         return view('admin');
     })->middleware(['auth', 'verified'])->name('admin');
+
+    //ADMIN TRANSFER
+    Route::get('admin/transfer', [AdminTransferController::class, 'index']);
+    Route::get('admin/transfer/{id}', [AdminTransferController::class, 'show']);
+    Route::get('admin/transfer/edit/{id}', [AdminTransferController::class, 'edit']);
 });
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {

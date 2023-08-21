@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class AdminTransferController extends Controller
@@ -12,7 +13,14 @@ class AdminTransferController extends Controller
      */
     public function index()
     {
-        //
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+        
+        return view('admin.transfer.index', ['data' => $data]);
     }
 
     /**
@@ -36,7 +44,14 @@ class AdminTransferController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer/$id";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+        
+        return view('admin.transfer.show', ['data' => $data]);
     }
 
     /**
@@ -44,7 +59,18 @@ class AdminTransferController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer/$id";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['message'];
+            return redirect()->to('/admin/transfer')->withErrors($error);
+        } else {
+            $data = $array['data'];
+            return view('admin.transfer.edit', ['data' => $data]);
+        }
     }
 
     /**
