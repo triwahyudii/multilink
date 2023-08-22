@@ -7,47 +7,48 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Transfer Edit</h4>
+                    <h4 class="card-title">Edit Transfer</h4>
                 </div>
-
                 <form action="{{ url('/admin/transfer/' . $data['id']) }}" method="post">
                     @csrf
                     @method('put')
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>Bank</th>
-                                        <th>Nama Pengirim</th>
-                                        <th>Nomor Rekening</th>
-                                        <th>Jumlah</th>
-                                        <th>Nama Penerima</th>
-                                        <th>Nomor Rekening Penerima</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <select name="bank" class="form-select ml-3 mt-2 border-primary rounded-3">
-                                                <option value="BRI" @if ($data['bank'] == 'BRI') selected @endif>BRI</option>
-                                                <option value="BCA" @if ($data['bank'] == 'BCA') selected @endif>BCA</option>
-                                                <option value="BNI" @if ($data['bank'] == 'BNI') selected @endif>BNI</option>
-                                                <option value="MANDIRI" @if ($data['bank'] == 'MANDIRI') selected @endif>MANDIRI</option>
-                                            </select>
-                                        </td>
-                                        <td class="fw-bold">{{ $data['nama'] ?? old('nama') }}</td>
-                                        <td>{{ $data['nomor_rekening'] ?? old('nomor_rekening') }}</td>
-                                        <td>Rp {{ number_format($data['jumlah'] ?? old('jumlah'), 0, ',', '.') }}</td>
-                                        <td>{{ $data['nama_penerima'] ?? old('nama_penerima') }}</td>
-                                        <td>{{ $data['nomor_rekening_penerima'] ?? old('nomor_rekening_penerima') }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    
+                    <div class="d-flex justify-content-center">
+                        <div class="input-form container pb-2 m-3">
+                            <label>Bank</label>
+                            <div class="input-group">
+                                <select name="bank" class="form-select ml-3 mt-2 border-primary rounded-3">
+                                    <option value="BRI" @if ($data['bank']=='BRI' ) selected @endif>BRI</option>
+                                    <option value="BCA" @if ($data['bank']=='BCA' ) selected @endif>BCA</option>
+                                    <option value="BNI" @if ($data['bank']=='BNI' ) selected @endif>BNI</option>
+                                    <option value="MANDIRI" @if ($data['bank']=='MANDIRI' ) selected @endif>MANDIRI</option>
+                                </select>
+                            </div>
+                            <label class="pt-1">Nama Pengirim</label>
+                            <div class="input-group">
+                                <input type="text" name="nama" id="nama" value="{{ $data['nama'] }}" class="form-control input m-2 rounded-3" placeholder="Nama Pengirim">
+                            </div>
+                            <label class="pt-1">Nomor Rekening</label>
+                            <div class="input-group">
+                                <input type="number" name="nomor_rekening" id="nomor_rekening" value="{{ $data['nomor_rekening'] }}" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
+                            </div>
+                            <label class="pt-1">Jumlah</label>
+                            <div class="input-group">
+                                <input type="number" name="jumlah" id="jumlah" value="{{ $data['jumlah'] }}" class="form-control input m-2 rounded-3" placeholder="Jumlah">
+                            </div>
+                            <label class="pt-1">Nama Penerima</label>
+                            <div class="input-group">
+                                <input type="text" name="nama_penerima" id="nama_penerima" value="{{ $data['nama_penerima'] }}" class="form-control input m-2 rounded-3" placeholder="Nama Penerima">
+                            </div>
+                            <label class="pt-1">Nomor Rekening Penerima</label>
+                            <div class="input-group">
+                                <input type="number" name="nomor_rekening_penerima" id="nomor_rekening_penerima" value="{{ $data['nomor_rekening_penerima'] }}" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening Penerima">
+                            </div>
+                            <div class="d-flex pt-3">
+                                <a href="{{ url('/admin/transfer/') }}" class="btn btn-secondary btn-sm justify-content-start me-2"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                                <button class="btn btn-primary btn-sm bg-primary justify-content-end" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3"><i class="fas fa-save"></i> Save</button>
-                        <a href="{{ url('/admin/transfer/') }}" class="btn btn-secondary mt-3"><i class="fas fa-arrow-left"></i> Back</a>
                     </div>
                 </form>
             </div>

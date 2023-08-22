@@ -7,9 +7,9 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Transfer Detail</h4>
+                    <h4 class="card-title">Detail Transfer</h4>
                 </div>
-                <!-- table hover -->
+
                 <div class="table-responsive">
                     <table class="table">
                         <tbody>
@@ -49,7 +49,7 @@
                     </table>
                 </div>
             </div>
-            <a href="{{ url('/admin/transfer/') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-left-long"></i>Back</a>
+            <a href="{{ url('/admin/transfer/') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-arrow-left"></i> Back</a>
         </div>
     </div>
 </section>

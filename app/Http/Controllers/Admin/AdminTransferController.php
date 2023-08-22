@@ -23,7 +23,7 @@ class AdminTransferController extends Controller
      */
     public function create()
     {
-        return view('admin.transfer.add');  
+        return view('admin.transfer.add');
     }
 
     /**
@@ -40,14 +40,11 @@ class AdminTransferController extends Controller
      */
     public function show(string $id)
     {
-        $data = new Client();
-        $url = "http://127.0.0.1:8008/api/transfer/$id";
-        $response = $data->request('GET', $url);
-        $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        $data = $array['data'];
-        
-        return view('admin.transfer.show', ['data' => $data]);
+        $data = Transfer::find($id);
+        if (!$data) {
+            return redirect('/admin/transfer')->with('error', 'Data not found.');
+        }
+        return view('admin.transfer.show', compact(['data']));
     }
 
     /**
@@ -55,18 +52,8 @@ class AdminTransferController extends Controller
      */
     public function edit(string $id)
     {
-        $client = new Client();
-        $url = "http://127.0.0.1:8008/api/transfer/$id";
-        $response = $client->request('GET', $url);
-        $content = $response->getBody()->getContents();
-        $data = json_decode($content, true);
-    
-        if ($data['status'] != true) {
-            $error = $data['message'];
-            return redirect()->route('admin.transfer.index')->withErrors($error);
-        } else {
-            return view('admin.transfer.edit', ['data' => $data['data']]);
-        }
+        $data = Transfer::find($id);
+        return view('admin.transfer.edit', compact(['data']));
     }
 
     /**
@@ -74,36 +61,9 @@ class AdminTransferController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $bank = $request->bank;
-        $nama = $request->nama;
-        $nomor_rekening = $request->nomor_rekening;
-        $jumlah = $request->jumlah;
-        $nama_penerima = $request->nama_penerima;
-        $nomor_rekening_penerima = $request->nomor_rekening_penerima;
-
-        $parameter = [
-            'bank' => $bank,
-            'nama' => $nama,
-            'nomor_rekening' => $nomor_rekening,
-            'jumlah' => $jumlah,
-            'nama_penerima' => $nama_penerima,
-            'nomor_rekening_penerima' => $nomor_rekening_penerima
-        ];
-
-        $data = new Client();
-        $url = "http://127.0.0.1:8008/api/transfer/$id";
-        $response = $data->request('PUT', $url, [
-            'headers' => ['Content-type' => 'application/json'],
-            'body' => json_encode($parameter)
-        ]);
-        $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        if ($array['status'] != true) {
-            $error = $array['data'];
-            return redirect()->to('transfer')->withErrors($error)->withInput();
-        } else {
-            return redirect()->to('transfer')->with('success', 'Data berhasil di update !');
-        }
+        $data = Transfer::find($id);
+        $data->update($request->except(['_token']));
+        return redirect('/admin/transfer');
     }
 
     /**
@@ -111,16 +71,8 @@ class AdminTransferController extends Controller
      */
     public function destroy(string $id)
     {
-        $data = new Client();
-        $url = "http://127.0.0.1:8008/api/transfer/$id";
-        $response = $data->request('DELETE', $url );
-        $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        if ($array['status'] != true) {
-            $error = $array['data'];
-            return redirect()->to('transfer')->withErrors($error)->withInput();
-        } else {
-            return redirect()->to('transfer')->with('success', 'Data berhasil di hapus !');
-        }
+        $data = Transfer::find($id);
+        $data->delete();
+        return redirect('/admin/transfer');
     }
 }

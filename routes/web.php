@@ -41,10 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/transfer', [AdminTransferController::class, 'index']);
     Route::get('admin/transfer/create', [AdminTransferController::class, 'create']);
     Route::post('admin/transfer/store', [AdminTransferController::class, 'store']);
-    Route::get('admin/transfer/{id}', [AdminTransferController::class, 'show']);
     Route::get('admin/transfer/edit/{id}', [AdminTransferController::class, 'edit']);
     Route::put('admin/transfer/{id}', [AdminTransferController::class, 'update']);
     Route::delete('admin/transfer/{id}', [AdminTransferController::class, 'destroy']);
+    Route::get('admin/transfer/{id}', [AdminTransferController::class, 'show']);
 });
 
 

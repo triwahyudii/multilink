@@ -9,19 +9,17 @@
                 <div class="card-header">
                     <h4 class="card-title">Add Transfer</h4>
                 </div>
-
                 <form action="{{ url('/admin/transfer/store') }}" method="post">
                     @csrf
                     <div class="d-flex justify-content-center">
                         <div class="input-form container pb-2 m-3">
                             <label>Bank</label>
                             <div class="input-group">
-                                <select name="bank" class="ml-3 mt-2 border-primary rounded-3 input-group">
-                                    <option selected disabled>Nama Bank</option>
-                                    <option value="BRI" @if (old('bank')=='BRI' ) selected @endif>BRI</option>
-                                    <option value="BCA" @if (old('bank')=='BCA' ) selected @endif>BCA</option>
-                                    <option value="BNI" @if (old('bank')=='BNI' ) selected @endif>BNI</option>
-                                    <option value="MANDIRI" @if (old('bank')=='MANDIRI' ) selected @endif>MANDIRI</option>
+                                <select name="bank" class="form-select ml-3 mt-2 border-primary rounded-3">
+                                    <option value="BRI" @if ($data['bank']=='BRI' ) selected @endif>BRI</option>
+                                    <option value="BCA" @if ($data['bank']=='BCA' ) selected @endif>BCA</option>
+                                    <option value="BNI" @if ($data['bank']=='BNI' ) selected @endif>BNI</option>
+                                    <option value="MANDIRI" @if ($data['bank']=='MANDIRI' ) selected @endif>MANDIRI</option>
                                 </select>
                             </div>
                             <label class="pt-1">Nama Pengirim</label>

@@ -30,7 +30,7 @@
                                 <td>
                                     <a href="{{ url('/admin/transfer/' . $item['id']) }}" class="btn btn-info btn-sm"><i class="fa-regular fa-eye"></i>View </a>
                                     <a href="{{ url('/admin/transfer/edit/' . $item['id']) }}" class="btn btn-warning btn-sm"><i class="fa-regular fa-pen-to-square mr-3"></i> Edit </a>
-                                    <form action="{{ url('/admin/transfer/') }}" method="post" onsubmit="return confirm('Yakin menghapus data?')" class="d-inline">
+                                    <form action="{{ url('/admin/transfer/' . $item['id']) }}" method="post" onsubmit="return confirm('Yakin menghapus data?')" class="d-inline">
                                     @csrf
                                     @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fa-regular fa-trash-can"></i>Delete</button>
