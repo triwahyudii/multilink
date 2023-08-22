@@ -49,7 +49,7 @@
                     </table>
                 </div>
             </div>
-            <a href="{{ url('/admin/transfer/') }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-left-long"></i>  Back</a>
+            <a href="{{ url('/admin/transfer/') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-left-long"></i>Back</a>
         </div>
     </div>
 </section>

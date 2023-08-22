@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Transfer</h4>
-                    <a href="{{ url('/admin/transfer/') }}" class="btn btn-success btn-sm"><i class="fa-regular fa-plus"></i> Add Data </a>
+                    <a href="{{ url('/admin/transfer/create') }}" class="btn btn-success btn-sm"><i class="fa-regular fa-plus"></i> Add Data </a>
                 </div>
                 <!-- table hover -->
                 <div class="table-responsive">
