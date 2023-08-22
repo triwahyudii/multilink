@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transfer;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,36 @@ class AdminTransferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bank = $request->bank;
+        $nama = $request->nama;
+        $nomor_rekening = $request->nomor_rekening;
+        $jumlah = $request->jumlah;
+        $nama_penerima = $request->nama_penerima;
+        $nomor_rekening_penerima = $request->nomor_rekening_penerima;
+
+        $parameter = [
+            'bank' => $bank,
+            'nama' => $nama,
+            'nomor_rekening' => $nomor_rekening,
+            'jumlah' => $jumlah,
+            'nama_penerima' => $nama_penerima,
+            'nomor_rekening_penerima' => $nomor_rekening_penerima
+        ];
+
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer";
+        $response = $data->request('POST', $url, [
+            'headers' => ['Content-type' => 'application/json'],
+            'body' => json_encode($parameter)
+        ]);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->route('admin.transfer.index')->withErrors($error)->withInput();
+        } else {
+            return redirect()->route('admin.transfer.index')->with('success', 'Transfer di proses !');
+        }
     }
 
     /**
@@ -59,17 +89,17 @@ class AdminTransferController extends Controller
      */
     public function edit(string $id)
     {
-        $data = new Client();
+        $client = new Client();
         $url = "http://127.0.0.1:8008/api/transfer/$id";
-        $response = $data->request('GET', $url);
+        $response = $client->request('GET', $url);
         $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        if ($array['status'] != true) {
-            $error = $array['message'];
-            return redirect()->to('/admin/transfer')->withErrors($error);
+        $data = json_decode($content, true);
+    
+        if ($data['status'] != true) {
+            $error = $data['message'];
+            return redirect()->route('admin.transfer.index')->withErrors($error);
         } else {
-            $data = $array['data'];
-            return view('admin.transfer.edit', ['data' => $data]);
+            return view('admin.transfer.edit', ['data' => $data['data']]);
         }
     }
 
@@ -78,7 +108,36 @@ class AdminTransferController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $bank = $request->bank;
+        $nama = $request->nama;
+        $nomor_rekening = $request->nomor_rekening;
+        $jumlah = $request->jumlah;
+        $nama_penerima = $request->nama_penerima;
+        $nomor_rekening_penerima = $request->nomor_rekening_penerima;
+
+        $parameter = [
+            'bank' => $bank,
+            'nama' => $nama,
+            'nomor_rekening' => $nomor_rekening,
+            'jumlah' => $jumlah,
+            'nama_penerima' => $nama_penerima,
+            'nomor_rekening_penerima' => $nomor_rekening_penerima
+        ];
+
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer/$id";
+        $response = $data->request('PUT', $url, [
+            'headers' => ['Content-type' => 'application/json'],
+            'body' => json_encode($parameter)
+        ]);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->to('transfer')->withErrors($error)->withInput();
+        } else {
+            return redirect()->to('transfer')->with('success', 'Data berhasil di update !');
+        }
     }
 
     /**
@@ -86,6 +145,16 @@ class AdminTransferController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = new Client();
+        $url = "http://127.0.0.1:8008/api/transfer/$id";
+        $response = $data->request('DELETE', $url );
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        if ($array['status'] != true) {
+            $error = $array['data'];
+            return redirect()->to('transfer')->withErrors($error)->withInput();
+        } else {
+            return redirect()->to('transfer')->with('success', 'Data berhasil di hapus !');
+        }
     }
 }
