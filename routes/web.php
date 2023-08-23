@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminBayarBank;
+use App\Http\Controllers\Admin\AdminBayarLeasing;
 use App\Http\Controllers\Admin\AdminSetorController;
 use App\Http\Controllers\Admin\AdminTarikController;
 use App\Http\Controllers\Admin\AdminTransferController;
@@ -75,6 +76,15 @@ Route::middleware('auth')->group(function () {
      Route::put('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'update']);
      Route::delete('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'destroy']);
      Route::get('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'show']);
+
+     //ADMIN BAYAR CICILAN LEASING
+     Route::get('admin/bayar-cicilan-leasing', [AdminBayarLeasing::class, 'index']);
+     Route::get('admin/bayar-cicilan-leasing/create', [AdminBayarLeasing::class, 'create']);
+     Route::post('admin/bayar-cicilan-leasing/store', [AdminBayarLeasing::class, 'store']);
+     Route::get('admin/bayar-cicilan-leasing/edit/{id}', [AdminBayarLeasing::class, 'edit']);
+     Route::put('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'update']);
+     Route::delete('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'destroy']);
+     Route::get('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'show']);
 });
 
 

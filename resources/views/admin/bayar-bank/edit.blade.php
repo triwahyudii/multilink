@@ -24,9 +24,9 @@
                                     <option value="MANDIRI" @if ($data['bank']=='MANDIRI' ) selected @endif>MANDIRI</option>
                                 </select>
                             </div>
-                            <label class="pt-1">Nama Pengirim</label>
+                            <label class="pt-1">Nama</label>
                             <div class="input-group">
-                                <input type="text" name="nama" id="nama" value="{{ $data['nama'] }}" class="form-control input m-2 rounded-3" placeholder="Nama Pengirim">
+                                <input type="text" name="nama" id="nama" value="{{ $data['nama'] }}" class="form-control input m-2 rounded-3" placeholder="Nama">
                             </div>
                             <label class="pt-1">Nomor Tagihan</label>
                             <div class="input-group">
