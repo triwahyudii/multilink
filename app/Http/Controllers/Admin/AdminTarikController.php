@@ -3,19 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Transfer;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
-class AdminTransferController extends Controller
+class AdminTarikController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Transfer::paginate(1)->onEachSide(1);
-        return view('admin.transfer.index', compact(['data']));
+        //
     }
 
     /**
@@ -23,7 +20,7 @@ class AdminTransferController extends Controller
      */
     public function create()
     {
-        return view('admin.transfer.add');
+        //
     }
 
     /**
@@ -31,8 +28,7 @@ class AdminTransferController extends Controller
      */
     public function store(Request $request)
     {
-        Transfer::create($request->except(['_token']));
-        return redirect('/admin/transfer');
+        //
     }
 
     /**
@@ -40,11 +36,7 @@ class AdminTransferController extends Controller
      */
     public function show(string $id)
     {
-        $data = Transfer::find($id);
-        if (!$data) {
-            return redirect('/admin/transfer')->with('error', 'Data not found.');
-        }
-        return view('admin.transfer.show', compact(['data']));
+        //
     }
 
     /**
@@ -52,8 +44,7 @@ class AdminTransferController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Transfer::find($id);
-        return view('admin.transfer.edit', compact(['data']));
+        //
     }
 
     /**
@@ -61,9 +52,7 @@ class AdminTransferController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = Transfer::find($id);
-        $data->update($request->except(['_token']));
-        return redirect('/admin/transfer');
+        //
     }
 
     /**
@@ -71,8 +60,6 @@ class AdminTransferController extends Controller
      */
     public function destroy(string $id)
     {
-        $data = Transfer::find($id);
-        $data->delete();
-        return redirect('/admin/transfer');
+        //
     }
 }

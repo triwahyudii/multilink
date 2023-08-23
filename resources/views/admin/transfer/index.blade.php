@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Transfer</h4>
+                    <h2 class="card-title fs-3 pb-3">Transfer</h2>
                     <a href="{{ url('/admin/transfer/create') }}" class="btn btn-success btn-sm"><i class="fa-regular fa-plus"></i> Add Data </a>
                 </div>
                 <!-- table hover -->
@@ -45,5 +45,6 @@
         </div>
     </div>
 </section>
+{{ $data->links() }}
 
 @endsection
