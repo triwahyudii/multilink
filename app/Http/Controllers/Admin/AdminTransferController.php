@@ -12,10 +12,21 @@ class AdminTransferController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Transfer::paginate(1)->onEachSide(1);
-        return view('admin.transfer.index', compact(['data']));
+        $search = $request->query('search');
+        if (!empty($search)) {
+            $data = Transfer::sortable()
+                ->where('transfers.nama', 'like', '%' . $search . '%')
+                ->orWhere('transfers.nomor_rekening', 'like', '%' . $search . '%')
+                ->orWhere('transfers.jumlah', 'like', '%' . $search . '%')
+                ->orWhere('transfers.nama_penerima', 'like', '%' . $search . '%')
+                ->paginate(1)->onEachSide(1);
+        } else {
+        $data = Transfer::sortable()->paginate(1)->onEachSide(1);
+        }
+
+        return view('admin.transfer.index', compact(['data', 'search']));
     }
 
     /**
