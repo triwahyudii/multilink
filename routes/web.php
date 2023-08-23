@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminBayarBank;
 use App\Http\Controllers\Admin\AdminBayarLeasing;
+use App\Http\Controllers\Admin\AdminPulsaController;
 use App\Http\Controllers\Admin\AdminSetorController;
 use App\Http\Controllers\Admin\AdminTarikController;
 use App\Http\Controllers\Admin\AdminTransferController;
@@ -85,6 +86,15 @@ Route::middleware('auth')->group(function () {
      Route::put('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'update']);
      Route::delete('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'destroy']);
      Route::get('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'show']);
+
+     //ADMIN PULSA
+     Route::get('admin/pulsa', [AdminPulsaController::class, 'index']);
+     Route::get('admin/pulsa/create', [AdminPulsaController::class, 'create']);
+     Route::post('admin/pulsa/store', [AdminPulsaController::class, 'store']);
+     Route::get('admin/pulsa/edit/{id}', [AdminPulsaController::class, 'edit']);
+     Route::put('admin/pulsa/{id}', [AdminPulsaController::class, 'update']);
+     Route::delete('admin/pulsa/{id}', [AdminPulsaController::class, 'destroy']);
+     Route::get('admin/pulsa/{id}', [AdminPulsaController::class, 'show']);
 });
 
 

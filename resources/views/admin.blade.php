@@ -103,6 +103,14 @@
                             </ul>
                         </li>
 
+                        <!-- PULSA -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/pulsa/') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                                <span>Pulsa</span>
+                            </a>
+                        </li>
+
                         <!-- PLN -->
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
