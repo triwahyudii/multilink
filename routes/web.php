@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminSetorController;
 use App\Http\Controllers\Admin\AdminTarikController;
 use App\Http\Controllers\Admin\AdminTransferController;
 use App\Http\Controllers\AdminController;
@@ -55,6 +56,15 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/tarik-tunai/{id}', [AdminTarikController::class, 'update']);
     Route::delete('admin/tarik-tunai/{id}', [AdminTarikController::class, 'destroy']);
     Route::get('admin/tarik-tunai/{id}', [AdminTarikController::class, 'show']);
+
+     //ADMIN SETOR TUNAI
+     Route::get('admin/setor-tunai', [AdminSetorController::class, 'index']);
+     Route::get('admin/setor-tunai/create', [AdminSetorController::class, 'create']);
+     Route::post('admin/setor-tunai/store', [AdminSetorController::class, 'store']);
+     Route::get('admin/setor-tunai/edit/{id}', [AdminSetorController::class, 'edit']);
+     Route::put('admin/setor-tunai/{id}', [AdminSetorController::class, 'update']);
+     Route::delete('admin/setor-tunai/{id}', [AdminSetorController::class, 'destroy']);
+     Route::get('admin/setor-tunai/{id}', [AdminSetorController::class, 'show']);
 });
 
 
