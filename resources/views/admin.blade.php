@@ -87,6 +87,23 @@
                             </a>
                         </li>
 
+                        <!-- BAYAR CICILAN -->
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa-solid fa-credit-card"></i>
+                                <span>Bayar Cicilan</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="{{ url('/admin/bayar-cicilan-bank/') }}">Cicilan Bank</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="{{ url('/admin/bayar-cicilan-leasing/') }}">Cicilan Leasing</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- PLN -->
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="fa-solid fa-bolt-lightning"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBayarBank;
 use App\Http\Controllers\Admin\AdminSetorController;
 use App\Http\Controllers\Admin\AdminTarikController;
 use App\Http\Controllers\Admin\AdminTransferController;
@@ -65,6 +66,15 @@ Route::middleware('auth')->group(function () {
      Route::put('admin/setor-tunai/{id}', [AdminSetorController::class, 'update']);
      Route::delete('admin/setor-tunai/{id}', [AdminSetorController::class, 'destroy']);
      Route::get('admin/setor-tunai/{id}', [AdminSetorController::class, 'show']);
+
+     //ADMIN BAYAR CICILAN BANK
+     Route::get('admin/bayar-cicilan-bank', [AdminBayarBank::class, 'index']);
+     Route::get('admin/bayar-cicilan-bank/create', [AdminBayarBank::class, 'create']);
+     Route::post('admin/bayar-cicilan-bank/store', [AdminBayarBank::class, 'store']);
+     Route::get('admin/bayar-cicilan-bank/edit/{id}', [AdminBayarBank::class, 'edit']);
+     Route::put('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'update']);
+     Route::delete('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'destroy']);
+     Route::get('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'show']);
 });
 
 
