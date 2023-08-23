@@ -71,6 +71,14 @@
                             </a>
                         </li>
 
+                        <!-- TARIK TUNAI -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/tarik-tunai/') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-money-bills"></i>
+                                <span>Tarik Tunai</span>
+                            </a>
+                        </li>
+
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="fa-solid fa-bolt-lightning"></i>

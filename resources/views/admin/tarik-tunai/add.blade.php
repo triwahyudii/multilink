@@ -7,9 +7,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add Transfer</h4>
+                    <h4 class="card-title">Add Tarik Tunai</h4>
                 </div>
-                <form action="{{ url('/admin/transfer/store') }}" method="post">
+                <form action="{{ url('/admin/tarik-tunai/store') }}" method="post">
                     @csrf
                     <div class="d-flex justify-content-center">
                         <div class="input-form container pb-2 m-3">
@@ -23,28 +23,20 @@
                                     <option value="MANDIRI">MANDIRI</option>
                                 </select>
                             </div>
-                            <label class="pt-1">Nama Pengirim</label>
+                            <label class="pt-1">Nama</label>
                             <div class="input-group">
-                                <input type="text" name="nama" id="nama"  class="form-control input m-2 rounded-3" placeholder="Nama Pengirim">
+                                <input type="text" name="nama" id="nama" class="form-control input m-2 rounded-3" placeholder="Nama">
                             </div>
                             <label class="pt-1">Nomor Rekening</label>
                             <div class="input-group">
-                                <input type="number" name="nomor_rekening" id="nomor_rekening"  class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
+                                <input type="number" name="nomor_rekening" id="nomor_rekening" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
                             </div>
                             <label class="pt-1">Jumlah</label>
                             <div class="input-group">
-                                <input type="number" name="jumlah" id="jumlah"  class="form-control input m-2 rounded-3" placeholder="Jumlah">
-                            </div>
-                            <label class="pt-1">Nama Penerima</label>
-                            <div class="input-group">
-                                <input type="text" name="nama_penerima" id="nama_penerima"  class="form-control input m-2 rounded-3" placeholder="Nama Penerima">
-                            </div>
-                            <label class="pt-1">Nomor Rekening Penerima</label>
-                            <div class="input-group">
-                                <input type="number" name="nomor_rekening_penerima" id="nomor_rekening_penerima"  class="form-control input m-2 rounded-3" placeholder="Nomor Rekening Penerima">
+                                <input type="number" name="jumlah" id="jumlah" class="form-control input m-2 rounded-3" placeholder="Jumlah">
                             </div>
                             <div class="d-flex pt-3">
-                                <a href="{{ url('/admin/transfer/') }}" class="btn btn-secondary btn-sm justify-content-start me-2"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                                <a href="{{ url('/admin/tarik-tunai/') }}" class="btn btn-secondary btn-sm justify-content-start me-2"><i class="fa-solid fa-arrow-left"></i> Back</a>
                                 <button class="btn btn-primary btn-sm bg-primary justify-content-end" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                             </div>
                         </div>
