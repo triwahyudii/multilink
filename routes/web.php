@@ -129,6 +129,12 @@ Route::middleware('auth')->group(function () {
 
     //ADMIN ASURANSI
     Route::get('admin/asuransi', [AdminAsuransiController::class, 'index']);
+    Route::get('admin/asuransi/create', [AdminAsuransiController::class, 'create']);
+    Route::post('admin/asuransi/store', [AdminAsuransiController::class, 'store']);
+    Route::get('admin/asuransi/edit/{id}', [AdminAsuransiController::class, 'edit']);
+    Route::put('admin/asuransi/{id}', [AdminAsuransiController::class, 'update']);
+    Route::delete('admin/asuransi/{id}', [AdminAsuransiController::class, 'destroy']);
+    Route::get('admin/asuransi/{id}', [AdminAsuransiController::class, 'show']);
 });
 
 
