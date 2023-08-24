@@ -119,10 +119,10 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="#">Tagihan Listrik</a>
+                                    <a href="{{ url('/admin/tagihan-listrik/') }}">Tagihan Listrik</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="#">Token Listrik</a>
+                                <a href="{{ url('/admin/token-listrik/') }}">Token Listrik</a>
                                 </li>
                             </ul>
                         </li>

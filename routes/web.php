@@ -4,7 +4,9 @@ use App\Http\Controllers\Admin\AdminBayarBank;
 use App\Http\Controllers\Admin\AdminBayarLeasing;
 use App\Http\Controllers\Admin\AdminPulsaController;
 use App\Http\Controllers\Admin\AdminSetorController;
+use App\Http\Controllers\Admin\AdminTagihanListrikController;
 use App\Http\Controllers\Admin\AdminTarikController;
+use App\Http\Controllers\Admin\AdminTokenListrikController;
 use App\Http\Controllers\Admin\AdminTransferController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AsuransiController;
@@ -95,6 +97,18 @@ Route::middleware('auth')->group(function () {
      Route::put('admin/pulsa/{id}', [AdminPulsaController::class, 'update']);
      Route::delete('admin/pulsa/{id}', [AdminPulsaController::class, 'destroy']);
      Route::get('admin/pulsa/{id}', [AdminPulsaController::class, 'show']);
+
+      //ADMIN TAGIHAN LISTRIK
+      Route::get('admin/tagihan-listrik', [AdminTagihanListrikController::class, 'index']);
+      Route::get('admin/tagihan-listrik/create', [AdminTagihanListrikController::class, 'create']);
+      Route::post('admin/tagihan-listrik/store', [AdminTagihanListrikController::class, 'store']);
+      Route::get('admin/tagihan-listrik/edit/{id}', [AdminTagihanListrikController::class, 'edit']);
+      Route::put('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'update']);
+      Route::delete('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'destroy']);
+      Route::get('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'show']);
+
+      //ADMIN TOKEN LISTRIK
+      Route::get('admin/token-listrik', [AdminTokenListrikController::class, 'index']);
 });
 
 
