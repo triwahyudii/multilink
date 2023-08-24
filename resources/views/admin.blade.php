@@ -142,6 +142,14 @@
                                 <span>Asuransi</span>
                             </a>
                         </li>
+
+                        <!-- DAPUR -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/dapur/') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-kitchen-set fs-4"></i>
+                                <span>Dapur</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- END SIDEBAR MENU  -->

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminAsuransiController;
 use App\Http\Controllers\Admin\AdminBayarBank;
 use App\Http\Controllers\Admin\AdminBayarLeasing;
+use App\Http\Controllers\Admin\AdminDapurController;
 use App\Http\Controllers\Admin\AdminPulsaController;
 use App\Http\Controllers\Admin\AdminSetorController;
 use App\Http\Controllers\Admin\AdminTagihanListrikController;
@@ -135,6 +136,15 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/asuransi/{id}', [AdminAsuransiController::class, 'update']);
     Route::delete('admin/asuransi/{id}', [AdminAsuransiController::class, 'destroy']);
     Route::get('admin/asuransi/{id}', [AdminAsuransiController::class, 'show']);
+
+    //ADMIN DAPUR
+    Route::get('admin/dapur', [AdminDapurController::class, 'index']);
+    Route::get('admin/dapur/create', [AdminDapurController::class, 'create']);
+    Route::post('admin/dapur/store', [AdminDapurController::class, 'store']);
+    Route::get('admin/dapur/edit/{id}', [AdminDapurController::class, 'edit']);
+    Route::put('admin/dapur/{id}', [AdminDapurController::class, 'update']);
+    Route::delete('admin/dapur/{id}', [AdminDapurController::class, 'destroy']);
+    Route::get('admin/dapur/{id}', [AdminDapurController::class, 'show']);
 });
 
 

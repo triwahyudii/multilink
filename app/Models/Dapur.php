@@ -5,13 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Kyslik\ColumnSortable\Sortable;
 
 class Dapur extends Model
 {
     use HasFactory;
+    use Sortable;
 
     protected $table = 'dapurs';
     protected $fillable = [
+        'nama',
+        'harga',
+        'deskripsi',
+        'image',
+        'status',
+    ];
+
+    public $sortable = [
         'nama',
         'harga',
         'deskripsi',
