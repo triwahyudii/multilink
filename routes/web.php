@@ -109,6 +109,12 @@ Route::middleware('auth')->group(function () {
 
       //ADMIN TOKEN LISTRIK
       Route::get('admin/token-listrik', [AdminTokenListrikController::class, 'index']);
+      Route::get('admin/token-listrik/create', [AdminTokenListrikController::class, 'create']);
+      Route::post('admin/token-listrik/store', [AdminTokenListrikController::class, 'store']);
+      Route::get('admin/token-listrik/edit/{id}', [AdminTokenListrikController::class, 'edit']);
+      Route::put('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'update']);
+      Route::delete('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'destroy']);
+      Route::get('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'show']);
 });
 
 

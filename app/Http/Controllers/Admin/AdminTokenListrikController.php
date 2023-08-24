@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TokenListrik;
 use Illuminate\Http\Request;
 
 class AdminTokenListrikController extends Controller
@@ -10,9 +11,19 @@ class AdminTokenListrikController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $search = $request->query('search');
+        if (!empty($search)) {
+            $data = TokenListrik::sortable()
+                ->where('token_listriks.nomor_id', 'like', '%' . $search . '%')
+                ->orWhere('token_listriks.nominal', 'like', '%' . $search . '%')
+                ->paginate(1)->onEachSide(1);
+        } else {
+            $data = TokenListrik::sortable()->paginate(1)->onEachSide(1);
+        }
+
+        return view('admin.token-listrik.index', compact(['data', 'search']));
     }
 
     /**
@@ -20,7 +31,7 @@ class AdminTokenListrikController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.token-listrik.add');
     }
 
     /**
@@ -28,7 +39,8 @@ class AdminTokenListrikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TokenListrik::create($request->except(['_token']));
+        return redirect('/admin/token-listrik');
     }
 
     /**
@@ -36,7 +48,11 @@ class AdminTokenListrikController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = TokenListrik::find($id);
+        if (!$data) {
+            return redirect('/admin/token-listrik')->with('error', 'Data not found.');
+        }
+        return view('admin.token-listrik.show', compact(['data']));
     }
 
     /**
@@ -44,7 +60,8 @@ class AdminTokenListrikController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = TokenListrik::find($id);
+        return view('admin.token-listrik.edit', compact(['data']));
     }
 
     /**
@@ -52,7 +69,9 @@ class AdminTokenListrikController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = TokenListrik::find($id);
+        $data->update($request->except(['_token']));
+        return redirect('/admin/token-listrik');
     }
 
     /**
@@ -60,6 +79,8 @@ class AdminTokenListrikController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = TokenListrik::find($id);
+        $data->delete();
+        return redirect('/admin/token-listrik');
     }
 }
