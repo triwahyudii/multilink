@@ -66,7 +66,7 @@
                         <!-- TRANSFER -->
                         <li class="sidebar-item">
                             <a href="{{ url('/admin/transfer/') }}" class='sidebar-link'>
-                                <i class="fa-solid fa-money-bill-transfer"></i>
+                                <i class="fa-solid fa-money-bill-transfer fs-4"></i>
                                 <span>Transfer</span>
                             </a>
                         </li>
@@ -74,7 +74,7 @@
                         <!-- TARIK TUNAI -->
                         <li class="sidebar-item">
                             <a href="{{ url('/admin/tarik-tunai/') }}" class='sidebar-link'>
-                                <i class="fa-solid fa-money-bills"></i>
+                                <i class="fa-solid fa-money-bills fs-4"></i>
                                 <span>Tarik Tunai</span>
                             </a>
                         </li>
@@ -82,7 +82,7 @@
                         <!-- SETOR TUNAI -->
                         <li class="sidebar-item">
                             <a href="{{ url('/admin/setor-tunai/') }}" class='sidebar-link'>
-                                <i class="fa-solid fa-money-bill-trend-up"></i>
+                                <i class="fa-solid fa-money-bill-trend-up fs-4"></i>
                                 <span>Setor Tunai</span>
                             </a>
                         </li>
@@ -90,7 +90,7 @@
                         <!-- BAYAR CICILAN -->
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="fa-solid fa-credit-card"></i>
+                                <i class="fa-solid fa-credit-card fs-4"></i>
                                 <span>Bayar Cicilan</span>
                             </a>
                             <ul class="submenu ">
@@ -106,7 +106,7 @@
                         <!-- PULSA -->
                         <li class="sidebar-item">
                             <a href="{{ url('/admin/pulsa/') }}" class='sidebar-link'>
-                                <i class="fa-solid fa-mobile-screen-button"></i>
+                                <i class="fa-solid fa-mobile-screen-button fs-4"></i>
                                 <span>Pulsa</span>
                             </a>
                         </li>
@@ -114,7 +114,7 @@
                         <!-- PLN -->
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="fa-solid fa-bolt-lightning"></i>
+                                <i class="fa-solid fa-bolt-lightning fs-4"></i>
                                 <span>PLN</span>
                             </a>
                             <ul class="submenu ">
@@ -122,9 +122,17 @@
                                     <a href="{{ url('/admin/tagihan-listrik/') }}">Tagihan Listrik</a>
                                 </li>
                                 <li class="submenu-item ">
-                                <a href="{{ url('/admin/token-listrik/') }}">Token Listrik</a>
+                                    <a href="{{ url('/admin/token-listrik/') }}">Token Listrik</a>
                                 </li>
                             </ul>
+                        </li>
+
+                        <!-- PULSA -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/topup/') }}" class='sidebar-link'>
+                                <i class="fa-brands fa-steam fs-4"></i>
+                                <span>Top Up</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
