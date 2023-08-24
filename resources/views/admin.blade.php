@@ -127,11 +127,19 @@
                             </ul>
                         </li>
 
-                        <!-- PULSA -->
+                        <!-- TOPUP -->
                         <li class="sidebar-item">
                             <a href="{{ url('/admin/topup/') }}" class='sidebar-link'>
                                 <i class="fa-brands fa-steam fs-4"></i>
                                 <span>Top Up</span>
+                            </a>
+                        </li>
+
+                        <!-- ASURANSI -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/asuransi/') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-file-shield fs-4"></i>
+                                <span>Asuransi</span>
                             </a>
                         </li>
                     </ul>

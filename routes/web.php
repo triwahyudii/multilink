@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAsuransiController;
 use App\Http\Controllers\Admin\AdminBayarBank;
 use App\Http\Controllers\Admin\AdminBayarLeasing;
 use App\Http\Controllers\Admin\AdminPulsaController;
@@ -63,68 +64,71 @@ Route::middleware('auth')->group(function () {
     Route::delete('admin/tarik-tunai/{id}', [AdminTarikController::class, 'destroy']);
     Route::get('admin/tarik-tunai/{id}', [AdminTarikController::class, 'show']);
 
-     //ADMIN SETOR TUNAI
-     Route::get('admin/setor-tunai', [AdminSetorController::class, 'index']);
-     Route::get('admin/setor-tunai/create', [AdminSetorController::class, 'create']);
-     Route::post('admin/setor-tunai/store', [AdminSetorController::class, 'store']);
-     Route::get('admin/setor-tunai/edit/{id}', [AdminSetorController::class, 'edit']);
-     Route::put('admin/setor-tunai/{id}', [AdminSetorController::class, 'update']);
-     Route::delete('admin/setor-tunai/{id}', [AdminSetorController::class, 'destroy']);
-     Route::get('admin/setor-tunai/{id}', [AdminSetorController::class, 'show']);
+    //ADMIN SETOR TUNAI
+    Route::get('admin/setor-tunai', [AdminSetorController::class, 'index']);
+    Route::get('admin/setor-tunai/create', [AdminSetorController::class, 'create']);
+    Route::post('admin/setor-tunai/store', [AdminSetorController::class, 'store']);
+    Route::get('admin/setor-tunai/edit/{id}', [AdminSetorController::class, 'edit']);
+    Route::put('admin/setor-tunai/{id}', [AdminSetorController::class, 'update']);
+    Route::delete('admin/setor-tunai/{id}', [AdminSetorController::class, 'destroy']);
+    Route::get('admin/setor-tunai/{id}', [AdminSetorController::class, 'show']);
 
-     //ADMIN BAYAR CICILAN BANK
-     Route::get('admin/bayar-cicilan-bank', [AdminBayarBank::class, 'index']);
-     Route::get('admin/bayar-cicilan-bank/create', [AdminBayarBank::class, 'create']);
-     Route::post('admin/bayar-cicilan-bank/store', [AdminBayarBank::class, 'store']);
-     Route::get('admin/bayar-cicilan-bank/edit/{id}', [AdminBayarBank::class, 'edit']);
-     Route::put('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'update']);
-     Route::delete('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'destroy']);
-     Route::get('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'show']);
+    //ADMIN BAYAR CICILAN BANK
+    Route::get('admin/bayar-cicilan-bank', [AdminBayarBank::class, 'index']);
+    Route::get('admin/bayar-cicilan-bank/create', [AdminBayarBank::class, 'create']);
+    Route::post('admin/bayar-cicilan-bank/store', [AdminBayarBank::class, 'store']);
+    Route::get('admin/bayar-cicilan-bank/edit/{id}', [AdminBayarBank::class, 'edit']);
+    Route::put('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'update']);
+    Route::delete('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'destroy']);
+    Route::get('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'show']);
 
-     //ADMIN BAYAR CICILAN LEASING
-     Route::get('admin/bayar-cicilan-leasing', [AdminBayarLeasing::class, 'index']);
-     Route::get('admin/bayar-cicilan-leasing/create', [AdminBayarLeasing::class, 'create']);
-     Route::post('admin/bayar-cicilan-leasing/store', [AdminBayarLeasing::class, 'store']);
-     Route::get('admin/bayar-cicilan-leasing/edit/{id}', [AdminBayarLeasing::class, 'edit']);
-     Route::put('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'update']);
-     Route::delete('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'destroy']);
-     Route::get('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'show']);
+    //ADMIN BAYAR CICILAN LEASING
+    Route::get('admin/bayar-cicilan-leasing', [AdminBayarLeasing::class, 'index']);
+    Route::get('admin/bayar-cicilan-leasing/create', [AdminBayarLeasing::class, 'create']);
+    Route::post('admin/bayar-cicilan-leasing/store', [AdminBayarLeasing::class, 'store']);
+    Route::get('admin/bayar-cicilan-leasing/edit/{id}', [AdminBayarLeasing::class, 'edit']);
+    Route::put('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'update']);
+    Route::delete('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'destroy']);
+    Route::get('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'show']);
 
-     //ADMIN PULSA
-     Route::get('admin/pulsa', [AdminPulsaController::class, 'index']);
-     Route::get('admin/pulsa/create', [AdminPulsaController::class, 'create']);
-     Route::post('admin/pulsa/store', [AdminPulsaController::class, 'store']);
-     Route::get('admin/pulsa/edit/{id}', [AdminPulsaController::class, 'edit']);
-     Route::put('admin/pulsa/{id}', [AdminPulsaController::class, 'update']);
-     Route::delete('admin/pulsa/{id}', [AdminPulsaController::class, 'destroy']);
-     Route::get('admin/pulsa/{id}', [AdminPulsaController::class, 'show']);
+    //ADMIN PULSA
+    Route::get('admin/pulsa', [AdminPulsaController::class, 'index']);
+    Route::get('admin/pulsa/create', [AdminPulsaController::class, 'create']);
+    Route::post('admin/pulsa/store', [AdminPulsaController::class, 'store']);
+    Route::get('admin/pulsa/edit/{id}', [AdminPulsaController::class, 'edit']);
+    Route::put('admin/pulsa/{id}', [AdminPulsaController::class, 'update']);
+    Route::delete('admin/pulsa/{id}', [AdminPulsaController::class, 'destroy']);
+    Route::get('admin/pulsa/{id}', [AdminPulsaController::class, 'show']);
 
-      //ADMIN TAGIHAN LISTRIK
-      Route::get('admin/tagihan-listrik', [AdminTagihanListrikController::class, 'index']);
-      Route::get('admin/tagihan-listrik/create', [AdminTagihanListrikController::class, 'create']);
-      Route::post('admin/tagihan-listrik/store', [AdminTagihanListrikController::class, 'store']);
-      Route::get('admin/tagihan-listrik/edit/{id}', [AdminTagihanListrikController::class, 'edit']);
-      Route::put('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'update']);
-      Route::delete('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'destroy']);
-      Route::get('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'show']);
+    //ADMIN TAGIHAN LISTRIK
+    Route::get('admin/tagihan-listrik', [AdminTagihanListrikController::class, 'index']);
+    Route::get('admin/tagihan-listrik/create', [AdminTagihanListrikController::class, 'create']);
+    Route::post('admin/tagihan-listrik/store', [AdminTagihanListrikController::class, 'store']);
+    Route::get('admin/tagihan-listrik/edit/{id}', [AdminTagihanListrikController::class, 'edit']);
+    Route::put('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'update']);
+    Route::delete('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'destroy']);
+    Route::get('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'show']);
 
-      //ADMIN TOKEN LISTRIK
-      Route::get('admin/token-listrik', [AdminTokenListrikController::class, 'index']);
-      Route::get('admin/token-listrik/create', [AdminTokenListrikController::class, 'create']);
-      Route::post('admin/token-listrik/store', [AdminTokenListrikController::class, 'store']);
-      Route::get('admin/token-listrik/edit/{id}', [AdminTokenListrikController::class, 'edit']);
-      Route::put('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'update']);
-      Route::delete('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'destroy']);
-      Route::get('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'show']);
+    //ADMIN TOKEN LISTRIK
+    Route::get('admin/token-listrik', [AdminTokenListrikController::class, 'index']);
+    Route::get('admin/token-listrik/create', [AdminTokenListrikController::class, 'create']);
+    Route::post('admin/token-listrik/store', [AdminTokenListrikController::class, 'store']);
+    Route::get('admin/token-listrik/edit/{id}', [AdminTokenListrikController::class, 'edit']);
+    Route::put('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'update']);
+    Route::delete('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'destroy']);
+    Route::get('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'show']);
 
-      //ADMIN TOPUP
-     Route::get('admin/topup', [AdminTopupController::class, 'index']);
-     Route::get('admin/topup/create', [AdminTopupController::class, 'create']);
-     Route::post('admin/topup/store', [AdminTopupController::class, 'store']);
-     Route::get('admin/topup/edit/{id}', [AdminTopupController::class, 'edit']);
-     Route::put('admin/topup/{id}', [AdminTopupController::class, 'update']);
-     Route::delete('admin/topup/{id}', [AdminTopupController::class, 'destroy']);
-     Route::get('admin/topup/{id}', [AdminTopupController::class, 'show']);
+    //ADMIN TOPUP
+    Route::get('admin/topup', [AdminTopupController::class, 'index']);
+    Route::get('admin/topup/create', [AdminTopupController::class, 'create']);
+    Route::post('admin/topup/store', [AdminTopupController::class, 'store']);
+    Route::get('admin/topup/edit/{id}', [AdminTopupController::class, 'edit']);
+    Route::put('admin/topup/{id}', [AdminTopupController::class, 'update']);
+    Route::delete('admin/topup/{id}', [AdminTopupController::class, 'destroy']);
+    Route::get('admin/topup/{id}', [AdminTopupController::class, 'show']);
+
+    //ADMIN ASURANSI
+    Route::get('admin/asuransi', [AdminAsuransiController::class, 'index']);
 });
 
 
