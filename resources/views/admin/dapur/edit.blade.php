@@ -25,7 +25,7 @@
                             </div>
                             <label class="pt-1">Image</label>
                             <div class="input-group">
-                                <input type="file" name="image" id="image" class="form-control input m-2 rounded-3" placeholder="Image">
+                                <input type="file" name="image" id="image" value="{{ $data['image'] }}" class="form-control input m-2 rounded-3" placeholder="Image">
                             </div>
                             <label class="pt-1">Deskripsi</label>
                             <div class="input-group">

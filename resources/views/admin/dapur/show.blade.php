@@ -23,11 +23,12 @@
                             </tr>
                             <tr>
                                 <th>Image</th>
-                                <td>: {{ $data['harga'] }}</td>
+                                <td>: <img src="{{ asset('storage/' . $data['image']) }}" width="50%"  class="img img-responsive"> </td>
                             </tr>
+
                             <tr>
-                                <th>Harga</th>
-                                <td>: {{ $data['image'] }}</td>
+                                <th>Deskripsi</th>
+                                <td>: {{ $data['deskripsi'] }}</td>
                             </tr>
                             <tr>
                                 <th>Tanggal</th>

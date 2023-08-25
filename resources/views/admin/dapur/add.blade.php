@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <h4 class="card-title">Add Dapur</h4>
                 </div>
-                <form action="{{ url('/admin/dapur/store') }}" method="post">
+                <form action="{{ url('/admin/dapur/store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="d-flex justify-content-center">
                         <div class="input-form container pb-2 m-3">

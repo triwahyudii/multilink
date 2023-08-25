@@ -37,7 +37,9 @@
                             <tr>
                                 <td class="fw-bold">{{ $item['nama'] }}</td>
                                 <td>Rp {{ number_format($item['harga'], 0, ',', '.') }}</td>
-                                <td>{{ $item['image'] }}</td>
+                                <td>
+                                    <img src="{{ asset('storage/' . $item['image']) }}" width="50" height="50" class="img img-responsive">
+                                </td>
                                 <td>{{ $item['deskripsi'] }}</td>
                                 <td>
                                     <a href="{{ url('/admin/dapur/' . $item['id']) }}" class="btn btn-info btn-sm"><i class="fa-regular fa-eye"></i>View </a>

@@ -40,7 +40,16 @@ class AdminDapurController extends Controller
      */
     public function store(Request $request)
     {
-        Dapur::create($request->except(['_token']));
+        $data = $request->except(['_token']);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filePath = $file->store('images', 'public'); 
+            $data['image'] = $filePath;
+        }
+
+        Dapur::create($data);
+
         return redirect('/admin/dapur');
     }
 
