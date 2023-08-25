@@ -269,7 +269,8 @@ Route::middleware('auth')->group(function () {
         return view('sayur.add');
     });
     Route::get('riwayat/sayur', [SayurController::class, 'index']);
-    Route::get('riwayat/sayur/{id}', [SayurController::class, 'show']);
+    Route::get('sayur', [SayurController::class, 'create']);
+    Route::get('sayur/{id}', [SayurController::class, 'show']);
 
     //INPUTAN ASURANSI
     Route::get('asuransi', function () {

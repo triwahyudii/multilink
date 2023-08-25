@@ -27,7 +27,14 @@ class SayurController extends Controller
      */
     public function create()
     {
-        //
+        $data = new Client();
+        $url = "http://localhost:8008/api/sayur";
+        $response = $data->request('GET', $url);
+        $content = $response->getBody()->getContents();
+        $array = json_decode($content, true);
+        $data = $array['data'];
+
+        return view('sayur.add', ['data' => $data]);
     }
 
     /**
@@ -75,7 +82,7 @@ class SayurController extends Controller
         $array = json_decode($content, true);
         $data = $array['data'];
 
-        return view('riwayat.sayur.show', ['data' => $data]);
+        return view('sayur.show', ['data' => $data]);
     }
 
     /**
