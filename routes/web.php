@@ -262,7 +262,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('riwayat/dapur', [DapurController::class, 'index']);
     Route::get('dapur', [DapurController::class, 'create']);
-    Route::get('riwayat/dapur/{id}', [DapurController::class, 'show']);
+    Route::get('dapur/{id}', [DapurController::class, 'show']);
 
     //INPUTAN SAYUR
     Route::get('sayur', function () {

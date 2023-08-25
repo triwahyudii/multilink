@@ -31,7 +31,7 @@
                         <h5 class="card-title fw-bold">{{ $item['nama'] }}</h5>
                         <p>Rp {{ number_format($item['harga'], 0, ',', '.') }}</p>
                         <div class="d-grid gap-2 pt-2">
-                            <a href="{{ url('dapur/show') }}" class="btn btn-primary btn-sm bg-primary">Lihat</a>
+                            <a href="{{ url('dapur/' . $item['id']) }}" class="btn btn-primary btn-sm bg-primary">Lihat</a>
                         </div>
                     </div>
                 </div>

@@ -58,7 +58,7 @@ class DapurController extends Controller
         $array = json_decode($content, true);
         $data = $array['data'];
 
-        return view('riwayat.dapur.show', ['data' => $data]);
+        return view('dapur.show', ['data' => $data]);
     }
 
     /**
