@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dapur;
+use App\Models\Sayur;
 use Illuminate\Http\Request;
 
-class AdminDapurController extends Controller
+class AdminSayurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +15,16 @@ class AdminDapurController extends Controller
     {
         $search = $request->query('search');
         if (!empty($search)) {
-            $data = Dapur::sortable()
-                ->where('dapurs.nama', 'like', '%' . $search . '%')
-                ->orWhere('dapurs.harga', 'like', '%' . $search . '%')
-                ->orWhere('dapurs.deskripsi', 'like', '%' . $search . '%')
+            $data = Sayur::sortable()
+                ->where('sayurs.nama', 'like', '%' . $search . '%')
+                ->orWhere('sayurs.harga', 'like', '%' . $search . '%')
+                ->orWhere('sayurs.deskripsi', 'like', '%' . $search . '%')
                 ->paginate(1)->onEachSide(1);
         } else {
-            $data = Dapur::sortable()->paginate(1)->onEachSide(1);
+            $data = Sayur::sortable()->paginate(1)->onEachSide(1);
         }
 
-        return view('admin.dapur.index', compact(['data', 'search']));
+        return view('admin.sayur.index', compact(['data', 'search']));
     }
 
     /**
@@ -32,7 +32,7 @@ class AdminDapurController extends Controller
      */
     public function create()
     {
-        return view('admin.dapur.add');
+        return view('admin.sayur.add');
     }
 
     /**
@@ -48,9 +48,9 @@ class AdminDapurController extends Controller
             $data['image'] = $filePath;
         }
 
-        Dapur::create($data);
+        Sayur::create($data);
 
-        return redirect('/admin/dapur');
+        return redirect('/admin/sayur');
     }
 
     /**
@@ -58,11 +58,11 @@ class AdminDapurController extends Controller
      */
     public function show(string $id)
     {
-        $data = Dapur::find($id);
+        $data = Sayur::find($id);
         if (!$data) {
-            return redirect('/admin/dapur')->with('error', 'Data not found.');
+            return redirect('/admin/sayur')->with('error', 'Data not found.');
         }
-        return view('admin.dapur.show', compact(['data']));
+        return view('admin.sayur.show', compact(['data']));
     }
 
     /**
@@ -70,8 +70,8 @@ class AdminDapurController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Dapur::find($id);
-        return view('admin.dapur.edit', compact(['data']));
+        $data = Sayur::find($id);
+        return view('admin.sayur.edit', compact(['data']));
     }
 
     /**
@@ -79,7 +79,8 @@ class AdminDapurController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = Dapur::find($id);
+
+        $data = Sayur::find($id);
 
         // Mengunggah gambar baru dan menyimpannya jika ada
         if ($request->hasFile('image')) {
@@ -91,7 +92,7 @@ class AdminDapurController extends Controller
         // Memperbarui atribut lainnya
         $data->update($request->except(['_token', 'image']));
 
-        return redirect('/admin/dapur');
+        return redirect('/admin/sayur');
     }
 
     /**
@@ -99,8 +100,8 @@ class AdminDapurController extends Controller
      */
     public function destroy(string $id)
     {
-        $data = Dapur::find($id);
+        $data = Sayur::find($id);
         $data->delete();
-        return redirect('/admin/dapur');
+        return redirect('/admin/sayur');
     }
 }

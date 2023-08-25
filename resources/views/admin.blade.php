@@ -150,6 +150,14 @@
                                 <span>Dapur</span>
                             </a>
                         </li>
+
+                        <!-- SAYUR -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/sayur/') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-store fs-4"></i>
+                                <span>Sayur</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- END SIDEBAR MENU  -->

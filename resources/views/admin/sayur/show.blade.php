@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Detail Dapur</h4>
+                    <h4 class="card-title">Detail Sayur</h4>
                 </div>
 
                 <div class="table-responsive">
@@ -42,7 +42,7 @@
                     </table>
                 </div>
             </div>
-            <a href="{{ url('/admin/dapur/') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-arrow-left"></i> Back</a>
+            <a href="{{ url('/admin/sayur/') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-arrow-left"></i> Back</a>
         </div>
     </div>
 </section>

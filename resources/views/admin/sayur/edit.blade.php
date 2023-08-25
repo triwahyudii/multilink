@@ -7,9 +7,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Edit Dapur</h4>
+                    <h4 class="card-title">Edit Sayur</h4>
                 </div>
-                <form action="{{ url('/admin/dapur/' . $data['id']) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('/admin/sayur/' . $data['id']) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
 
@@ -35,7 +35,7 @@
                                 <textarea name="deskripsi" class="form-control input m-2 rounded-3" placeholder="Deskripsi" rows="6" cols="20">{{ $data['deskripsi'] }}</textarea>
                             </div>
                             <div class="d-flex pt-3">
-                                <a href="{{ url('/admin/dapur/') }}" class="btn btn-secondary btn-sm justify-content-start me-2"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                                <a href="{{ url('/admin/sayur/') }}" class="btn btn-secondary btn-sm justify-content-start me-2"><i class="fa-solid fa-arrow-left"></i> Back</a>
                                 <button class="btn btn-primary btn-sm bg-primary justify-content-end" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                             </div>
                         </div>

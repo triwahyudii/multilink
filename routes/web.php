@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminBayarBank;
 use App\Http\Controllers\Admin\AdminBayarLeasing;
 use App\Http\Controllers\Admin\AdminDapurController;
 use App\Http\Controllers\Admin\AdminPulsaController;
+use App\Http\Controllers\Admin\AdminSayurController;
 use App\Http\Controllers\Admin\AdminSetorController;
 use App\Http\Controllers\Admin\AdminTagihanListrikController;
 use App\Http\Controllers\Admin\AdminTarikController;
@@ -145,6 +146,15 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/dapur/{id}', [AdminDapurController::class, 'update']);
     Route::delete('admin/dapur/{id}', [AdminDapurController::class, 'destroy']);
     Route::get('admin/dapur/{id}', [AdminDapurController::class, 'show']);
+
+    //ADMIN SAYUR
+    Route::get('admin/sayur', [AdminSayurController::class, 'index']);
+    Route::get('admin/sayur/create', [AdminSayurController::class, 'create']);
+    Route::post('admin/sayur/store', [AdminSayurController::class, 'store']);
+    Route::get('admin/sayur/edit/{id}', [AdminSayurController::class, 'edit']);
+    Route::put('admin/sayur/{id}', [AdminSayurController::class, 'update']);
+    Route::delete('admin/sayur/{id}', [AdminSayurController::class, 'destroy']);
+    Route::get('admin/sayur/{id}', [AdminSayurController::class, 'show']);
 });
 
 
