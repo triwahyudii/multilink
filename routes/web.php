@@ -263,6 +263,8 @@ Route::middleware('auth')->group(function () {
     Route::get('riwayat/dapur', [DapurController::class, 'index']);
     Route::get('dapur', [DapurController::class, 'create']);
     Route::get('dapur/{id}', [DapurController::class, 'show']);
+    Route::get('cart/', [DapurController::class, 'cart']);
+    Route::get('cart/{id}', [DapurController::class, 'cart']);
 
     //INPUTAN SAYUR
     Route::get('sayur', function () {

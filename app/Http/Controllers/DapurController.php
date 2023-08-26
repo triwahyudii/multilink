@@ -84,4 +84,25 @@ class DapurController extends Controller
     {
         //
     }
+
+    public function cart($id) 
+    {
+        $data = Dapur::find($id);
+
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            $cart[$id] ['quantity']++;
+        } else {
+            $cart[$id] = [
+                'nama' => $data->nama,
+                'harga' => $data->harga,
+                'image' => $data->image,
+                'deskripsi' => $data->deskripsi,
+                'quantity' => 1
+            ];
+        }
+
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Produk berhasil dimasukan ke keranjang!');
+    }
 }
