@@ -27,7 +27,7 @@
             <span class="h5 text-white">Saldo</span>
         </div>
         <div class="dropdown ml-4 text-center">
-            <button type="button" class="btn btn-primary position-relative border-0 " data-bs-toggle="dropdown">
+            <button type="button" class="btn btn-primary position-relative border-0 bg-transparent" data-bs-toggle="dropdown">
                 <i class="fas fa-shopping-cart text-white"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     {{ count((array) session('cart')) }}
@@ -40,11 +40,11 @@
                     @foreach ((array) session('cart') as $id => $details)
                     @php $total += $details['harga'] * $details['quantity'] @endphp
                     @endforeach
-                    <div class="col-lg-12 col-sm-12 col-12 text-right total-section">
+                    <div class="col-lg-12 col-sm-12 col-12 text-center total-section">
                         <p>Total: Rp <span class="text-info">{{ number_format($total, 0, ',', '.') }}</span></p>
                     </div>
                 </div>
-                <hr>
+                <hr class="pb-2">
 
                 @if (session('cart')) 
                     @foreach(session('cart') as $id => $details) 
@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
                                 <p>{{ $details['nama'] }}</p>
-                                <span class="price text-info">Rp:  {{ number_format($details['harga'], 0, ',', '.') }}</span> <span class="count">Jumlah: {{ $details['quantity'] }}</span>
+                                <span class="price text-info">Rp  {{ number_format($details['harga'], 0, ',', '.') }}</span> <span class="count">Jumlah: {{ $details['quantity'] }}</span>
                             </div>
                         </div>
                     @endforeach

@@ -85,6 +85,11 @@ class DapurController extends Controller
         //
     }
 
+    public function cartProduct()
+    {
+        return view('dapur.cart');
+    }
+
     public function cart($id) 
     {
         $data = Dapur::find($id);
