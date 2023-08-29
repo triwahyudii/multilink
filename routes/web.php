@@ -265,6 +265,8 @@ Route::middleware('auth')->group(function () {
     Route::get('dapur/{id}', [DapurController::class, 'show']);
     Route::get('cart/', [DapurController::class, 'cartProduct']); //Melihat semua total produk yang di Order
     Route::get('cart/{id}', [DapurController::class, 'cart']); //Memasukan produk ke Keranjang(Cart)
+    Route::patch('cart-updated', [DapurController::class, 'updated'])->name('update_cart'); //Memperbahui produk dari Keranjang(Cart)
+    Route::delete('cart-remove', [DapurController::class, 'remove'])->name('remove_cart'); //Menghapus produk dari Keranjang(Cart)
 
     //INPUTAN SAYUR
     Route::get('sayur', function () {

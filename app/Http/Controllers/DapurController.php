@@ -110,4 +110,25 @@ class DapurController extends Controller
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Produk berhasil dimasukan ke keranjang!');
     }
+
+    public function updated(Request $request) 
+    {
+        if ($request->id && $request->quantity) {
+            $cart = session()->get('cart');
+            $cart[$request->id] ["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Keranjang berhasil diperbarui!');
+        }
+    }
+    public function remove(Request $request)
+    {
+        if ($request->id) {
+            $cart = session()->get('cart');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Produk berhasil di Hapus!');
+        }
+    }
 }

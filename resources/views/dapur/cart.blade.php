@@ -30,7 +30,7 @@
                                     <th style="width: 50%;">Produk</th>
                                     <th style="width: 20%;">Harga</th>
                                     <th>Jumlah</th>
-                                    <th style="width: 22%;" class="text-center">Total</th>
+                                    <th style="width: 22%;" class="text-center">Subtotal</th>
                                     <th style="width: 10%;"></th>
                                 </tr>
                             </thead>
@@ -70,7 +70,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="5" class="text-center">
-                                        <a href="{{ url('/dapur') }}" class="btn btn-success btn-sm"><i class="fa-solid fa-cart-plus"></i> Lanjut Belanja</a>
+                                        <a href="{{ url('/dashboard') }}" class="btn btn-success btn-sm"><i class="fa-solid fa-cart-plus"></i> Lanjut Belanja</a>
                                         <button type="button" class="btn btn-primary btn-sm bg-primary col-4" style="margin-left:20%;">Bayar</button>
                                     </td>
                                 </tr>
@@ -84,6 +84,44 @@
 
     <script src="https://kit.fontawesome.com/39d2ff4747.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(".cart_update").change(function(e) {
+            e.preventDefault();
+            var ele = $(this);
+
+            $.ajax({
+                url: '{{ route('update_cart') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.parents("tr").attr("data-id"),
+                    quantity: ele.parents("tr").find(".quantity").val()
+                },
+                success: function(response) {
+                    window.location.reload();
+                }
+            });
+        })
+
+        $(".cart_remove").click(function(e) {
+            e.preventDefault();
+            var ele = $(this);
+
+            if (confirm("Yakin ingin menghapus Produk?")) {
+                $.ajax({
+                    url: '{{ route('remove_cart') }}',
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.parents("tr").attr("data-id")
+                    },
+                    success: function(response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
