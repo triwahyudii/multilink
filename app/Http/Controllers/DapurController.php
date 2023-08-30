@@ -120,6 +120,7 @@ class DapurController extends Controller
             session()->flash('success', 'Keranjang berhasil diperbarui!');
         }
     }
+    
     public function remove(Request $request)
     {
         if ($request->id) {
