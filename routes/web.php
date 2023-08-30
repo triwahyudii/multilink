@@ -275,6 +275,10 @@ Route::middleware('auth')->group(function () {
     Route::get('riwayat/sayur', [SayurController::class, 'index']);
     Route::get('sayur', [SayurController::class, 'create']);
     Route::get('sayur/{id}', [SayurController::class, 'show']);
+    Route::get('cart/', [SayurController::class, 'cartProduct']); //Melihat semua total produk yang di Order
+    Route::get('cart/{id}', [SayurController::class, 'cart']); //Memasukan produk ke Keranjang(Cart)
+    Route::patch('cart-updated', [SayurController::class, 'updated'])->name('update_cart'); //Memperbahui produk dari Keranjang(Cart)
+    Route::delete('cart-remove', [SayurController::class, 'remove'])->name('remove_cart'); //Menghapus produk dari Keranjang(Cart)
 
     //INPUTAN ASURANSI
     Route::get('asuransi', function () {

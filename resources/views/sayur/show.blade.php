@@ -15,6 +15,11 @@
 </head>
 
 <body>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success')}}
+    </div>
+    @endif
     <div class="container pt-2">
         <div class="card" style="width: 23rem;">
             <img src="{{ asset('storage/' . $data['image']) }}" alt="images" class="card-img-top">
@@ -22,7 +27,7 @@
                 <h4 class="card-title fw-semibold">{{ $data['nama'] }}</h4>
                 <p>Rp {{ number_format($data['harga'], 0, ',', '.') }}</p>
                 <div class="d-flex justify-content-center pt-3 pb-3">
-                    <a href="#" class="btn btn-primary col-8">Beli</a>
+                    <a href="{{ url('/cart/' . $data['id']) }}" class="btn btn-primary col-8">Beli</a>
                 </div>
                 <hr class="pt-2">
                 <label class="fw-medium pt-2 pb-2">Deskripsi</label>

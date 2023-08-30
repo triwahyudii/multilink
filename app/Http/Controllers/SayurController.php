@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sayur;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -107,5 +108,52 @@ class SayurController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function cartProduct()
+    {
+        return view('sayur.cart');
+    }
+
+    public function cart($id) 
+    {
+        $data = Sayur::find($id);
+
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            $cart[$id] ['quantity']++;
+        } else {
+            $cart[$id] = [
+                'nama' => $data->nama,
+                'harga' => $data->harga,
+                'image' => $data->image,
+                'deskripsi' => $data->deskripsi,
+                'quantity' => 1
+            ];
+        }
+
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Produk berhasil dimasukan ke keranjang!');
+    }
+
+    public function updated(Request $request) 
+    {
+        if ($request->id && $request->quantity) {
+            $cart = session()->get('cart');
+            $cart[$request->id] ["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Keranjang berhasil diperbarui!');
+        }
+    }
+    public function remove(Request $request)
+    {
+        if ($request->id) {
+            $cart = session()->get('cart');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Produk berhasil di Hapus!');
+        }
     }
 }
