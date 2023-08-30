@@ -64,7 +64,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="5" class="text-right">
+                                    <td colspan="5" class="text-right ">
                                         <p class="fw-bold fs-5">Total Rp {{ number_format($total, 0, ',', '.') }}</p>
                                     </td>
                                 </tr>

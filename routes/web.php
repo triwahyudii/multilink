@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAsuransiController;
 use App\Http\Controllers\Admin\AdminBayarBank;
 use App\Http\Controllers\Admin\AdminBayarLeasing;
 use App\Http\Controllers\Admin\AdminDapurController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminPulsaController;
 use App\Http\Controllers\Admin\AdminSayurController;
 use App\Http\Controllers\Admin\AdminSetorController;
@@ -155,6 +156,9 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/sayur/{id}', [AdminSayurController::class, 'update']);
     Route::delete('admin/sayur/{id}', [AdminSayurController::class, 'destroy']);
     Route::get('admin/sayur/{id}', [AdminSayurController::class, 'show']);
+
+    // ORDER
+    Route::get('admin/order', [AdminOrderController::class, 'index']);
 });
 
 

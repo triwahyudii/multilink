@@ -158,6 +158,14 @@
                                 <span>Sayur</span>
                             </a>
                         </li>
+
+                        <!-- ORDER -->
+                        <li class="sidebar-item">
+                            <a href="{{ url('/admin/order/') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-bag-shopping fs-4"></i>
+                                <span>Order</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- END SIDEBAR MENU  -->
