@@ -102,6 +102,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/pulsa/{id}', [AdminPulsaController::class, 'update']);
     Route::delete('admin/pulsa/{id}', [AdminPulsaController::class, 'destroy']);
     Route::get('admin/pulsa/{id}', [AdminPulsaController::class, 'show']);
+    Route::get('export-pulsa', [AdminPulsaController::class, 'exportexcel'])->name('export.excel');
 
     //ADMIN TAGIHAN LISTRIK
     Route::get('admin/tagihan-listrik', [AdminTagihanListrikController::class, 'index']);

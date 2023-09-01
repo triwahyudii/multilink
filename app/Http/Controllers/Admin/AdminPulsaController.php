@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Pulsa;
+use App\Exports\PulsaExport;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminPulsaController extends Controller
 {
@@ -84,4 +86,10 @@ class AdminPulsaController extends Controller
         $data->delete();
         return redirect('/admin/pulsa');
     }
+
+    public function exportexcel()
+    {
+        return Excel::download(new PulsaExport, 'data-pulsa.xlsx');
+    }
+    
 }
