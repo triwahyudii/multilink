@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Transfer;
+use App\Exports\TransferExport;
 use GuzzleHttp\Client;
+use App\Models\Transfer;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminTransferController extends Controller
 {
@@ -85,5 +87,10 @@ class AdminTransferController extends Controller
         $data = Transfer::find($id);
         $data->delete();
         return redirect('/admin/transfer');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new TransferExport, 'data-transfer.xlsx');
     }
 }

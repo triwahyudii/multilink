@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/transfer/{id}', [AdminTransferController::class, 'update']);
     Route::delete('admin/transfer/{id}', [AdminTransferController::class, 'destroy']);
     Route::get('admin/transfer/{id}', [AdminTransferController::class, 'show']);
+    Route::get('export-transfer', [AdminTransferController::class, 'exportexcel'])->name('export.transfer');
 
     //ADMIN TARIK TUNAI
     Route::get('admin/tarik-tunai', [AdminTarikController::class, 'index']);
@@ -66,6 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/tarik-tunai/{id}', [AdminTarikController::class, 'update']);
     Route::delete('admin/tarik-tunai/{id}', [AdminTarikController::class, 'destroy']);
     Route::get('admin/tarik-tunai/{id}', [AdminTarikController::class, 'show']);
+    Route::get('export-tarik-tunai', [AdminTarikController::class, 'exportexcel'])->name('export.tarik-tunai');
 
     //ADMIN SETOR TUNAI
     Route::get('admin/setor-tunai', [AdminSetorController::class, 'index']);
@@ -102,7 +104,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/pulsa/{id}', [AdminPulsaController::class, 'update']);
     Route::delete('admin/pulsa/{id}', [AdminPulsaController::class, 'destroy']);
     Route::get('admin/pulsa/{id}', [AdminPulsaController::class, 'show']);
-    Route::get('export-pulsa', [AdminPulsaController::class, 'exportexcel'])->name('export.excel');
+    Route::get('export-pulsa', [AdminPulsaController::class, 'exportexcel'])->name('export.pulsa');
 
     //ADMIN TAGIHAN LISTRIK
     Route::get('admin/tagihan-listrik', [AdminTagihanListrikController::class, 'index']);

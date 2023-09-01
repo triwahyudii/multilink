@@ -14,7 +14,7 @@
                         <a href="{{ url('/admin/pulsa/create') }}" class="btn btn-success btn-sm m-2">
                             <i class="fa-regular fa-plus"></i> Add Data
                         </a>
-                        <a href="{{ route('export.excel') }}" class="btn btn-primary btn-sm m-2">
+                        <a href="{{ route('export.pulsa') }}" class="btn btn-primary btn-sm m-2">
                             <i class="fa-solid fa-download"></i> Export Data
                         </a>
                     </div>

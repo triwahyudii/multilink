@@ -2,31 +2,32 @@
 
 namespace App\Exports;
 
-use App\Models\Pulsa;
+use App\Models\TarikTunai;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class PulsaExport implements FromCollection, WithHeadings, WithStyles
+
+class TarikTunaiExport implements FromCollection, WithHeadings, WithStyles
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Pulsa::select('provider', 'nomor_handphone', 'pulsa', 'created_at')->get();
+        return TarikTunai::select('bank', 'nama', 'nomor_rekening', 'jumlah', 'created_at')->get();
     }
 
     public function headings(): array
     {
-        return ["PROVIDER", "NOMOR HANDPHONE", "NOMINAL", "TANGGAL & WAKTU"];
+        return ["BANK", "NAMA", "NOMOR REKENING", "JUMLAH", "TANGGAL & WAKTU"];
     }
 
     public function styles(Worksheet $sheet)
     {
         return [
-            'A1:D1' => [
+            'A1:E1' => [
                 'font' => ['bold' => true],
             ],
         ];

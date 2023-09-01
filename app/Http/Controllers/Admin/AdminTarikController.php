@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Exports\TarikTunaiExport;
 use App\Models\TarikTunai;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminTarikController extends Controller
 {
@@ -84,5 +86,10 @@ class AdminTarikController extends Controller
         $data = TarikTunai::find($id);
         $data->delete();
         return redirect('/admin/tarik-tunai');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new TarikTunaiExport, 'data-tarik-tunai.xlsx');
     }
 }
