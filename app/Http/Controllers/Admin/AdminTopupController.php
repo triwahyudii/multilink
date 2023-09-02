@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Exports\TopupExport;
 use App\Models\Topup;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminTopupController extends Controller
 {
@@ -83,5 +85,10 @@ class AdminTopupController extends Controller
         $data = Topup::find($id);
         $data->delete();
         return redirect('/admin/topup');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new TopupExport, 'data-top-up.xlsx');
     }
 }

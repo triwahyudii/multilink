@@ -137,6 +137,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/topup/{id}', [AdminTopupController::class, 'update']);
     Route::delete('admin/topup/{id}', [AdminTopupController::class, 'destroy']);
     Route::get('admin/topup/{id}', [AdminTopupController::class, 'show']);
+    Route::get('export-topup', [AdminTopupController::class, 'exportexcel'])->name('export.topup');
 
     //ADMIN ASURANSI
     Route::get('admin/asuransi', [AdminAsuransiController::class, 'index']);
