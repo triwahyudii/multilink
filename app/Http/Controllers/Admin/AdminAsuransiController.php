@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Exports\AsuransiExport;
 use App\Models\Asuransi;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminAsuransiController extends Controller
 {
@@ -84,5 +86,10 @@ class AdminAsuransiController extends Controller
         $data = Asuransi::find($id);
         $data->delete();
         return redirect('/admin/asuransi');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new AsuransiExport, 'data-asuransi.xlsx');
     }
 }

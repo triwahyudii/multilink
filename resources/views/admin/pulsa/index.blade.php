@@ -43,7 +43,7 @@
                                 <td>{{ $item['nomor_handphone'] }}</td>
                                 <td>Rp {{ number_format($item['pulsa'], 0, ',', '.') }}</td>
                                 <td>
-                                    <a href="{{ url('/admin/pulsa/' . $item['id']) }}" class="btn btn-info btn-sm"><i class="fa-regular fa-eye"></i>View </a>
+                                    <a href="{{ url('/admin/pulsa/' . $item['id']) }}" class="btn btn-info btn-sm"><i class="fa-regular fa-eye"></i> View </a>
                                     <a href="{{ url('/admin/pulsa/edit/' . $item['id']) }}" class="btn btn-warning btn-sm"><i class="fa-regular fa-pen-to-square mr-3"></i> Edit </a>
                                     <form action="{{ url('/admin/pulsa/' . $item['id']) }}" method="post" onsubmit="return confirm('Yakin menghapus data?')" class="d-inline">
                                         @csrf

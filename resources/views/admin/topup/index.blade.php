@@ -43,7 +43,7 @@
                                 <td>{{ $item['nomor_id'] }}</td>
                                 <td>{{ number_format($item['jumlah'], 0, ',', '.') }} item</td>
                                 <td>
-                                    <a href="{{ url('/admin/topup/' . $item['id']) }}" class="btn btn-info btn-sm"><i class="fa-regular fa-eye"></i>View </a>
+                                    <a href="{{ url('/admin/topup/' . $item['id']) }}" class="btn btn-info btn-sm"><i class="fa-regular fa-eye"></i> View </a>
                                     <a href="{{ url('/admin/topup/edit/' . $item['id']) }}" class="btn btn-warning btn-sm"><i class="fa-regular fa-pen-to-square mr-3"></i> Edit </a>
                                     <form action="{{ url('/admin/topup/' . $item['id']) }}" method="post" onsubmit="return confirm('Yakin menghapus data?')" class="d-inline">
                                         @csrf
