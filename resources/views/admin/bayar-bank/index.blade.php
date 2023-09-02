@@ -10,9 +10,14 @@
                     <h2 class="card-title fs-3">Bayar Cicilan Bank</h2>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="{{ url('/admin/bayar-cicilan-bank/create') }}" class="btn btn-success btn-sm m-2">
-                        <i class="fa-regular fa-plus"></i> Add Data
-                    </a>
+                    <div class="justify-content-start">
+                        <a href="{{ url('/admin/bayar-cicilan-bank/create') }}" class="btn btn-success btn-sm m-2">
+                            <i class="fa-regular fa-plus"></i> Add Data
+                        </a>
+                        <a href="{{ route('export.bayar-cicilan-bank') }}" class="btn btn-primary btn-sm m-2">
+                            <i class="fa-solid fa-download"></i> Export Data
+                        </a>
+                    </div>
                     <form method="get" class="d-flex col-sm-4">
                         <div class="input-group m-2">
                             <input type="text" name="search" id="search" class="form-control border border-primary border-2" placeholder="Search" autofocus="true" value="{{ $search }}">

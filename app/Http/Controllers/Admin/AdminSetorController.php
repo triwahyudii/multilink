@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Exports\SetorTunaiExport;
 use App\Models\SetorTunai;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminSetorController extends Controller
 {
@@ -84,5 +86,10 @@ class AdminSetorController extends Controller
         $data = SetorTunai::find($id);
         $data->delete();
         return redirect('/admin/setor-tunai');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new SetorTunaiExport, 'data-setor-tunai.xlsx');
     }
 }

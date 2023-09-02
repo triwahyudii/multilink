@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\TagihanListrik;
+use App\Exports\TagihanListrikExport;
 use Illuminate\Http\Request;
+use App\Models\TagihanListrik;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminTagihanListrikController extends Controller
 {
@@ -81,5 +83,10 @@ class AdminTagihanListrikController extends Controller
         $data = TagihanListrik::find($id);
         $data->delete();
         return redirect('/admin/tagihan-listrik');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new TagihanListrikExport, 'data-tagihan-listrik.xlsx');
     }
 }

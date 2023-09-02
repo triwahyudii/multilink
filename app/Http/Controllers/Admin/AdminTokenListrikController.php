@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Exports\TokenListrikExport;
 use App\Models\TokenListrik;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminTokenListrikController extends Controller
 {
@@ -82,5 +84,10 @@ class AdminTokenListrikController extends Controller
         $data = TokenListrik::find($id);
         $data->delete();
         return redirect('/admin/token-listrik');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new TokenListrikExport, 'data-token-listrik.xlsx');
     }
 }

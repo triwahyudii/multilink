@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Exports\BayarCicilanExport;
 use App\Models\BayarCicilan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminBayarBank extends Controller
 {
@@ -84,5 +86,10 @@ class AdminBayarBank extends Controller
         $data = BayarCicilan::find($id);
         $data->delete();
         return redirect('/admin/bayar-cicilan-bank');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new BayarCicilanExport, 'data-bayar-cicilan-bank.xlsx');
     }
 }

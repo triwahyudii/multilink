@@ -77,6 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/setor-tunai/{id}', [AdminSetorController::class, 'update']);
     Route::delete('admin/setor-tunai/{id}', [AdminSetorController::class, 'destroy']);
     Route::get('admin/setor-tunai/{id}', [AdminSetorController::class, 'show']);
+    Route::get('export-setor-tunai', [AdminSetorController::class, 'exportexcel'])->name('export.setor-tunai');
 
     //ADMIN BAYAR CICILAN BANK
     Route::get('admin/bayar-cicilan-bank', [AdminBayarBank::class, 'index']);
@@ -86,6 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'update']);
     Route::delete('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'destroy']);
     Route::get('admin/bayar-cicilan-bank/{id}', [AdminBayarBank::class, 'show']);
+    Route::get('export-bayar-cicilan-bank', [AdminBayarBank::class, 'exportexcel'])->name('export.bayar-cicilan-bank');
 
     //ADMIN BAYAR CICILAN LEASING
     Route::get('admin/bayar-cicilan-leasing', [AdminBayarLeasing::class, 'index']);
@@ -95,6 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'update']);
     Route::delete('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'destroy']);
     Route::get('admin/bayar-cicilan-leasing/{id}', [AdminBayarLeasing::class, 'show']);
+    Route::get('export-bayar-cicilan-leasing', [AdminBayarLeasing::class, 'exportexcel'])->name('export.bayar-cicilan-leasing');
 
     //ADMIN PULSA
     Route::get('admin/pulsa', [AdminPulsaController::class, 'index']);
@@ -114,6 +117,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'update']);
     Route::delete('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'destroy']);
     Route::get('admin/tagihan-listrik/{id}', [AdminTagihanListrikController::class, 'show']);
+    Route::get('export-tagihan-listrik', [AdminTagihanListrikController::class, 'exportexcel'])->name('export.tagihan-listrik');
 
     //ADMIN TOKEN LISTRIK
     Route::get('admin/token-listrik', [AdminTokenListrikController::class, 'index']);
@@ -123,6 +127,7 @@ Route::middleware('auth')->group(function () {
     Route::put('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'update']);
     Route::delete('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'destroy']);
     Route::get('admin/token-listrik/{id}', [AdminTokenListrikController::class, 'show']);
+    Route::get('export-token-listrik', [AdminTokenListrikController::class, 'exportexcel'])->name('export.token-listrik');
 
     //ADMIN TOPUP
     Route::get('admin/topup', [AdminTopupController::class, 'index']);

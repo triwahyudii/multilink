@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\BayarCicilanLeasing;
+use App\Exports\BayarCicilanLeasingExport;
 use Illuminate\Http\Request;
+use App\Models\BayarCicilanLeasing;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminBayarLeasing extends Controller
 {
@@ -84,5 +86,10 @@ class AdminBayarLeasing extends Controller
         $data = BayarCicilanLeasing::find($id);
         $data->delete();
         return redirect('/admin/bayar-cicilan-leasing');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new BayarCicilanLeasingExport, 'data-bayar-cicilan-leasing.xlsx');
     }
 }
