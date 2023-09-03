@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0 || ^8.1",
+        "arielmejiadev/larapex-charts": "^6.0",
         "filament/filament": "^2.0",
         "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
