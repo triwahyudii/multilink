@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminTarikController;
 use App\Http\Controllers\Admin\AdminTokenListrikController;
 use App\Http\Controllers\Admin\AdminTopupController;
 use App\Http\Controllers\Admin\AdminTransferController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AsuransiController;
 use App\Http\Controllers\BayarCicilanController;
@@ -169,6 +170,9 @@ Route::middleware('auth')->group(function () {
 
     // ORDER
     Route::get('admin/order', [AdminOrderController::class, 'index']);
+
+    //CHART USER
+    Route::get('admin', [AdminUserController::class, 'index']);
 });
 
 
