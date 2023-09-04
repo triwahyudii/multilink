@@ -12,10 +12,10 @@ class AdminUserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(UserChart $chart)
+    public function index(UserChart $userChart)
     {
         $data = User::all();
-        return view('admin.user.index', ['chart' => $chart->build()]);
+        return view('admin.user.index', ['userChart' => $userChart->build()]);
     }
 
     /**

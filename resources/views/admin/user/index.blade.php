@@ -6,16 +6,16 @@
     <div class="row" id="table-hover-row">
         <div class="col-12">
             <div class="card">
-
-                {!! $chart->container() !!}
-
+                <div class="card-body">
+                    {!! $userChart->container() !!}
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<script src="{{ $chart->cdn() }}"></script>
+<script src="{{ $userChart->cdn() }}"></script>
 
-{{ $chart->script() }}
+{{ $userChart->script() }}
 
 @endsection

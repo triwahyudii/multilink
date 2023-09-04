@@ -2,6 +2,7 @@
 
 namespace App\Charts;
 
+use App\Models\User;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class UserChart
@@ -15,11 +16,19 @@ class UserChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\LineChart
     {
+        $usersData = User::selectRaw('DATE_FORMAT(created_at, "%M") as month, COUNT(*) as count')
+            ->groupBy('month')
+            ->get();
+    
+        $months = $usersData->pluck('month')->toArray();
+        $userCounts = $usersData->pluck('count')->toArray();
+    
         return $this->chart->lineChart()
-            ->setTitle('Sales during 2021.')
-            ->setSubtitle('Physical sales vs Digital sales.')
-            ->addData('Physical sales', [40, 93, 35, 42, 18, 82])
-            ->addData('Digital sales', [70, 29, 77, 28, 55, 45])
-            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
+            ->setTitle('Users Multilink', '#0057ff')
+            ->setSubtitle('Number of users each month')
+            ->addData('Users', $userCounts)
+            ->setXAxis($months)
+            ->setColors(['#0057ff']);
     }
+    
 }
