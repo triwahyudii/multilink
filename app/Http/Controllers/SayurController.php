@@ -115,13 +115,17 @@ class SayurController extends Controller
         return view('sayur.cart');
     }
 
-    public function cart($id) 
+    public function cart($id)
     {
         $data = Sayur::find($id);
 
+        if (!$data) {
+            return redirect()->back()->with('error', 'Produk tidak ditemukan.');
+        } 
+
         $cart = session()->get('cart', []);
         if (isset($cart[$id])) {
-            $cart[$id] ['quantity']++;
+            $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
                 'nama' => $data->nama,
@@ -136,11 +140,11 @@ class SayurController extends Controller
         return redirect()->back()->with('success', 'Produk berhasil dimasukan ke keranjang!');
     }
 
-    public function updated(Request $request) 
+    public function updated(Request $request)
     {
         if ($request->id && $request->quantity) {
             $cart = session()->get('cart');
-            $cart[$request->id] ["quantity"] = $request->quantity;
+            $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
             session()->flash('success', 'Keranjang berhasil diperbarui!');
         }

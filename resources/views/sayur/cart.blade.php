@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                                 @php $total = 0 @endphp
-                                @if (session('cart'))
+                                @if (session('cart')) 
                                 @foreach (session('cart') as $id => $details)
                                 @php $total += $details['harga'] * $details['quantity'] @endphp
                                 <tr data-id="{{ $id }}">
@@ -64,7 +64,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="5" class="text-right ">
+                                    <td colspan="5" class="text-right">
                                         <p class="fw-bold fs-5">Total Rp {{ number_format($total, 0, ',', '.') }}</p>
                                     </td>
                                 </tr>

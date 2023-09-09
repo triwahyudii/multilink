@@ -170,6 +170,7 @@ Route::middleware('auth')->group(function () {
 
     // ORDER
     Route::get('admin/order', [AdminOrderController::class, 'index']);
+    // Route::post('admin/store-order', [AdminOrderController::class, 'store'])->name('store.order');
 
     //CHART USER
     Route::get('admin', [AdminUserController::class, 'index']);

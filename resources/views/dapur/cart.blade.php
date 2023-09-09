@@ -29,7 +29,7 @@
                                 <tr>
                                     <th style="width: 50%;">Produk</th>
                                     <th style="width: 20%;">Harga</th>
-                                    <th>Jumlah</th>
+                                    <th>Jumlah</th> 
                                     <th style="width: 22%;" class="text-center">Subtotal</th>
                                     <th style="width: 10%;"></th>
                                 </tr>

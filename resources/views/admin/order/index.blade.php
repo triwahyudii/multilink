@@ -52,9 +52,6 @@
                                     {{ $details['quantity'] }}
                                 </td>
                                 <td data-th="Total" class="text-center fs-8">Rp {{ number_format($details['harga'] * $details['quantity'], 0, ',', '.') }}</td>
-                                <!-- <td class="actions">
-                                    <button class="btn btn-danger btn-sm cart_remove">Hapus</button>
-                                </td> -->
                             </tr>
                             @endforeach
                             @endif
