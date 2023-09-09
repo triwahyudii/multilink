@@ -8,7 +8,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Transfer extends Model
 {
-    use HasFactory;
+    use HasFactory; 
     use Sortable;
 
     protected $table = "transfers";
@@ -18,7 +18,8 @@ class Transfer extends Model
         'nomor_rekening',
         'jumlah',
         'nama_penerima',
-        'nomor_rekening_penerima'
+        'nomor_rekening_penerima',
+        'status'
     ];
 
     public $sortable = [

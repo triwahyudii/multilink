@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('jumlah')->length(10);
             $table->string('nama_penerima', 200);
             $table->bigInteger('nomor_rekening_penerima')->length(17);
+            $table->enum('status', ['Unpaid', 'Paid']);
             $table->timestamps();
         });
     }
