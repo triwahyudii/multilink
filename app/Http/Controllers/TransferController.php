@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transfer;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class TransferController extends Controller
         $content = $response->getBody()->getContents();
         $array = json_decode($content, true);
         $data = $array['data'];
-        
+
         return view('riwayat.transfer.index', ['data' => $data]);
     }
 
@@ -65,7 +66,31 @@ class TransferController extends Controller
         } else {
             return redirect()->to('transfer')->with('success', 'Transfer di proses !');
         }
-        
+
+        //Payment Gateway Midtrans
+        $data = Transfer::create($request->all());
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $data->id,
+                'gross_amount' => $data->jumlah,
+            ),
+            'customer_details' => array(
+                'name' => $request->nama,
+                // 'phone' => '08111222333',
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
     }
 
     /**
@@ -79,9 +104,8 @@ class TransferController extends Controller
         $content = $response->getBody()->getContents();
         $array = json_decode($content, true);
         $data = $array['data'];
-        
-        return view('riwayat.transfer.show', ['data' => $data]);
 
+        return view('riwayat.transfer.show', ['data' => $data]);
     }
 
     /**
