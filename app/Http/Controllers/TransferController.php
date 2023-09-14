@@ -71,30 +71,41 @@ class TransferController extends Controller
 
         $validate = $request->validated();
 
-        //Payment Gateway Midtrans
-        $data = Transfer::create($request->all());
+        $data = new Transfer;
+        $data->bank = $request['bank'];
+        $data->nama = $request['nama'];
+        $data->nomor_rekening = $request['nomor_rekening'];
+        $data->jumlah = $request['jumlah'];
+        $data->nama_penerima = $request['nama_penerima'];
+        $data->nomor_rekening_penerima = $request['nomor_rekening_penerima'];
+        $data->save();
 
-        // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
+        return redirect()->to('transfer')->with('success', 'Transfer dalam proses.');
 
-        $params = array(
-            'transaction_details' => array(
-                'order_id' => $data->id,
-                'gross_amount' => $data->jumlah,
-            ),
-            'customer_details' => array(
-                'name' => $request->nama,
-                // 'phone' => '08111222333',
-            ),
-        );
+        // //Payment Gateway Midtrans
+        // $data = Transfer::create($request->all());
 
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        // // Set your Merchant Server Key
+        // \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        // \Midtrans\Config::$isProduction = false;
+        // // Set sanitization on (default)
+        // \Midtrans\Config::$isSanitized = true;
+        // // Set 3DS transaction for credit card to true
+        // \Midtrans\Config::$is3ds = true;
+
+        // $params = array(
+        //     'transaction_details' => array(
+        //         'order_id' => $data->id,
+        //         'gross_amount' => $data->jumlah,
+        //     ),
+        //     'customer_details' => array(
+        //         'name' => $request->nama,
+        //         // 'phone' => '08111222333',
+        //     ),
+        // );
+
+        // $snapToken = \Midtrans\Snap::getSnapToken($params);
     }
 
     /**
@@ -102,12 +113,14 @@ class TransferController extends Controller
      */
     public function show(string $id)
     {
-        $data = new Client();
-        $url = "http://127.0.0.1:8008/api/transfer/$id";
-        $response = $data->request('GET', $url);
-        $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        $data = $array['data'];
+        // $data = new Client();
+        // $url = "http://127.0.0.1:8008/api/transfer/$id";
+        // $response = $data->request('GET', $url);
+        // $content = $response->getBody()->getContents();
+        // $array = json_decode($content, true);
+        // $data = $array['data'];
+
+        $data = Transfer::find($id);
 
         return view('riwayat.transfer.show', ['data' => $data]);
     }

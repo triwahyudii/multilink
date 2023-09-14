@@ -30,4 +30,16 @@ class TransferRequest extends FormRequest
             'nomor_rekening_penerima' => 'required|string',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'bank.required' => 'Pilih bank!',
+            'nama.required' => 'Tidak boleh kosong!',
+            'nomor_rekening' => 'Tidak boleh kosong!',
+            'jumlah' => 'Tidak boleh kosong!',
+            'nama_penerima' => 'Tidak boleh kosong!',
+            'nomor_rekening_penerima' => 'Tidak boleh kosong!',
+        ];
+    }
 }
