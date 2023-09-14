@@ -14,12 +14,15 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $data = new Client();
-        $url = "http://127.0.0.1:8008/api/transfer";
-        $response = $data->request('GET', $url);
-        $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        $data = $array['data'];
+        //Use API
+        // $data = new Client();
+        // $url = "http://127.0.0.1:8008/api/transfer";
+        // $response = $data->request('GET', $url);
+        // $content = $response->getBody()->getContents();
+        // $array = json_decode($content, true);
+        // $data = $array['data'];
+
+        $data = Transfer::all();
 
         return view('riwayat.transfer.index', ['data' => $data]);
     }
@@ -113,6 +116,7 @@ class TransferController extends Controller
      */
     public function show(string $id)
     {
+        //Use API
         // $data = new Client();
         // $url = "http://127.0.0.1:8008/api/transfer/$id";
         // $response = $data->request('GET', $url);
