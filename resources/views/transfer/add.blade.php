@@ -19,15 +19,6 @@
 </head>
 
 <body>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $item)
-            <li>{{ $item }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
 
     @if (session()->has('success'))
     <div class="alert alert-success">
@@ -40,22 +31,42 @@
             <div class="input-form container pt-2 m-3">
                 <h5 class=" badge text-bg-warning text-black">PENGIRIM</h5>
                 <div class="input-group">
-                    <select name="bank" class="ml-3 mt-2 border-primary rounded-3">
+                    <select name="bank" class="ml-3 mt-2 border-primary rounded-3 @error('bank') is-invalid @enderror">
                         <option selected disabled>Nama Bank</option>
                         <option value="BRI" @if (old('bank')=='BRI' ) selected @endif>BRI</option>
                         <option value="BCA" @if (old('bank')=='BCA' ) selected @endif>BCA</option>
                         <option value="BNI" @if (old('bank')=='BNI' ) selected @endif>BNI</option>
                         <option value="MANDIRI" @if (old('bank')=='MANDIRI' ) selected @endif>MANDIRI</option>
                     </select>
+                    @error('bank')
+                    <div id="bank" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="input-group">
-                    <input type="text" name="nama" id="nama" value="{{ old('nama') }}" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
+                    <input type="text" name="nama" id="nama" value="{{ old('nama') }}" class="form-control input m-2 rounded-3 @error('nama') is-invalid @enderror" placeholder="Nama Lengkap">
+                    @error('nama')
+                    <div id="nama" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="input-group">
-                    <input type="number" name="nomor_rekening" id="nomor_rekening" value="{{ old('nomor_rekening') }}" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
+                    <input type="number" name="nomor_rekening" id="nomor_rekening" value="{{ old('nomor_rekening') }}" class="form-control input m-2 rounded-3 @error('nomor_rekening') is-invalid @enderror" placeholder="Nomor Rekening">
+                    @error('nomor_rekening')
+                    <div id="nomor_rekening" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="input-group">
-                    <input type="number" name="jumlah" id="jumlah" value="{{ old('jumlah') }}" class="form-control input m-2 rounded-3" placeholder="Jumlah">
+                    <input type="number" name="jumlah" id="jumlah" value="{{ old('jumlah') }}" class="form-control input m-2 rounded-3 @error('jumlah') is-invalid @enderror" placeholder="Jumlah">
+                    @error('jumlah')
+                    <div id="jumlah" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -64,10 +75,20 @@
             <div class="input-form container pt-2 m-3">
                 <h5 class=" badge text-bg-warning text-black">PENERIMA</h5>
                 <div class="input-group">
-                    <input type="text" name="nama_penerima" id="nama_penerima" value="{{ old('nama_penerima') }}" class="form-control input m-2 rounded-3" placeholder="Nama Lengkap">
+                    <input type="text" name="nama_penerima" id="nama_penerima" value="{{ old('nama_penerima') }}" class="form-control input m-2 rounded-3 @error('nama_penerima') is-invalid @enderror" placeholder="Nama Lengkap">
+                    @error('nama_penerima')
+                    <div id="nama_penerima" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="input-group">
-                    <input type="number" name="nomor_rekening_penerima" id="nomor_rekening_penerima" value="{{ old('nomor_rekening_penerima') }}" class="form-control input m-2 rounded-3" placeholder="Nomor Rekening">
+                    <input type="number" name="nomor_rekening_penerima" id="nomor_rekening_penerima" value="{{ old('nomor_rekening_penerima') }}" class="form-control input m-2 rounded-3 @error('nomor_rekening_penerima') is-invalid @enderror" placeholder="Nomor Rekening">
+                    @error('nomor_rekening_penerima')
+                    <div id="nomor_rekening_penerima" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="d-flex justify-content-center pt-3">
                     <button class="btn btn-secondary bg-secondary mr-2" type="submit"><a href="{{ url('dashboard') }}">Kembali</a></button>

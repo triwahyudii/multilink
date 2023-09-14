@@ -11,7 +11,7 @@ class TransferRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class TransferRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'bank' => 'required|string',
+            'nama' => 'required|string',
+            'nomor_rekening' => 'required|string',
+            'jumlah' => 'required|numeric',
+            'nama_penerima' => 'required|string',
+            'nomor_rekening_penerima' => 'required|string',
         ];
     }
 }

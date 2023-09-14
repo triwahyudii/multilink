@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TransferRequest;
 use App\Models\Transfer;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -34,38 +35,41 @@ class TransferController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TransferRequest $request)
     {
-        $bank = $request->bank;
-        $nama = $request->nama;
-        $nomor_rekening = $request->nomor_rekening;
-        $jumlah = $request->jumlah;
-        $nama_penerima = $request->nama_penerima;
-        $nomor_rekening_penerima = $request->nomor_rekening_penerima;
+        //Use API
+        // $bank = $request->bank;
+        // $nama = $request->nama;
+        // $nomor_rekening = $request->nomor_rekening;
+        // $jumlah = $request->jumlah;
+        // $nama_penerima = $request->nama_penerima;
+        // $nomor_rekening_penerima = $request->nomor_rekening_penerima;
 
-        $parameter = [
-            'bank' => $bank,
-            'nama' => $nama,
-            'nomor_rekening' => $nomor_rekening,
-            'jumlah' => $jumlah,
-            'nama_penerima' => $nama_penerima,
-            'nomor_rekening_penerima' => $nomor_rekening_penerima
-        ];
+        // $parameter = [
+        //     'bank' => $bank,
+        //     'nama' => $nama,
+        //     'nomor_rekening' => $nomor_rekening,
+        //     'jumlah' => $jumlah,
+        //     'nama_penerima' => $nama_penerima,
+        //     'nomor_rekening_penerima' => $nomor_rekening_penerima
+        // ];
 
-        $data = new Client();
-        $url = "http://127.0.0.1:8008/api/transfer";
-        $response = $data->request('POST', $url, [
-            'headers' => ['Content-type' => 'application/json'],
-            'body' => json_encode($parameter)
-        ]);
-        $content = $response->getBody()->getContents();
-        $array = json_decode($content, true);
-        if ($array['status'] != true) {
-            $error = $array['data'];
-            return redirect()->to('transfer')->withErrors($error)->withInput();
-        } else {
-            return redirect()->to('transfer')->with('success', 'Transfer di proses !');
-        }
+        // $data = new Client();
+        // $url = "http://127.0.0.1:8008/api/transfer";
+        // $response = $data->request('POST', $url, [
+        //     'headers' => ['Content-type' => 'application/json'],
+        //     'body' => json_encode($parameter)
+        // ]);
+        // $content = $response->getBody()->getContents();
+        // $array = json_decode($content, true);
+        // if ($array['status'] != true) {
+        //     $error = $array['data'];
+        //     return redirect()->to('transfer')->withErrors($error)->withInput();
+        // } else {
+        //     return redirect()->to('transfer')->with('success', 'Transfer di proses !');
+        // }
+
+        $validate = $request->validated();
 
         //Payment Gateway Midtrans
         $data = Transfer::create($request->all());
