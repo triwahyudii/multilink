@@ -198,6 +198,8 @@ Route::middleware('auth')->group(function () {
     Route::get('riwayat/transfer', [TransferController::class, 'index']);
     Route::post('transfer', [TransferController::class, 'store']);
     Route::get('riwayat/transfer/{id}', [TransferController::class, 'show']);
+    //Payment
+    // Route::post('checkout', [TransferController::class, 'checkout']);
 
     //INPUTAN TARIK TUNAI
     Route::get('tarik-tunai', function () {

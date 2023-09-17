@@ -25,7 +25,7 @@
         {{ session('success') }}
     </div>
     @endif
-    <form action="" method="post">
+    <form action="{{ url('/transfer') }}" method="post">
         @csrf
         <div class="d-flex justify-content-center">
             <div class="input-form container pt-2 m-3">
@@ -91,7 +91,7 @@
                     @enderror
                 </div>
                 <div class="d-flex justify-content-center pt-3">
-                    <button class="btn btn-secondary bg-secondary mr-2" type="submit"><a href="{{ url('dashboard') }}">Kembali</a></button>
+                    <button class="btn btn-secondary bg-secondary mr-2" type="button"><a href="{{ url('dashboard') }}">Kembali</a></button>
                     <button class="btn btn-primary bg-primary" type="submit" id="pay-button">Selesai</button>
                 </div>
             </div>
@@ -103,9 +103,10 @@
     <script type="text/javascript">
         // For example trigger on button clicked, or any time you need
         var payButton = document.getElementById('pay-button');
-        payButton.addEventListener('click', function() {
+        payButton.addEventListener('click', function(event) {
+            event.preventDefault();
             // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-            window.snap.pay('TRANSACTION_TOKEN_HERE', {
+            window.snap.pay('{{$snapToken}}', {
                 onSuccess: function(result) {
                     /* You may add your own implementation here */
                     alert("payment success!");

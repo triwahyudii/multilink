@@ -47,6 +47,10 @@
                             <td>: {{ $data['nomor_rekening_penerima'] }}</td>
                         </tr>
                         <tr>
+                            <th>Status</th>
+                            <td>: {{ $data['status'] }}</td>
+                        </tr>
+                        <tr>
                             <th>Tanggal</th>
                             <td>: {{ \Carbon\Carbon::parse($data['created_at'])->format('d-m-Y') }}</td>
                         </tr>
