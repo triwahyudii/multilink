@@ -1,13 +1,9 @@
 {
     "version": 2,
     "functions": {
-      "api/index.php": {
-        "runtime": "vercel-php@0.3.1"
-      }
+        "api/index.php": {
+            "runtime": "vercel-php@0.3.1"
+        }
     },
-    "build": {
-      "command": "composer install && npm install && npm run prod",
-      "outputDir": "public"
-    }
-  }
-  
+    "buildCommand": "composer install && npm install && npm run prod"
+}
